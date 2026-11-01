@@ -34,11 +34,7 @@ SOURCE=[
  ("6723","ルネサス","https://www.renesas.com/jp/ja/about/investor-relations"),
  ("6981","村田製作所","https://corporate.murata.com/ja-jp/ir/calendar"),
  ("6963","ローム","https://www.rohm.co.jp/ir/stock/calendar"),
- ("6703","OKI","https://www.oki.com/global/ja/ir/stock/calendar/"),
- ("6526","ソシオネクスト","https://www.socionext.com/jp/ir/calendar.html"),
  ("4063","信越化学工業","https://www.shinetsu.co.jp/jp/ir/ir-calendar/"),
- ("6701","NEC","https://group.nec/global/ja/about/ir/events/calendar/"),
- ("6702","富士通","https://global.fujitsu/ja-jp/ir/ir-calendar"),
  ("6525","KOKUSAI ELECTRIC","https://www.kokusai-electric.com/ir/calendar"),
  ("4047","関東電化工業","https://www.kantodenka.co.jp/ir/calendar/"),
  ("285A","キオクシアホールディングス","https://www.kioxia-holdings.com/ja-jp/ir.html"),
@@ -101,7 +97,9 @@ def candidates(text,url,symbol,name):
  events=[]
  for m in FULL_DATE.finditer(text):
   # Date must be immediately followed by a declared scheduled earnings announcement.
-  tail=text[m.end():m.end()+115]
+  next_date=FULL_DATE.search(text,m.end(),min(len(text),m.end()+115))
+  cut=next_date.start() if next_date else min(len(text),m.end()+115)
+  tail=text[m.end():cut]
   pos=tail.find("決算発表")
   if pos<0:continue
   before=tail[:pos+4]
