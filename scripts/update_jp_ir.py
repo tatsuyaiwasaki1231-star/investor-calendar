@@ -39,6 +39,14 @@ SOURCE=[
  ("4047","関東電化工業","https://www.kantodenka.co.jp/ir/calendar/"),
  ("285A","キオクシアホールディングス","https://www.kioxia-holdings.com/ja-jp/ir.html"),
  ("3436","SUMCO","https://www.sumcosi.com/ir/event/calendar.html"),
+ ("6920","レーザーテック","https://www.lasertec.co.jp/ir/calendar.html"),
+ ("4062","イビデン","https://www.ibiden.co.jp/ir/calendar/"),
+ ("2737","トーメンデバイス","https://www.tomendevices.co.jp/ir/calendar.html"),
+ ("7729","東京精密","https://www.accretech.com/jp/ir/calendar.html"),
+ ("9983","ファーストリテイリング","https://www.fastretailing.com/jp/ir/calendar/"),
+ ("9433","KDDI","https://www.kddi.com/corporate/ir/"),
+ ("6762","TDK","https://www.tdk.com/ja/ir/index.html"),
+ ("6954","ファナック","https://www.fanuc.co.jp/ja/ir/"),
 ]
 # Only full dates next to 決算発表. An adjacent 2027年3月期 does not
 # give us the announcement date unless a separate complete date appears.
