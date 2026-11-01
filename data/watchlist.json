@@ -280,8 +280,9 @@
       "market": "日本",
       "focus": "EUVフォトマスク検査装置・日経225採用",
       "url": "https://www.lasertec.co.jp/ir/calendar.html",
-      "level": "calendar",
-      "indexImpact": "direct"
+      "level": "link",
+      "indexImpact": "direct",
+      "watchNote": "公式IRの日程欄を監視中。次回決算の確定日が公開されるまで自動登録しません。"
     },
     {
       "symbol": "6526",
@@ -479,8 +480,9 @@
       "market": "日本",
       "focus": "AI向け半導体パッケージ基板",
       "url": "https://www.ibiden.co.jp/ir/calendar/",
-      "level": "calendar",
-      "indexImpact": "direct"
+      "level": "link",
+      "indexImpact": "direct",
+      "watchNote": "公式IRの日程欄を監視中。次回決算の確定日が公開されるまで自動登録しません。"
     },
     {
       "symbol": "2737",
@@ -489,7 +491,8 @@
       "focus": "Samsung製メモリー・HBM需給",
       "url": "https://www.tomendevices.co.jp/ir/calendar.html",
       "level": "link",
-      "indexImpact": "indirect"
+      "indexImpact": "indirect",
+      "watchNote": "IRには1月発表という月次の目安のみ。具体的な日は未発表で登録しません。"
     },
     {
       "symbol": "9983",
