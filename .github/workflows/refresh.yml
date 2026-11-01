@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/refresh.yml'
       - 'scripts/update_events.py'
+      - 'scripts/update_ir_notices.py'
   workflow_dispatch:
   schedule:
     - cron: '5 22,10 * * *'
@@ -22,13 +23,17 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python scripts/update_events.py
+      - name: Check official company IR RSS
+        run: python scripts/update_ir_notices.py
+      - name: Verify RSS JSON
+        run: python -m json.tool data/ir_notices.json > /dev/null
       - name: Verify JSON
         run: python -m json.tool data/events.json > /dev/null
       - name: Commit refreshed data
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/events.json
+          git add data/events.json data/ir_notices.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: refresh economic calendar"
             git push
