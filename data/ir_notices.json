@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02 04:10 JST",
+  "checkedAt": "2026-11-02 04:16 JST",
   "status": "ok",
   "sources": [
     {
@@ -14,6 +14,15 @@
     }
   ],
   "notices": [
+    {
+      "company": "KLA",
+      "symbol": "KLAC",
+      "title": "KLA Corporation Reports Fiscal 2027 First Quarter Results",
+      "articlePublishedDate": "2026-10-29",
+      "sourceName": "KLA公式IR RSS",
+      "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/523/kla-corporation-reports-fiscal-2027-first-quarter-results",
+      "kind": "ir-news-not-earnings-date"
+    },
     {
       "company": "NVIDIA",
       "symbol": "NVDA",
@@ -31,8 +40,155 @@
       "sourceName": "NVIDIA公式プレスリリースRSS",
       "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-sets-conference-call-for-third-quarter-financial-results-6928873",
       "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "Lam Research",
+      "symbol": "LRCX",
+      "title": "Lam Research Corporation Reports Financial Results for the Quarter Ended September 27, 2026",
+      "articlePublishedDate": "2026-10-22",
+      "sourceName": "Lam Research公式IR RSS",
+      "sourceUrl": "https://investor.lamresearch.com/2026-10-21-Lam-Research-Corporation-Reports-Financial-Results-for-the-Quarter-Ended-September-27,-2026",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "Meta",
+      "symbol": "META",
+      "title": "Meta Reports Third Quarter 2026 Results",
+      "articlePublishedDate": "2026-10-22",
+      "sourceName": "Meta公式IR RSS",
+      "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "Meta",
+      "symbol": "META",
+      "title": "Meta to Announce Third Quarter 2026 Results",
+      "articlePublishedDate": "2026-10-13",
+      "sourceName": "Meta公式IR RSS",
+      "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-to-Announce-Third-Quarter-2026-Results/default.aspx",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "AMD",
+      "symbol": "AMD",
+      "title": "AMD to Report Fiscal Third Quarter 2026 Financial Results",
+      "articlePublishedDate": "2026-10-07",
+      "sourceName": "AMD公式IR RSS",
+      "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "KLA",
+      "symbol": "KLAC",
+      "title": "KLA Announces First Quarter Fiscal Year 2027 Earnings Date and Webcast",
+      "articlePublishedDate": "2026-10-01",
+      "sourceName": "KLA公式IR RSS",
+      "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/522/kla-announces-first-quarter-fiscal-year-2027-earnings-date",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "AMD",
+      "symbol": "AMD",
+      "title": "AMD Reports Second Quarter 2026 Financial Results",
+      "articlePublishedDate": "2026-08-05",
+      "sourceName": "AMD公式IR RSS",
+      "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "Meta",
+      "symbol": "META",
+      "title": "Meta Reports Second Quarter 2026 Results",
+      "articlePublishedDate": "2026-07-30",
+      "sourceName": "Meta公式IR RSS",
+      "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "KLA",
+      "symbol": "KLAC",
+      "title": "KLA CORPORATION REPORTS FISCAL 2026 FOURTH QUARTER AND FULL YEAR RESULTS",
+      "articlePublishedDate": "2026-07-29",
+      "sourceName": "KLA公式IR RSS",
+      "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/518/kla-corporation-reports-fiscal-2026-fourth-quarter-and-full",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "Meta",
+      "symbol": "META",
+      "title": "Meta to Announce Second Quarter 2026 Results",
+      "articlePublishedDate": "2026-07-15",
+      "sourceName": "Meta公式IR RSS",
+      "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-to-Announce-Second-Quarter-2026-Results/default.aspx",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "KLA",
+      "symbol": "KLAC",
+      "title": "KLA Announces Fourth Quarter Fiscal Year 2026 Earnings Date",
+      "articlePublishedDate": "2026-07-02",
+      "sourceName": "KLA公式IR RSS",
+      "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/517/kla-announces-fourth-quarter-fiscal-year-2026-earnings-date",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "KLA",
+      "symbol": "KLAC",
+      "title": "KLA Corporation Reports Fiscal 2026 Third Quarter Results",
+      "articlePublishedDate": "2026-04-30",
+      "sourceName": "KLA公式IR RSS",
+      "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/514/kla-corporation-reports-fiscal-2026-third-quarter-results",
+      "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-02 04:10 JST",
-  "coreweaveSourceStatus": "RSS取得成功・該当見出し0件"
+  "lastSuccessAt": "2026-11-02 04:16 JST",
+  "coreweaveSourceStatus": "RSS取得成功・該当見出し0件",
+  "majorCompaniesSources": [
+    {
+      "name": "AMD / rss",
+      "status": "ok",
+      "matches": 2
+    },
+    {
+      "name": "Broadcom / events.xml",
+      "status": "unavailable",
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "Broadcom / news-releases.xml",
+      "status": "unavailable",
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "Applied Materials / news-releases.xml",
+      "status": "unavailable",
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "Applied Materials / events.xml",
+      "status": "unavailable",
+      "detail": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "KLA / rss",
+      "status": "ok",
+      "matches": 5
+    },
+    {
+      "name": "Lam Research / index.php",
+      "status": "ok",
+      "matches": 1
+    },
+    {
+      "name": "Meta / event.aspx",
+      "status": "ok",
+      "matches": 0
+    },
+    {
+      "name": "Meta / pressrelease.aspx",
+      "status": "ok",
+      "matches": 4
+    }
+  ],
+  "majorCompaniesCheckedAt": "2026-11-02 04:16 JST"
 }
