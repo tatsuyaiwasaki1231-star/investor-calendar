@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-02 04:43 JST",
+  "updatedAt": "2026-11-02 04:45 JST",
   "dataStatus": {
     "bls": "直接取得停止（アクセス制限を尊重）",
     "fmp": "未設定（米国企業の決算予定APIは未接続）",
     "fred": "取得成功 5/5系列・新規4件",
     "coreweave": "Business Wire RSS取得成功・新規決算0件",
     "majorEarnings": "公式RSS 6/6取得成功・新規決算日 0件",
-    "japanOfficialIR": "IRページ取得成功 15/16社、新規日程0件（要確認は別途）"
+    "japanOfficialIR": "IRページ取得成功 16/16社、新規日程0件（要確認は別途）"
   },
   "warnings": [],
   "events": [
@@ -2511,10 +2511,10 @@
       "timeLabel": "終日"
     }
   ],
-  "syncCheckedAt": "2026-11-02 04:43 JST",
-  "lastOfficialSyncAt": "2026-11-02 04:43 JST",
-  "lastCoreWeaveCheckAt": "2026-11-02 04:43 JST",
-  "majorEarningsCheckedAt": "2026-11-02 04:43 JST",
+  "syncCheckedAt": "2026-11-02 04:45 JST",
+  "lastOfficialSyncAt": "2026-11-02 04:45 JST",
+  "lastCoreWeaveCheckAt": "2026-11-02 04:45 JST",
+  "majorEarningsCheckedAt": "2026-11-02 04:45 JST",
   "japanIRSources": [
     {
       "symbol": "8035",
@@ -2526,8 +2526,9 @@
     {
       "symbol": "6146",
       "name": "ディスコ",
-      "state": "skipped",
-      "reason": "robots unreadable: URLError"
+      "state": "ok",
+      "fullDates": 1,
+      "newEvents": 0
     },
     {
       "symbol": "9984",
@@ -2609,15 +2610,8 @@
     {
       "symbol": "4047",
       "name": "関東電化工業",
-      "state": "needs_review",
-      "reason": "同じ四半期で別の日程が登録済み",
-      "candidateDate": "2026-11-19"
-    },
-    {
-      "symbol": "4047",
-      "name": "関東電化工業",
       "state": "ok",
-      "fullDates": 2,
+      "fullDates": 1,
       "newEvents": 0
     },
     {
@@ -2635,5 +2629,5 @@
       "newEvents": 0
     }
   ],
-  "japanIRCheckedAt": "2026-11-02 04:44 JST"
+  "japanIRCheckedAt": "2026-11-02 04:45 JST"
 }
