@@ -1,7 +1,37 @@
 {
-  "checkedAt": null,
-  "status": "pending",
-  "sources": [],
-  "notices": [],
-  "guidance": "公式RSS記事の掲載日と決算発表日は別です。必ず公式IRの発表日時を確認してください。"
+  "checkedAt": "2026-11-02 04:02 JST",
+  "status": "ok",
+  "sources": [
+    {
+      "name": "NVIDIA公式IRイベントRSS",
+      "status": "ok",
+      "matches": 1
+    },
+    {
+      "name": "NVIDIA公式プレスリリースRSS",
+      "status": "ok",
+      "matches": 1
+    }
+  ],
+  "notices": [
+    {
+      "company": "NVIDIA",
+      "symbol": "NVDA",
+      "title": "11/17/2026 : NVIDIA 3rd Quarter FY27 Financial Results",
+      "articlePublishedDate": "2026-10-29",
+      "sourceName": "NVIDIA公式IRイベントRSS",
+      "sourceUrl": "https://investor.nvidia.com/events-and-presentations/events-and-presentations/event-details/2026/NVIDIA-3rd-Quarter-FY27-Financial-Results/default.aspx",
+      "kind": "ir-news-not-earnings-date"
+    },
+    {
+      "company": "NVIDIA",
+      "symbol": "NVDA",
+      "title": "NVIDIA Sets Conference Call for Third-Quarter Financial Results",
+      "articlePublishedDate": "2026-10-29",
+      "sourceName": "NVIDIA公式プレスリリースRSS",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-sets-conference-call-for-third-quarter-financial-results-6928873",
+      "kind": "ir-news-not-earnings-date"
+    }
+  ],
+  "lastSuccessAt": "2026-11-02 04:02 JST"
 }
