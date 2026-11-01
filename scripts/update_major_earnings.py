@@ -26,10 +26,6 @@ EASTERN=ZoneInfo("America/New_York")
 AGENT="InvestorCalendar/1.0 (public RSS; github.com/tatsuyaiwasaki1231-star/investor-calendar)"
 FEEDS=[
  ("AMD","AMD","https://ir.amd.com/news-events/press-releases/rss",("amd.com",)),
- ("Broadcom","AVGO","https://investors.broadcom.com/rss/events.xml",("broadcom.com",)),
- ("Broadcom","AVGO","https://investors.broadcom.com/rss/news-releases.xml",("broadcom.com",)),
- ("Applied Materials","AMAT","https://ir.appliedmaterials.com/rss/news-releases.xml",("appliedmaterials.com",)),
- ("Applied Materials","AMAT","https://ir.appliedmaterials.com/rss/events.xml",("appliedmaterials.com",)),
  ("KLA","KLAC","https://ir.kla.com/news-events/press-releases/rss",("kla.com",)),
  ("Lam Research","LRCX","https://investor.lamresearch.com/index.php?pagetemplate=rss&s=43",("lamresearch.com",)),
  ("Meta","META","https://investor.atmeta.com/rss/event.aspx",("atmeta.com",)),
@@ -42,6 +38,15 @@ NUM_DATE_RE=re.compile(r"\b(\d{1,2})/(\d{1,2})/(20\d{2})\b")
 TIME_RE=re.compile(r"\b(\d{1,2}):(\d{2})\s*(AM|PM)\s*(EDT|EST|ET)\b",re.I)
 MONTHS={m.lower()[:3]:i for i,m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"],1)}
 MONTHS["sep"]=9
+# Require a grammatical announcement of upcoming results immediately before a date.
+# A news publication timestamp or quarter-end date by itself is NEVER enough.
+RELEASE_CONTEXT_RE=re.compile(
+ r"\b(?:will|to|plans?\s+to|expects?\s+to)\s+(?:report|announce|release|publish|host|discuss)\b"
+ r".{0,180}?\b(?:earnings|financial|results|quarter|conference\s+call|webcast)\b"
+ r".{0,160}?\b(?:on|for)\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+)?"
+ r"(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)"
+ r"\.?\s+\d{1,2},?\s+20\d{2}\b",re.I)
+
 def host_allowed(url, suffixes):
  try:
   p=urllib.parse.urlsplit(url)
@@ -88,11 +93,21 @@ def read_explicit_date(title):
   try:return dt.date(int(m.group(3)),int(m.group(1)),int(m.group(2)))
   except ValueError:return None
  return None
+def date_from_announcement_description(item):
+ for field in ("description","summary","content"):
+  raw=item.get(field,"")
+  if not raw:continue
+  plain=re.sub(r"\s+"," ",html.unescape(re.sub(r"<[^>]+>"," ",raw)))
+  for match in RELEASE_CONTEXT_RE.finditer(plain):
+   value=read_explicit_date(match.group(0))
+   if value:return value
+ return None
+
 def earnings_event(company,symbol,item,url):
  title=html.unescape(re.sub(r"<[^>]+>"," ",item.get("title","")))
  if not (NEWS_RE.search(title) and FUTURE_RE.search(title)):
   return None
- market_date=read_explicit_date(title)
+ market_date=read_explicit_date(title) or date_from_announcement_description(item)
  if not market_date:return None
  now=dt.datetime.now(JST).date()
  if not now-dt.timedelta(days=1)<=market_date<=now+dt.timedelta(days=425):return None
