@@ -7,6 +7,7 @@ on:
       - 'scripts/update_ir_notices.py'
       - 'scripts/update_coreweave.py'
       - 'scripts/update_major_earnings.py'
+      - 'scripts/update_jp_ir.py'
   workflow_dispatch:
   schedule:
     - cron: '5 22,10 * * *'
@@ -33,6 +34,8 @@ jobs:
         run: python scripts/update_coreweave.py
       - name: Check major company official earnings RSS
         run: python scripts/update_major_earnings.py
+      - name: Check Japanese company official earnings IR calendars
+        run: python scripts/update_jp_ir.py
       - name: Verify JSON
         run: python -m json.tool data/events.json > /dev/null
       - name: Commit refreshed data
