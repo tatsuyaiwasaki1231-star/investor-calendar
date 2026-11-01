@@ -1,5 +1,9 @@
 name: Update investor calendar
 on:
+  push:
+    paths:
+      - '.github/workflows/refresh.yml'
+      - 'scripts/update_events.py'
   workflow_dispatch:
   schedule:
     - cron: '5 22,10 * * *'
