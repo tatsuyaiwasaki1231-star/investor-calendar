@@ -11,6 +11,9 @@ on:
     - cron: '5 22,10 * * *'
 permissions:
   contents: write
+concurrency:
+  group: investor-calendar-refresh
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
