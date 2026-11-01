@@ -1,0 +1,2469 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0a1934" />
+<title>投資家専用カレンダー | 日米決算・重要経済指標</title>
+<style>
+:root{--navy:#0c1e40;--navy2:#162d56;--blue:#245abe;--ink:#152342;--muted:#73839b;--border:#e0e7f2;--bg:#f4f7fc;--up:#e7f0ff;--pink:#fff1ed;--red:#be3c45;--gold:#b27d25;--green:#1e8b73}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer}a{color:var(--blue)}
+header{background:linear-gradient(112deg,#0a1934,#16315e 68%,#1e4583);color:white;padding:23px max(18px,calc((100vw - 1430px)/2)) 21px;position:relative;overflow:hidden}header:after{content:"";position:absolute;right:0;top:0;width:340px;height:100%;background:repeating-linear-gradient(90deg,transparent,transparent 26px,#ffffff08 27px,#ffffff08 29px);transform:skew(-20deg);pointer-events:none}.kicker{color:#a8cafc;font-size:11px;letter-spacing:.17em;font-weight:800}.headrow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.headrow h1{margin:9px 0 4px;font-size:clamp(22px,3vw,32px);letter-spacing:.04em}.headrow p{margin:0;color:#d1dff4;font-size:13px}.updateTag{display:flex;align-items:center;gap:7px;border:1px solid #647b9d;border-radius:40px;background:#ffffff10;color:#e3efff;padding:8px 11px;font-size:11px}.updateTag span{width:7px;height:7px;border-radius:99px;background:#59d6ab}
+.wrap{max-width:1450px;padding:20px 18px 40px;margin:auto}.toolbar,.panel{background:white;border:1px solid var(--border);border-radius:15px;box-shadow:0 6px 22px #192d5408}.toolbar{padding:16px 18px;margin-bottom:16px}.topTools{display:flex;gap:15px;justify-content:space-between;align-items:center;flex-wrap:wrap}.monthTools{display:flex;gap:6px;align-items:center}.monthTools input[type="month"]{border:1px solid #d7e1ee;color:#29416a;background:#fff;border-radius:9px;padding:8px 6px;font-size:12px;max-width:135px}.monthTools strong{min-width:155px;text-align:center;font-size:23px;letter-spacing:.03em}.btn,.navBtn,.viewBtn{border:1px solid #d7e1ee;color:#2b456e;background:white;border-radius:9px;padding:9px 12px;font-size:12px;font-weight:700}.navBtn{padding:6px 13px;font-size:20px}.btn:hover,.navBtn:hover,.viewBtn:hover{border-color:#6b9ae8;background:#f5f8ff}.btn.primary{background:var(--navy);color:white;border-color:var(--navy)}.rightTools{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.search{border:1px solid #d6e0ef;border-radius:9px;padding:10px 13px;font-size:13px;min-width:190px;width:min(250px,55vw);background:#fafcff}.search:focus{outline:2px solid #7daaf5}.filters{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:15px;padding-top:14px;border-top:1px solid #eef1f7}.filterSet{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.pill{display:flex;align-items:center;gap:6px;border:1px solid #dbe3f0;border-radius:20px;padding:7px 11px;font-size:12px;background:white;color:#667792;font-weight:700}.pill input{accent-color:#1d5bb7;margin:0}.pill.jp{color:#b04b58}.pill.us{color:#3966a4}.pill.macro{color:#8d6b1c}.pill.holiday{color:#6b7280}.sectionText{font-size:11px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 278px;gap:16px;align-items:start}.calendarPanel{overflow:hidden}.calTop{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:15px 16px;border-bottom:1px solid var(--border)}.calTop h2,.side h2{margin:0;font-size:14px;letter-spacing:.04em}.legend{font-size:11px;color:var(--muted)}.legend b{color:var(--red)}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:#dce5f0;gap:1px}.dow{padding:11px 0;text-align:center;background:var(--navy);color:white;font-size:12px;font-weight:800}.dow.sun{background:#ffe4db;color:#a2424a}.dow.sat{background:#dbeaff;color:#2459a7}.day{height:126px;background:white;padding:8px 5px 6px;min-width:0;overflow:hidden;position:relative;cursor:pointer}.day:hover{background:#f7faff}.day.sun{background:#fff7f4}.day.sat{background:#f2f7ff}.day.other{background:#f8f9fc;opacity:.5}.day.today{box-shadow:inset 0 0 0 2px #f3ad53}.number{font-size:15px;font-weight:850;padding-left:4px;margin-bottom:4px;display:flex;align-items:center;justify-content:space-between}.day.sun .number{color:#c05354}.day.sat .number{color:#2360b2}.dayCount{font-size:9px;color:#8898af;font-weight:600}.chip{display:block;width:100%;max-width:100%;text-align:left;padding:4px 5px;border:0;border-left:3px solid;border-radius:4px;margin-top:4px;line-height:1.38;font-size:10px;font-weight:750;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.chip.us{background:#e8f0ff;color:#2251a5;border-color:#5082dc}.chip.jp{background:#ffeced;color:#9f3846;border-color:#d96a76}.chip.macro{background:#fff4d9;color:#805e15;border-color:#cea047}.chip.holiday{background:#eef1f5;color:#636c79;border-color:#aab3bf}.chip.crwv{background:#12386c;color:white;border-color:#66bcf1}.chip.nvda{background:#e4f5db;color:#2b6a28;border-color:#70ba6b}.more{font-size:10px;color:#5675ad;padding:4px;display:block}.side{display:flex;flex-direction:column;gap:16px}.side .panel{padding:15px}.side h2{padding-bottom:12px;border-bottom:1px solid var(--border)}.spotlight{display:flex;flex-direction:column;gap:9px;margin-top:10px}.spot{border:1px solid var(--border);background:#f9fbff;border-radius:11px;padding:11px;text-align:left;width:100%}.spot:hover{border-color:#7ca7e3}.spot.crwv{background:#f1f6ff;border-color:#bfd3f7}.spot.nvda{background:#f4faf0;border-color:#c9e4bc}.spot small{color:#7383a0;font-size:10px}.spot strong{font-size:13px;display:block;margin:4px 0}.spot em{color:#41628a;font-style:normal;font-size:11px}.eventList{display:flex;flex-direction:column;gap:7px;margin-top:12px}.miniEvent{padding:9px 2px;border-bottom:1px solid #edf1f7;cursor:pointer;display:flex;gap:9px}.miniEvent .date{font-size:11px;color:var(--blue);font-weight:800;white-space:nowrap;min-width:40px}.miniEvent .name{font-size:12px;font-weight:650;line-height:1.6}.miniEvent .sub{display:block;color:var(--muted);font-weight:400;font-size:10px}.notice{font-size:11px;line-height:1.65;color:#75839b;padding:12px 15px}.notice b{color:#415574}.listPanel{padding:12px 16px}.listHeader{padding:12px 4px;display:flex;align-items:center;justify-content:space-between}.agendaRow{border-top:1px solid #eef1f6;display:flex;gap:12px;padding:13px 6px;cursor:pointer}.agendaRow:hover{background:#f8faff}.agendaDate{min-width:90px;color:#4c6488;font-weight:750;font-size:12px}.agendaBody{flex:1}.agendaBody strong{font-size:13px}.agendaBody p{font-size:11px;color:#71809b;margin:5px 0 0}.tag{display:inline-block;border-radius:5px;padding:2px 6px;background:#edf1f8;color:#587094;font-weight:700;font-size:10px;margin-left:6px}.tag.confirmed{background:#e7f7f0;color:#287a62}.tag.api{background:#fff4e1;color:#956d20}.missing{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}.missing span{font-size:11px;font-weight:650;color:#5d6e87;background:#f3f6fb;border:1px solid #e1e8f3;border-radius:6px;padding:6px}.empty{padding:30px;text-align:center;color:#91a0b3;font-size:12px}.foot{text-align:center;color:#8998ab;font-size:11px;padding:18px 0}.hide{display:none!important}
+.modalCover{position:fixed;inset:0;background:#06142bb9;display:flex;align-items:center;justify-content:center;z-index:10;padding:15px}.modal{background:#fff;border-radius:16px;box-shadow:0 14px 70px #0005;max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:24px}.modal h3{margin:9px 0;font-size:20px}.modal .meta{font-size:12px;color:#6f7f98;line-height:1.9}.modal .description{font-size:13px;line-height:1.85;background:#f7f9fd;border-radius:9px;padding:13px;margin:13px 0}.modal .closeLine{display:flex;justify-content:space-between;align-items:center;gap:10px}.modal .source{font-size:13px;display:inline-block;margin:6px 0 12px}.modal input,.modal select{border:1px solid #dbe3ee;border-radius:8px;padding:10px;width:100%;font-size:14px;margin:4px 0 12px}.modal label{font-size:12px;color:#526684;font-weight:800}.formActions{display:flex;gap:9px;justify-content:flex-end;margin-top:10px}.subtle{font-size:11px;color:#7888a0}.smallActions{display:flex;gap:7px;flex-wrap:wrap}
+@media(max-width:1030px){.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.side .panel:last-child{grid-column:1/-1}}
+@media(max-width:680px){.wrap{padding:11px 9px}.toolbar{padding:12px}.topTools{align-items:flex-start}.rightTools{width:100%}.rightTools .search{flex:1;width:140px;min-width:0}.monthTools strong{font-size:19px;min-width:145px}.day{height:95px;padding:5px 2px}.number{font-size:12px;padding-left:3px}.chip{font-size:9px;padding:3px 2px;border-left-width:2px;margin-top:3px}.dow{padding:9px 0}.filters{gap:6px}.pill{font-size:10px;padding:7px 8px}.side{grid-template-columns:1fr}.side .panel:last-child{grid-column:auto}.calTop{padding:12px}.legend{font-size:10px}.modal{padding:18px}}
+@media print{header{background:white;color:#142a50;padding:12px}header p{color:#4c5c7b}.toolbar,.side,.foot,.notice{display:none}.layout{display:block}.calendarPanel{border:0;box-shadow:none}.day{height:123px}.chip{white-space:normal}body{background:white}}
+
+/* イベントベースの急落・急変警戒（値動き予測ではない） */
+.riskIntroduction{font-size:11px;color:#756b68;line-height:1.75;margin:0 0 11px}
+.riskSummary{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:11px;color:#67748b;margin-left:auto}
+.riskLegend{display:inline-flex;gap:4px;align-items:center;white-space:nowrap}
+.riskDot{width:8px;height:8px;display:inline-block;border-radius:3px}.riskDot.high{background:#c44745}.riskDot.medium{background:#c68b33}
+.day.riskHigh{box-shadow:inset 0 3px #cb5551}.day.riskMedium{box-shadow:inset 0 3px #d8a047}.day.riskHigh.today{box-shadow:inset 0 3px #cb5551,inset 0 0 0 2px #f3ad53}.day.riskMedium.today{box-shadow:inset 0 3px #d8a047,inset 0 0 0 2px #f3ad53}
+.riskBadge{border-radius:4px;padding:2px 4px;font-size:9px;font-weight:900;line-height:1.3;white-space:nowrap;display:inline-block;letter-spacing:-.01em}.riskBadge.high{background:#fde8e7;color:#aa2929}.riskBadge.medium{background:#fff0d5;color:#956118}
+.riskBar{display:flex;align-items:center;gap:3px;flex-wrap:wrap;min-height:20px;margin:0 0 3px 1px}
+.riskMonthStats{display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:#7787a2;margin-top:8px}
+.riskPanel{border-color:#efceca!important}.riskPanel h2{color:#a83a35}.riskCards{display:flex;flex-direction:column;gap:8px;margin-top:11px}
+.riskCard{background:#fffdfb;text-align:left;border:1px solid #eddad5;border-radius:10px;width:100%;padding:10px;display:flex;flex-direction:column;gap:5px}
+.riskCard:hover{background:#fff6f3;border-color:#cc8176}.riskCard.medium{border-color:#ebdcba;background:#fffdf7}.riskCard.medium:hover{background:#fff9e9}
+.riskCardHeader{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.riskCardDate{font-size:12px;font-weight:850;color:#384860}.riskCardTitle{font-size:12px;line-height:1.48;font-weight:750;color:#34445c}.riskCardReason{font-size:11px;line-height:1.6;color:#7b6662}
+.riskExplain{margin:10px 0 0;padding:10px;background:#f9f6f3;border-radius:9px;color:#796d6b;font-size:10px;line-height:1.7}
+.riskModalTitle{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.riskReason{padding:12px 13px;background:#fff8f5;border:1px solid #f1dcd6;border-radius:10px;margin:9px 0;font-size:12px;line-height:1.75}
+.riskReason.medium{background:#fffbf1;border-color:#f1e4c9}.riskReason strong{display:block;margin-bottom:3px;color:#773e3b}.riskReason.medium strong{color:#7e5a1f}
+.riskReason small{display:block;color:#65728a;font-size:11px;margin-top:7px}.riskMetaNote{font-size:11px;color:#677794;line-height:1.8;margin:13px 0}.riskRiskFilter{color:#af4541!important;border-color:#efd8d4!important}
+.riskRiskFilter input{accent-color:#ba4843}
+@media(max-width:680px){.day{height:111px}.riskBadge{font-size:8px;padding:2px}.riskBar{gap:2px}.calTop{flex-wrap:wrap}.riskSummary{margin-left:0;width:100%}.riskCardReason{font-size:11px}}
+
+/* 警戒イベント別・関連セクター／具体的な監視銘柄（予想ではない） */
+.impactMini{display:flex;flex-direction:column;gap:4px;padding-top:6px;margin-top:3px;border-top:1px dashed #e9d3cc;color:#4a5a73;font-size:10px;line-height:1.5}
+.impactMini b{color:#384f6c}.impactMini .stockLine{color:#80604e}
+.impactBlock{margin-top:11px;padding:10px 11px;background:white;border:1px solid #e7e2da;border-radius:9px}
+.impactLabel{font-size:11px;font-weight:850;color:#45566b;margin-bottom:6px}
+.impactTags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px}
+.impactTag{background:#eaf0f8;color:#2f547c;padding:3px 7px;border-radius:6px;font-size:11px;font-weight:750}
+.impactStockList{display:flex;flex-direction:column;gap:6px}
+.impactStock{display:grid;grid-template-columns:minmax(135px,1fr) auto;gap:5px 10px;border-bottom:1px dashed #eef0f5;padding-bottom:6px;font-size:11px}
+.impactStock:last-child{border-bottom:0;padding-bottom:0}
+.impactStock .stockName{font-weight:800;color:#344c72}.impactStock .stockRole{font-weight:750;color:#7b6c60;white-space:nowrap}
+.impactStock .stockWhy{grid-column:1/-1;color:#58677e;line-height:1.6}
+.impactCaution{font-size:10px;color:#7b7280;line-height:1.75;margin:9px 0 0}
+.impactSource{font-size:10px;display:inline-block;margin:3px 10px 0 0}
+@media(max-width:680px){.impactMini{font-size:10px}.impactStock{grid-template-columns:minmax(0,1fr) auto}.impactStock .stockWhy{font-size:11px}}
+</style>
+</head>
+<body>
+<header><div class="kicker">MARKET EVENT & EARNINGS TRACKER · JST</div><div class="headrow"><div><h1>投資家専用カレンダー <span style="font-size:16px;font-weight:500;opacity:.8">2026–2027</span></h1><p>日米大型決算 × 経済指標 × 暴落警戒日 × 影響セクター・銘柄</p></div><div class="updateTag" id="status"><span></span> データ読込中</div></div></header>
+<div class="wrap">
+  <section class="toolbar"><div class="topTools"><div class="monthTools"><button class="navBtn" id="prev" aria-label="前の月">‹</button><strong id="monthLabel">2026年11月</strong><button class="navBtn" id="next" aria-label="次の月">›</button><button class="btn" id="today">今月</button><input type="month" id="jumpMonth" min="2026-11" value="2026-11" aria-label="表示する月を選択" title="年月を選ぶ" /></div><div class="rightTools"><input class="search" id="search" placeholder="企業名・銘柄コードを検索" aria-label="イベントを検索"/><button class="btn" id="refresh">↻ 更新</button><button class="btn" id="add">＋ 予定追加</button><button class="btn" id="export">↓ .ics</button></div></div>
+  <div class="filters"><div class="filterSet"><label class="pill jp"><input type="checkbox" id="jp" checked> 日本株</label><label class="pill us"><input type="checkbox" id="us" checked> 米国株</label><label class="pill macro"><input type="checkbox" id="macro" checked> 経済・政策</label><label class="pill holiday"><input type="checkbox" id="holiday" checked> 休場</label><label class="pill riskRiskFilter"><input type="checkbox" id="riskOnly"> ⚠ 警戒イベントのみ</label><label class="pill"><input type="checkbox" id="important"> ★ 重要のみ</label><label class="pill"><input type="checkbox" id="confirmed"> 公式掲載のみ（予定含む）</label></div><div class="filterSet"><button class="viewBtn" id="calendarToggle">カレンダー表示</button><button class="viewBtn" id="agendaToggle">一覧表示</button></div></div></section>
+  <div class="layout"><main class="panel calendarPanel"><div class="calTop"><h2 id="calHeading">2026年11月の注目イベント</h2><span class="legend" id="count">時刻は日本時間（JST）</span><span class="riskSummary" id="riskSummary" aria-live="polite"></span></div><div class="calendar" id="calendar"></div><div class="listPanel hide" id="agenda"></div><div class="notice"><b>警戒度の読み方：</b>赤＝高、黄＝中。事前に公表されたイベントの重要性だけで判定し、実際の株価・社債利回り・市場予想との差は反映していません。影響セクターと監視銘柄は事業内容・政策感応度に基づく参考例であり、売買推奨ではありません。<b>日時の読み方：</b>米国企業は発表・説明会が日本時間の翌朝になる場合があります。APIで発表時刻を取得できない場合は「現地日付のみ」と表示し、日本時間に換算しません。公式IRで確認済みの日程とAPI参考日程は別表示です。</div></main>
+  <aside class="side"><section class="panel riskPanel"><h2>⚠ 暴落・急変警戒日</h2><div class="riskMonthStats" id="riskMonthStats"></div><p class="riskIntroduction">予定されたイベントが相場を急変させる可能性を整理。該当日を押すと「警戒理由・悪化条件・影響セクター・監視銘柄とその根拠」を表示します。</p><div class="riskCards" id="riskCards"></div><p class="riskExplain">警戒度はイベントの波及範囲と重要性をもとにした<b>事前チェック優先度</b>です。銘柄名は関連性による監視例であり、下落予測・取引推奨ではありません。特に「間接」は株価連動や取引関係を意味しません。銀行株と輸出株など、同じイベントでも逆方向に動く場合があります。</p></section><section class="panel"><h2>★ 今月の最注目決算</h2><div class="spotlight" id="spotlights"></div></section><section class="panel"><h2>この先の重要イベント</h2><div class="eventList" id="upcoming"></div></section><section class="panel"><h2>日程未登録の注目銘柄</h2><p class="subtle" style="font-size:11px;line-height:1.6">この月に確定日・参考日が未登録の銘柄。未発表とは限らず、取得待ちの場合もあります。</p><div id="missingEarnings" class="missing"></div></section><section class="panel"><h2>自動更新について</h2><p style="font-size:12px;color:#566b89;line-height:1.8">GitHub Pages公開後、毎日朝と夕方にデータの更新処理を実行します（公開・Actions設定後）。BLS公式経済カレンダーはAPIキー不要。米国大型決算はFMP、日本株はJ-Quantsの対応プランとAPIキーが必要です。日本株のJ-Quants無料プランは12週間遅延します。</p><p class="subtle" id="syncDetails">読み込み中</p></section></aside></div>
+  <div class="foot">© Investor Calendar • 警戒情報は事前に確認すべき材料の一覧であり、暴落を予測・保証するものではありません。投資判断前に最新の公式情報をご確認ください。</div>
+</div>
+<div id="modalRoot"></div>
+<script id="seed-events" type="application/json">{
+  "updatedAt": "2026-11-01 14:29 JST",
+  "dataStatus": {
+    "bls": "error",
+    "fmp": "not configured"
+  },
+  "warnings": [
+    "BLS: URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
+    "FMP_API_KEY is not set; earnings API sync is disabled."
+  ],
+  "events": [
+    {
+      "id": "us-aapl-20261103",
+      "date": "2026-11-03",
+      "time": "07:00",
+      "marketDate": "2026-11-02",
+      "title": "Apple Q4決算説明会",
+      "symbol": "AAPL",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "Apple IR・決算説明会案内（報道経由で確認）",
+      "sourceUrl": "https://investor.apple.com/investor-relations/",
+      "detail": "現地11/2、決算発表は日本時間6:30頃、説明会は7:00。日付はAppleのIR告知を報じた情報と照合。",
+      "timeLabel": "説明会 7:00 JST"
+    },
+    {
+      "id": "us-pltr-20261103",
+      "date": "2026-11-03",
+      "time": "07:00",
+      "marketDate": "2026-11-02",
+      "title": "Palantir 決算説明会",
+      "symbol": "PLTR",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "Palantir公式IR",
+      "sourceUrl": "https://investors.palantir.com/news-details/2026/Palantir-Announces-Date-of-Third-Quarter-2026-Earnings-Release-and-Webcast/",
+      "detail": "現地11/2引け後に第3四半期決算。説明会は17:00 ET＝日本時間11/3 7:00。",
+      "timeLabel": "説明会 7:00 JST"
+    },
+    {
+      "id": "jp-holiday-20261103",
+      "date": "2026-11-03",
+      "time": "",
+      "marketDate": "2026-11-03",
+      "title": "文化の日・東証休場",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本の祝日",
+      "sourceUrl": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html",
+      "detail": "日本の祝日。国内株式市場の休場に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "us-amd-20261104",
+      "date": "2026-11-04",
+      "time": "07:00",
+      "marketDate": "2026-11-03",
+      "title": "AMD Q3決算説明会",
+      "symbol": "AMD",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "AMD公式IR",
+      "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results",
+      "detail": "現地11/3引け後に決算発表。17:00 ET＝日本時間11/4 7:00に説明会。",
+      "timeLabel": "説明会 7:00 JST"
+    },
+    {
+      "id": "us-smci-20261104",
+      "date": "2026-11-04",
+      "time": "07:00",
+      "marketDate": "2026-11-03",
+      "title": "Supermicro 決算説明会",
+      "symbol": "SMCI",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "Supermicro公式IR",
+      "sourceUrl": "https://ir.supermicro.com/events-and-presentations/event-details/2026/Fiscal-1Q-2027-Results-2026-f4vd9OJuFB/default.aspx",
+      "detail": "現地11/3 14:00 PT。AIサーバー需要と利益率に注目。",
+      "timeLabel": "説明会 7:00 JST"
+    },
+    {
+      "id": "jp-docomo-20261104",
+      "date": "2026-11-04",
+      "time": "16:35",
+      "marketDate": "2026-11-04",
+      "title": "NTTドコモ 決算説明会",
+      "symbol": "9432",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NTTドコモ公式IR",
+      "sourceUrl": "https://dcm-dpweb51.tz.nttdocomo.co.jp/corporate/ir/library/presentation/",
+      "detail": "2026年度第2四半期の説明会。NTTの説明会終了後に開催予定。",
+      "timeLabel": "説明会 16:35 JST"
+    },
+    {
+      "id": "us-election-20261104",
+      "date": "2026-11-04",
+      "time": "",
+      "marketDate": "2026-11-03",
+      "title": "米国中間選挙（現地11/3）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米国中間選挙",
+      "sourceUrl": "https://www.usa.gov/midterm-elections",
+      "detail": "米国で11/3に投票。日本時間11/4に開票・報道が進む。結果判明時刻は州により異なるため日時は参考。",
+      "timeLabel": "開票進行は日本時間11/4"
+    },
+    {
+      "id": "us-arm-20261105",
+      "date": "2026-11-05",
+      "time": "07:00",
+      "marketDate": "2026-11-04",
+      "title": "Arm 決算説明会",
+      "symbol": "ARM",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "Arm公式発表",
+      "sourceUrl": "https://newsroom.arm.com/news/arm-announces-earnings-release-date-for-second-quarter-fiscal-year-ending-2027",
+      "detail": "現地11/4引け後。説明会17:00 ET＝日本時間11/5 7:00。",
+      "timeLabel": "説明会 7:00 JST"
+    },
+    {
+      "id": "jp-sony-20261105",
+      "date": "2026-11-05",
+      "time": "15:30",
+      "marketDate": "2026-11-05",
+      "title": "ソニーG Q2決算発表",
+      "symbol": "6758",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "ソニー公式IR",
+      "sourceUrl": "https://www.sony.com/ja/SonyInfo/IR/library/presen/er/",
+      "detail": "15:30資料掲載、16:30説明会。ゲーム、半導体、音楽に注目。",
+      "timeLabel": "発表 15:30／説明会 16:30"
+    },
+    {
+      "id": "jp-toyota-20261105",
+      "date": "2026-11-05",
+      "time": "",
+      "marketDate": "2026-11-05",
+      "title": "トヨタ Q2決算発表",
+      "symbol": "7203",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "トヨタ公式IRカレンダー",
+      "sourceUrl": "https://global.toyota/jp/ir/",
+      "detail": "2027年3月期第2四半期決算発表。公式IRで日程確認、時刻は未確認。",
+      "timeLabel": "時刻未確認"
+    },
+    {
+      "id": "jp-towa-20261106",
+      "date": "2026-11-06",
+      "time": "15:30",
+      "marketDate": "2026-11-06",
+      "title": "TOWA Q2決算発表",
+      "symbol": "6315",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "TOWA公式IR",
+      "sourceUrl": "https://www.towajapan.co.jp/jp/ir/calender/",
+      "detail": "2027年3月期第2四半期決算発表予定。半導体後工程・先端パッケージ需要に注目。",
+      "timeLabel": "発表 15:30 JST"
+    },
+    {
+      "id": "macro-nfp-20261106",
+      "date": "2026-11-06",
+      "time": "22:30",
+      "marketDate": "2026-11-06",
+      "title": "米雇用統計（10月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局 BLS公式日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
+      "detail": "現地11/6 8:30 ET。雇用者数・失業率・平均時給に注目。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "jp-sb-20261109",
+      "date": "2026-11-09",
+      "time": "15:30",
+      "marketDate": "2026-11-09",
+      "title": "ソフトバンク 決算発表",
+      "symbol": "9434",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "ソフトバンク株式会社公式IR",
+      "sourceUrl": "https://www.softbank.jp/corp/news/info/2026/20261001_02/",
+      "detail": "2027年3月期第2四半期。15:30決算開示、16:00説明会。9984ソフトバンクグループとは別会社。",
+      "timeLabel": "発表 15:30／説明会 16:00"
+    },
+    {
+      "id": "jp-sbg-20261110",
+      "date": "2026-11-10",
+      "time": "15:30",
+      "marketDate": "2026-11-10",
+      "title": "ソフトバンクG Q2決算発表",
+      "symbol": "9984",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "ソフトバンクグループ公式IR",
+      "sourceUrl": "https://group.softbank/news/info/20261002",
+      "detail": "15:30決算短信開示、16:30説明会。OpenAI関連投資・Arm・AI設備投資などに注目。",
+      "timeLabel": "発表 15:30／説明会 16:30"
+    },
+    {
+      "id": "macro-cpi-20261110",
+      "date": "2026-11-10",
+      "time": "22:30",
+      "marketDate": "2026-11-10",
+      "title": "米CPI（10月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局 BLS公式日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
+      "detail": "現地11/10 8:30 ET。利下げ観測、米長期金利、ハイテク株に影響。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "jp-toray-20261110",
+      "date": "2026-11-10",
+      "time": "",
+      "marketDate": "2026-11-10",
+      "title": "東レ Q2決算発表",
+      "symbol": "3402",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "東レ公式IR",
+      "sourceUrl": "https://www.toray.co.jp/ir/stocks/sto_011.html",
+      "detail": "2027年3月期第2四半期決算発表日。時刻未確認。",
+      "timeLabel": "時刻未確認"
+    },
+    {
+      "id": "us-crwv-20261111",
+      "date": "2026-11-11",
+      "time": "07:00",
+      "marketDate": "2026-11-10",
+      "title": "★ CoreWeave Q3決算説明会",
+      "symbol": "CRWV",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "CoreWeave 2026/10/27公式IR",
+      "sourceUrl": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Date-of-Third-Quarter-2026-Financial-Results-and-Conference-Call/default.aspx",
+      "detail": "現地11/10 17:00 ET＝日本時間11/11 7:00。特に設備投資・資金調達・GPU稼働率・債務負担・2027年見通しに注目。正確に確定しているのは説明会時刻。",
+      "timeLabel": "決算説明会 7:00 JST"
+    },
+    {
+      "id": "macro-ppi-20261113",
+      "date": "2026-11-13",
+      "time": "22:30",
+      "marketDate": "2026-11-13",
+      "title": "米PPI（10月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局 BLS公式日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
+      "detail": "現地11/13 8:30 ET、生産者物価指数。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "jp-mufg-20261113",
+      "date": "2026-11-13",
+      "time": "",
+      "marketDate": "2026-11-13",
+      "title": "三菱UFJ 中間決算発表",
+      "symbol": "8306",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "三菱UFJ公式IR",
+      "sourceUrl": "https://www.mufg.jp/ir/index.html",
+      "detail": "2027年3月期中間決算の発表予定。時刻未確認。",
+      "timeLabel": "時刻未確認"
+    },
+    {
+      "id": "us-nvda-20261118",
+      "date": "2026-11-18",
+      "time": "06:20",
+      "marketDate": "2026-11-17",
+      "title": "★ NVIDIA Q3決算・説明会",
+      "symbol": "NVDA",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "NVIDIA 2026/10/28公式IR",
+      "sourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx",
+      "detail": "現地11/17 13:20 PT頃に決算発表、14:00 PTに説明会。日本時間11/18 6:20頃に決算、7:00に説明会。HBM、Blackwell、Rubin、AI設備投資見通しに注目。",
+      "timeLabel": "決算 約6:20／説明会 7:00"
+    },
+    {
+      "id": "macro-fomc-20261119",
+      "date": "2026-11-19",
+      "time": "04:00",
+      "marketDate": "2026-11-18",
+      "title": "FOMC議事要旨",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "FRB公式・2026年11月公表予定表",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/2026-november.htm",
+      "detail": "現地11/18 14:00 ET。10月27～28日FOMC会合の議事要旨。",
+      "timeLabel": "公表 4:00 JST"
+    },
+    {
+      "id": "jp-holiday-20261123",
+      "date": "2026-11-23",
+      "time": "",
+      "marketDate": "2026-11-23",
+      "title": "勤労感謝の日・東証休場",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本の祝日",
+      "sourceUrl": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html",
+      "detail": "日本の祝日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "us-holiday-20261126",
+      "date": "2026-11-26",
+      "time": "",
+      "marketDate": "2026-11-26",
+      "title": "米感謝祭・米株休場",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE Market Holidays",
+      "sourceUrl": "https://www.nyse.com/markets/hours-calendars",
+      "detail": "Thanksgiving Day。米国市場休場。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-jolts-2026-12-01",
+      "date": "2026-12-02",
+      "time": "00:00",
+      "marketDate": "2026-12-01",
+      "title": "米JOLTS求人件数",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/12_sched_list.htm",
+      "detail": "10月分。米国現地2026-12-01 10:00 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 00:00 JST"
+    },
+    {
+      "id": "bls-official-nfp-2026-12-04",
+      "date": "2026-12-04",
+      "time": "22:30",
+      "marketDate": "2026-12-04",
+      "title": "米雇用統計（11月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/12_sched_list.htm",
+      "detail": "11月分。米国現地2026-12-04 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "bls-official-cpi-2026-12-10",
+      "date": "2026-12-10",
+      "time": "22:30",
+      "marketDate": "2026-12-10",
+      "title": "米CPI（11月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/12_sched_list.htm",
+      "detail": "11月分。米国現地2026-12-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "fed-fomc-202612",
+      "date": "2026-12-10",
+      "time": "04:00",
+      "marketDate": "2026-12-09",
+      "title": "★ FOMC政策金利発表・経済見通し",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "FRB公表の2026年12月8～9日会合予定。米国現地12/9 14:00 ESTの定例声明公表時刻を日本時間に換算して12/10 04:00、会見は4:30。会合日程は直前の会合で確定する暫定予定。発表時刻は変更される場合があります。",
+      "timeLabel": "声明発表予定 4:00 JST／会見 4:30 JST"
+    },
+    {
+      "id": "us-orcl-20261214",
+      "date": "2026-12-14",
+      "time": "",
+      "marketDate": "2026-12-14",
+      "title": "★ Oracle Q2決算発表日（米現地）",
+      "symbol": "ORCL",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "Oracle Investor Relations・公式FAQ",
+      "sourceUrl": "https://investor.oracle.com/faq/default.aspx",
+      "detail": "公式IRが発表日を2026年12月14日（米国現地）と案内。時刻は公式未確認のため日本時間に換算していません。日付は米国現地日付です。",
+      "timeLabel": "米国現地 12/14／時刻未公表"
+    },
+    {
+      "id": "bls-official-ppi-2026-12-15",
+      "date": "2026-12-15",
+      "time": "22:30",
+      "marketDate": "2026-12-15",
+      "title": "米PPI（11月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/12_sched_list.htm",
+      "detail": "11月分。米国現地2026-12-15 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "boj-mpm-202612",
+      "date": "2026-12-18",
+      "time": "",
+      "marketDate": "2026-12-18",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2026年12月17～18日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "12/17～18（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "nyse-early-2026-12-24",
+      "date": "2026-12-24",
+      "time": "",
+      "marketDate": "2026-12-24",
+      "title": "米株短縮取引（クリスマス前日）",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式取引時間",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "株式通常取引は現地13:00 ETに短縮終了。日本時間へ換算した終了時刻は夏時間・標準時間で変わる。",
+      "timeLabel": "米現地 13:00 ET 終了"
+    },
+    {
+      "id": "nyse-closed-2026-12-25",
+      "date": "2026-12-25",
+      "time": "",
+      "marketDate": "2026-12-25",
+      "title": "米株休場・クリスマス",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-summary-2026-12-28",
+      "date": "2026-12-28",
+      "time": "08:50",
+      "marketDate": "2026-12-28",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "jpx-closed-2026-12-31",
+      "date": "2026-12-31",
+      "time": "",
+      "marketDate": "2026-12-31",
+      "title": "東証休場・年末休業",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202612.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "jpx-closed-2027-01-01",
+      "date": "2027-01-01",
+      "time": "",
+      "marketDate": "2027-01-01",
+      "title": "東証休場・元日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202701.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "nyse-closed-2027-01-01",
+      "date": "2027-01-01",
+      "time": "",
+      "marketDate": "2027-01-01",
+      "title": "米株休場・元日",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-nfp-2027-01-08",
+      "date": "2027-01-08",
+      "time": "22:30",
+      "marketDate": "2027-01-08",
+      "title": "米雇用統計（2026年12月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/01_sched_list.htm",
+      "detail": "2026年12月分。米国現地2027-01-08 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "jpx-closed-2027-01-11",
+      "date": "2027-01-11",
+      "time": "",
+      "marketDate": "2027-01-11",
+      "title": "東証休場・成人の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202701.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-cpi-2027-01-13",
+      "date": "2027-01-13",
+      "time": "22:30",
+      "marketDate": "2027-01-13",
+      "title": "米CPI（2026年12月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/01_sched_list.htm",
+      "detail": "2026年12月分。米国現地2027-01-13 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-01-14",
+      "date": "2027-01-14",
+      "time": "22:30",
+      "marketDate": "2027-01-14",
+      "title": "米PPI（2026年12月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/01_sched_list.htm",
+      "detail": "2026年12月分。米国現地2027-01-14 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "nyse-closed-2027-01-18",
+      "date": "2027-01-18",
+      "time": "",
+      "marketDate": "2027-01-18",
+      "title": "米株休場・キング牧師記念日",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-mpm-202701",
+      "date": "2027-01-22",
+      "time": "",
+      "marketDate": "2027-01-22",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2027年1月21～22日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "1/21～22（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "boj-minutes-2027-01-27",
+      "date": "2027-01-27",
+      "time": "08:50",
+      "marketDate": "2027-01-27",
+      "title": "日銀・金融政策決定会合議事要旨",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合議事要旨。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "fed-fomc-202701",
+      "date": "2027-01-28",
+      "time": "",
+      "marketDate": "2027-01-27",
+      "title": "★ FOMC政策金利発表",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年1月26～27日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 1/26～27／日本時間 翌1/28未明"
+    },
+    {
+      "id": "boj-summary-2027-02-01",
+      "date": "2027-02-01",
+      "time": "08:50",
+      "marketDate": "2027-02-01",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-nfp-2027-02-05",
+      "date": "2027-02-05",
+      "time": "22:30",
+      "marketDate": "2027-02-05",
+      "title": "米雇用統計（2027年01月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/02_sched_list.htm",
+      "detail": "2027年01月分。米国現地2027-02-05 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "jp-nichirei-20270209",
+      "date": "2027-02-09",
+      "time": "15:30",
+      "marketDate": "2027-02-09",
+      "title": "ニチレイ Q3決算",
+      "symbol": "2871",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "ニチレイ公式IRカレンダー",
+      "sourceUrl": "https://www.nichirei.co.jp/ir/calendar",
+      "detail": "2026年12月期第3四半期。公式IR掲載の予定日・時刻。",
+      "timeLabel": "決算発表 15:30 JST"
+    },
+    {
+      "id": "bls-official-cpi-2027-02-11",
+      "date": "2027-02-11",
+      "time": "22:30",
+      "marketDate": "2027-02-11",
+      "title": "米CPI（2027年01月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/02_sched_list.htm",
+      "detail": "2027年01月分。米国現地2027-02-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "jpx-closed-2027-02-11",
+      "date": "2027-02-11",
+      "time": "",
+      "marketDate": "2027-02-11",
+      "title": "東証休場・建国記念の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202702.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "jp-otsuka-20270212",
+      "date": "2027-02-12",
+      "time": "13:30",
+      "marketDate": "2027-02-12",
+      "title": "大塚HD 通期決算",
+      "symbol": "4578",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "大塚HD公式IRカレンダー",
+      "sourceUrl": "https://www.otsuka.com/jp/ir/calendar/",
+      "detail": "2026年12月期本決算。公式IR掲載の予定日・時刻。",
+      "timeLabel": "決算発表 13:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-02-12",
+      "date": "2027-02-12",
+      "time": "22:30",
+      "marketDate": "2027-02-12",
+      "title": "米PPI（2027年01月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/02_sched_list.htm",
+      "detail": "2027年01月分。米国現地2027-02-12 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "nyse-closed-2027-02-15",
+      "date": "2027-02-15",
+      "time": "",
+      "marketDate": "2027-02-15",
+      "title": "米株休場・ワシントン誕生日",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "jpx-closed-2027-02-23",
+      "date": "2027-02-23",
+      "time": "",
+      "marketDate": "2027-02-23",
+      "title": "東証休場・天皇誕生日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202702.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-nfp-2027-03-05",
+      "date": "2027-03-05",
+      "time": "22:30",
+      "marketDate": "2027-03-05",
+      "title": "米雇用統計（2027年02月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/03_sched_list.htm",
+      "detail": "2027年02月分。米国現地2027-03-05 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "bls-official-cpi-2027-03-10",
+      "date": "2027-03-10",
+      "time": "22:30",
+      "marketDate": "2027-03-10",
+      "title": "米CPI（2027年02月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/03_sched_list.htm",
+      "detail": "2027年02月分。米国現地2027-03-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-03-12",
+      "date": "2027-03-12",
+      "time": "22:30",
+      "marketDate": "2027-03-12",
+      "title": "米PPI（2027年02月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/03_sched_list.htm",
+      "detail": "2027年02月分。米国現地2027-03-12 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "fed-fomc-202703",
+      "date": "2027-03-18",
+      "time": "",
+      "marketDate": "2027-03-17",
+      "title": "★ FOMC政策金利発表・経済見通し",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年3月16～17日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 3/16～17／日本時間 翌3/18未明"
+    },
+    {
+      "id": "boj-mpm-202703",
+      "date": "2027-03-18",
+      "time": "",
+      "marketDate": "2027-03-18",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2027年3月17～18日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "3/17～18（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "jpx-closed-2027-03-22",
+      "date": "2027-03-22",
+      "time": "",
+      "marketDate": "2027-03-22",
+      "title": "東証休場・春分の日振替休日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202703.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-minutes-2027-03-24",
+      "date": "2027-03-24",
+      "time": "08:50",
+      "marketDate": "2027-03-24",
+      "title": "日銀・金融政策決定会合議事要旨",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合議事要旨。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "nyse-closed-2027-03-26",
+      "date": "2027-03-26",
+      "time": "",
+      "marketDate": "2027-03-26",
+      "title": "米株休場・グッドフライデー",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-summary-2027-03-29",
+      "date": "2027-03-29",
+      "time": "08:50",
+      "marketDate": "2027-03-29",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-nfp-2027-04-02",
+      "date": "2027-04-02",
+      "time": "21:30",
+      "marketDate": "2027-04-02",
+      "title": "米雇用統計（2027年03月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/04_sched_list.htm",
+      "detail": "2027年03月分。米国現地2027-04-02 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-cpi-2027-04-13",
+      "date": "2027-04-13",
+      "time": "21:30",
+      "marketDate": "2027-04-13",
+      "title": "米CPI（2027年03月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/04_sched_list.htm",
+      "detail": "2027年03月分。米国現地2027-04-13 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-04-14",
+      "date": "2027-04-14",
+      "time": "21:30",
+      "marketDate": "2027-04-14",
+      "title": "米PPI（2027年03月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/04_sched_list.htm",
+      "detail": "2027年03月分。米国現地2027-04-14 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "boj-mpm-202704",
+      "date": "2027-04-28",
+      "time": "",
+      "marketDate": "2027-04-28",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2027年4月27～28日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "4/27～28（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "fed-fomc-202704",
+      "date": "2027-04-29",
+      "time": "",
+      "marketDate": "2027-04-28",
+      "title": "★ FOMC政策金利発表",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年4月27～28日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 4/27～28／日本時間 翌4/29未明"
+    },
+    {
+      "id": "jpx-closed-2027-04-29",
+      "date": "2027-04-29",
+      "time": "",
+      "marketDate": "2027-04-29",
+      "title": "東証休場・昭和の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202704.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "jpx-closed-2027-05-03",
+      "date": "2027-05-03",
+      "time": "",
+      "marketDate": "2027-05-03",
+      "title": "東証休場・憲法記念日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202705.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "jpx-closed-2027-05-04",
+      "date": "2027-05-04",
+      "time": "",
+      "marketDate": "2027-05-04",
+      "title": "東証休場・みどりの日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202705.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "jpx-closed-2027-05-05",
+      "date": "2027-05-05",
+      "time": "",
+      "marketDate": "2027-05-05",
+      "title": "東証休場・こどもの日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202705.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-minutes-2027-05-07",
+      "date": "2027-05-07",
+      "time": "08:50",
+      "marketDate": "2027-05-07",
+      "title": "日銀・金融政策決定会合議事要旨",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合議事要旨。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-nfp-2027-05-07",
+      "date": "2027-05-07",
+      "time": "21:30",
+      "marketDate": "2027-05-07",
+      "title": "米雇用統計（2027年04月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/05_sched_list.htm",
+      "detail": "2027年04月分。米国現地2027-05-07 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "boj-summary-2027-05-12",
+      "date": "2027-05-12",
+      "time": "08:50",
+      "marketDate": "2027-05-12",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-cpi-2027-05-12",
+      "date": "2027-05-12",
+      "time": "21:30",
+      "marketDate": "2027-05-12",
+      "title": "米CPI（2027年04月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/05_sched_list.htm",
+      "detail": "2027年04月分。米国現地2027-05-12 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-05-13",
+      "date": "2027-05-13",
+      "time": "21:30",
+      "marketDate": "2027-05-13",
+      "title": "米PPI（2027年04月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/05_sched_list.htm",
+      "detail": "2027年04月分。米国現地2027-05-13 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "nyse-closed-2027-05-31",
+      "date": "2027-05-31",
+      "time": "",
+      "marketDate": "2027-05-31",
+      "title": "米株休場・メモリアルデー",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-nfp-2027-06-04",
+      "date": "2027-06-04",
+      "time": "21:30",
+      "marketDate": "2027-06-04",
+      "title": "米雇用統計（2027年05月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/06_sched_list.htm",
+      "detail": "2027年05月分。米国現地2027-06-04 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-cpi-2027-06-10",
+      "date": "2027-06-10",
+      "time": "21:30",
+      "marketDate": "2027-06-10",
+      "title": "米CPI（2027年05月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/06_sched_list.htm",
+      "detail": "2027年05月分。米国現地2027-06-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "fed-fomc-202706",
+      "date": "2027-06-10",
+      "time": "",
+      "marketDate": "2027-06-09",
+      "title": "★ FOMC政策金利発表・経済見通し",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年6月8～9日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 6/8～9／日本時間 翌6/10未明"
+    },
+    {
+      "id": "bls-official-ppi-2027-06-11",
+      "date": "2027-06-11",
+      "time": "21:30",
+      "marketDate": "2027-06-11",
+      "title": "米PPI（2027年05月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/06_sched_list.htm",
+      "detail": "2027年05月分。米国現地2027-06-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "boj-mpm-202706",
+      "date": "2027-06-11",
+      "time": "",
+      "marketDate": "2027-06-11",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2027年6月10～11日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "6/10～11（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "boj-minutes-2027-06-16",
+      "date": "2027-06-16",
+      "time": "08:50",
+      "marketDate": "2027-06-16",
+      "title": "日銀・金融政策決定会合議事要旨",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合議事要旨。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "nyse-closed-2027-06-18",
+      "date": "2027-06-18",
+      "time": "",
+      "marketDate": "2027-06-18",
+      "title": "米株休場・ジューンティーンス",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-summary-2027-06-21",
+      "date": "2027-06-21",
+      "time": "08:50",
+      "marketDate": "2027-06-21",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-nfp-2027-07-02",
+      "date": "2027-07-02",
+      "time": "21:30",
+      "marketDate": "2027-07-02",
+      "title": "米雇用統計（2027年06月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/07_sched_list.htm",
+      "detail": "2027年06月分。米国現地2027-07-02 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "nyse-closed-2027-07-05",
+      "date": "2027-07-05",
+      "time": "",
+      "marketDate": "2027-07-05",
+      "title": "米株休場・独立記念日（振替）",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-cpi-2027-07-14",
+      "date": "2027-07-14",
+      "time": "21:30",
+      "marketDate": "2027-07-14",
+      "title": "米CPI（2027年06月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/07_sched_list.htm",
+      "detail": "2027年06月分。米国現地2027-07-14 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-07-15",
+      "date": "2027-07-15",
+      "time": "21:30",
+      "marketDate": "2027-07-15",
+      "title": "米PPI（2027年06月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/07_sched_list.htm",
+      "detail": "2027年06月分。米国現地2027-07-15 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "jpx-closed-2027-07-19",
+      "date": "2027-07-19",
+      "time": "",
+      "marketDate": "2027-07-19",
+      "title": "東証休場・海の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202707.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-mpm-202707",
+      "date": "2027-07-22",
+      "time": "",
+      "marketDate": "2027-07-22",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2027年7月21～22日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "7/21～22（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "boj-minutes-2027-07-27",
+      "date": "2027-07-27",
+      "time": "08:50",
+      "marketDate": "2027-07-27",
+      "title": "日銀・金融政策決定会合議事要旨",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合議事要旨。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "fed-fomc-202707",
+      "date": "2027-07-29",
+      "time": "",
+      "marketDate": "2027-07-28",
+      "title": "★ FOMC政策金利発表",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年7月27～28日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 7/27～28／日本時間 翌7/29未明"
+    },
+    {
+      "id": "boj-summary-2027-07-30",
+      "date": "2027-07-30",
+      "time": "08:50",
+      "marketDate": "2027-07-30",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-nfp-2027-08-06",
+      "date": "2027-08-06",
+      "time": "21:30",
+      "marketDate": "2027-08-06",
+      "title": "米雇用統計（2027年07月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/08_sched_list.htm",
+      "detail": "2027年07月分。米国現地2027-08-06 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-08-10",
+      "date": "2027-08-10",
+      "time": "21:30",
+      "marketDate": "2027-08-10",
+      "title": "米PPI（2027年07月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/08_sched_list.htm",
+      "detail": "2027年07月分。米国現地2027-08-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-cpi-2027-08-11",
+      "date": "2027-08-11",
+      "time": "21:30",
+      "marketDate": "2027-08-11",
+      "title": "米CPI（2027年07月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/08_sched_list.htm",
+      "detail": "2027年07月分。米国現地2027-08-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "jpx-closed-2027-08-11",
+      "date": "2027-08-11",
+      "time": "",
+      "marketDate": "2027-08-11",
+      "title": "東証休場・山の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202708.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-nfp-2027-09-03",
+      "date": "2027-09-03",
+      "time": "21:30",
+      "marketDate": "2027-09-03",
+      "title": "米雇用統計（2027年08月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/09_sched_list.htm",
+      "detail": "2027年08月分。米国現地2027-09-03 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "nyse-closed-2027-09-06",
+      "date": "2027-09-06",
+      "time": "",
+      "marketDate": "2027-09-06",
+      "title": "米株休場・レーバーデー",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-ppi-2027-09-10",
+      "date": "2027-09-10",
+      "time": "21:30",
+      "marketDate": "2027-09-10",
+      "title": "米PPI（2027年08月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/09_sched_list.htm",
+      "detail": "2027年08月分。米国現地2027-09-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-cpi-2027-09-14",
+      "date": "2027-09-14",
+      "time": "21:30",
+      "marketDate": "2027-09-14",
+      "title": "米CPI（2027年08月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/09_sched_list.htm",
+      "detail": "2027年08月分。米国現地2027-09-14 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "fed-fomc-202709",
+      "date": "2027-09-16",
+      "time": "",
+      "marketDate": "2027-09-15",
+      "title": "★ FOMC政策金利発表・経済見通し",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年9月14～15日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 9/14～15／日本時間 翌9/16未明"
+    },
+    {
+      "id": "jpx-closed-2027-09-20",
+      "date": "2027-09-20",
+      "time": "",
+      "marketDate": "2027-09-20",
+      "title": "東証休場・敬老の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202709.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-mpm-202709",
+      "date": "2027-09-22",
+      "time": "",
+      "marketDate": "2027-09-22",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2027年9月21～22日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "9/21～22（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "jpx-closed-2027-09-23",
+      "date": "2027-09-23",
+      "time": "",
+      "marketDate": "2027-09-23",
+      "title": "東証休場・秋分の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202709.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-minutes-2027-09-28",
+      "date": "2027-09-28",
+      "time": "08:50",
+      "marketDate": "2027-09-28",
+      "title": "日銀・金融政策決定会合議事要旨",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合議事要旨。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "boj-summary-2027-10-01",
+      "date": "2027-10-01",
+      "time": "08:50",
+      "marketDate": "2027-10-01",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-nfp-2027-10-08",
+      "date": "2027-10-08",
+      "time": "21:30",
+      "marketDate": "2027-10-08",
+      "title": "米雇用統計（2027年09月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/10_sched_list.htm",
+      "detail": "2027年09月分。米国現地2027-10-08 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "jpx-closed-2027-10-11",
+      "date": "2027-10-11",
+      "time": "",
+      "marketDate": "2027-10-11",
+      "title": "東証休場・スポーツの日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202710.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-cpi-2027-10-14",
+      "date": "2027-10-14",
+      "time": "21:30",
+      "marketDate": "2027-10-14",
+      "title": "米CPI（2027年09月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/10_sched_list.htm",
+      "detail": "2027年09月分。米国現地2027-10-14 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-10-15",
+      "date": "2027-10-15",
+      "time": "21:30",
+      "marketDate": "2027-10-15",
+      "title": "米PPI（2027年09月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/10_sched_list.htm",
+      "detail": "2027年09月分。米国現地2027-10-15 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "fed-fomc-202710",
+      "date": "2027-10-28",
+      "time": "",
+      "marketDate": "2027-10-27",
+      "title": "★ FOMC政策金利発表",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年10月26～27日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 10/26～27／日本時間 翌10/28未明"
+    },
+    {
+      "id": "boj-mpm-202710",
+      "date": "2027-10-29",
+      "time": "",
+      "marketDate": "2027-10-29",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2027年10月28～29日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "10/28～29（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "jpx-closed-2027-11-03",
+      "date": "2027-11-03",
+      "time": "",
+      "marketDate": "2027-11-03",
+      "title": "東証休場・文化の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202711.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-minutes-2027-11-04",
+      "date": "2027-11-04",
+      "time": "08:50",
+      "marketDate": "2027-11-04",
+      "title": "日銀・金融政策決定会合議事要旨",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合議事要旨。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-nfp-2027-11-05",
+      "date": "2027-11-05",
+      "time": "21:30",
+      "marketDate": "2027-11-05",
+      "title": "米雇用統計（2027年10月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/11_sched_list.htm",
+      "detail": "2027年10月分。米国現地2027-11-05 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
+    },
+    {
+      "id": "boj-summary-2027-11-09",
+      "date": "2027-11-09",
+      "time": "08:50",
+      "marketDate": "2027-11-09",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "bls-official-cpi-2027-11-10",
+      "date": "2027-11-10",
+      "time": "22:30",
+      "marketDate": "2027-11-10",
+      "title": "米CPI（2027年10月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/11_sched_list.htm",
+      "detail": "2027年10月分。米国現地2027-11-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-11-12",
+      "date": "2027-11-12",
+      "time": "22:30",
+      "marketDate": "2027-11-12",
+      "title": "米PPI（2027年10月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/11_sched_list.htm",
+      "detail": "2027年10月分。米国現地2027-11-12 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "jpx-closed-2027-11-23",
+      "date": "2027-11-23",
+      "time": "",
+      "marketDate": "2027-11-23",
+      "title": "東証休場・勤労感謝の日",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202711.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "nyse-closed-2027-11-25",
+      "date": "2027-11-25",
+      "time": "",
+      "marketDate": "2027-11-25",
+      "title": "米株休場・感謝祭",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "nyse-early-2027-11-26",
+      "date": "2027-11-26",
+      "time": "",
+      "marketDate": "2027-11-26",
+      "title": "米株短縮取引（感謝祭翌日）",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式取引時間",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "株式通常取引は現地13:00 ETに短縮終了。日本時間へ換算した終了時刻は夏時間・標準時間で変わる。",
+      "timeLabel": "米現地 13:00 ET 終了"
+    },
+    {
+      "id": "bls-official-nfp-2027-12-03",
+      "date": "2027-12-03",
+      "time": "22:30",
+      "marketDate": "2027-12-03",
+      "title": "米雇用統計（2027年11月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/12_sched_list.htm",
+      "detail": "2027年11月分。米国現地2027-12-03 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "fed-fomc-202712",
+      "date": "2027-12-09",
+      "time": "",
+      "marketDate": "2027-12-08",
+      "title": "★ FOMC政策金利発表・経済見通し",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年12月7～8日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 12/7～8／日本時間 翌12/9未明"
+    },
+    {
+      "id": "bls-official-cpi-2027-12-10",
+      "date": "2027-12-10",
+      "time": "22:30",
+      "marketDate": "2027-12-10",
+      "title": "米CPI（2027年11月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/12_sched_list.htm",
+      "detail": "2027年11月分。米国現地2027-12-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "bls-official-ppi-2027-12-15",
+      "date": "2027-12-15",
+      "time": "22:30",
+      "marketDate": "2027-12-15",
+      "title": "米PPI（2027年11月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/12_sched_list.htm",
+      "detail": "2027年11月分。米国現地2027-12-15 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
+    },
+    {
+      "id": "boj-mpm-202712",
+      "date": "2027-12-17",
+      "time": "",
+      "marketDate": "2027-12-17",
+      "title": "★ 日銀金融政策決定会合（最終日）",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "2027年12月16～17日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
+      "timeLabel": "12/16～17（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "boj-minutes-2027-12-22",
+      "date": "2027-12-22",
+      "time": "08:50",
+      "marketDate": "2027-12-22",
+      "title": "日銀・金融政策決定会合議事要旨",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合議事要旨。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "nyse-closed-2027-12-24",
+      "date": "2027-12-24",
+      "time": "",
+      "marketDate": "2027-12-24",
+      "title": "米株休場・クリスマス（振替）",
+      "symbol": "",
+      "region": "US",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "NYSE公式休場日",
+      "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
+      "detail": "ニューヨーク証券取引所の公式休場日。",
+      "timeLabel": "終日"
+    },
+    {
+      "id": "boj-summary-2027-12-27",
+      "date": "2027-12-27",
+      "time": "08:50",
+      "marketDate": "2027-12-27",
+      "title": "日銀「主な意見」公表",
+      "symbol": "",
+      "region": "JP",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本銀行・金融政策決定会合日程",
+      "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
+      "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
+      "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "jpx-closed-2027-12-31",
+      "date": "2027-12-31",
+      "time": "",
+      "marketDate": "2027-12-31",
+      "title": "東証休場・年末休業",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本取引所グループ・2027年休業日",
+      "sourceUrl": "https://www.jpx.co.jp/calendar/202712.html",
+      "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
+      "timeLabel": "終日"
+    }
+  ]
+}</script>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const seed=JSON.parse($('seed-events').textContent);
+let sourceData=seed, current=new Date(2026,10,1), mode='calendar';
+const saved=()=>{try{return JSON.parse(localStorage.getItem('investor-calendar-custom')||'[]')}catch{return []}};
+let custom=saved();const persist=()=>{try{localStorage.setItem('investor-calendar-custom',JSON.stringify(custom))}catch{alert('このブラウザでは保存できません。')}};
+const iso=(y,m,d)=>`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+const dateObj=s=>new Date(Number(s.slice(0,4)),Number(s.slice(5,7))-1,Number(s.slice(8,10)));
+const all=()=>[...(sourceData.events||[]),...custom];
+const filters={jp:'JP',us:'US',macro:'macro',holiday:'holiday'};
+function selected(e){
+ if(e.category==='earnings' && !$((e.region||'JP').toLowerCase()).checked)return false;
+ if(e.category==='macro'&&!$('macro').checked)return false;
+ if(e.category==='holiday'&&!$('holiday').checked)return false;
+ if($('important').checked&&e.importance!=='high')return false;
+ if($('confirmed').checked&&!['confirmed','scheduled','manual'].includes(e.confidence))return false;
+ if($('riskOnly').checked&&!riskOf(e))return false;
+ const query=$('search').value.toLowerCase().trim();
+ return !query||[e.title,e.symbol,e.detail,e.marketDate,...(riskOf(e)?[...impactOf(riskOf(e)).sectors,...impactOf(riskOf(e)).stocks.flatMap(z=>[z.code,z.name])]:[])].some(x=>String(x||'').toLowerCase().includes(query));
+}
+const visible=()=>all().filter(selected).sort((a,b)=>a.date.localeCompare(b.date)||(a.time||'99:99').localeCompare(b.time||'99:99'));
+const kind=e=>e.category==='macro'?'macro':e.category==='holiday'?'holiday':e.region==='JP'?'jp':'us';
+const statusLabel=e=>e.confidence==='confirmed'?'公式確認':e.confidence==='scheduled'?'公式掲載（暫定）':e.confidence==='api'?'API参考':'手入力';
+
+// Events are the sole input. No price, yield, consensus or realized outcome is inferred.
+// Scores are presentation priorities, NOT statistical probabilities of a sell-off.
+function riskOf(e){
+ if(e.category==='holiday')return null;
+ const title=String(e.title||''),symbol=String(e.symbol||'').toUpperCase();
+ const base={eventId:e.id,eventTitle:title,event:e,level:'medium',reason:'',condition:'',markets:'',category:''};
+ const set=(level,category,reason,condition,markets)=>Object.assign(base,{level,category,reason,condition,markets});
+ let r=null;
+ if(e.category==='earnings'&&symbol==='CRWV')r=set('high','AIインフラ・信用リスク','CoreWeaveの売上成長、設備投資、資金調達・借入負担はAIインフラ関連株の評価に影響し得ます。','会社計画を下回る売上・受注見通し、設備投資負担の拡大、流動性・資金調達条件の悪化が示された場合。','CRWV、AIクラウド、GPU・データセンター関連');
+ else if(e.category==='earnings'&&symbol==='NVDA')r=set('high','AI半導体の連鎖','NVIDIAの売上・粗利率・次四半期見通しはAI投資需要を測る主要材料となり、関連株へ波及し得ます。','データセンター売上や来期ガイダンスが市場期待を下回る、成長鈍化・利益率悪化が判明した場合。','NASDAQ、SOX、HBM、先端パッケージ、日本の半導体関連');
+ else if(/中間選挙|大統領選挙/.test(title))r=set('high','政策・選挙リスク','選挙結果や議会構成が市場の想定から外れると、政策・関税・財政見通しが揺れ、リスク回避が進む可能性があります。','予想外の結果、政策実行の不透明化、財政・通商政策を巡る懸念が強まった場合。','米国株全般、為替、長期金利、日本株');
+ else if(/米雇用統計|Employment Situation/.test(title))r=set('high','米金融政策・景気','雇用者数、失業率、賃金が市場予想から大きく外れると、金利見通しと景気評価が同時に変化し得ます。','強すぎる雇用・賃金で利下げ期待が後退、または急減速で景気後退懸念が強まった場合。','米長期金利、NASDAQ、SOX、ドル円、日経平均');
+ else if(/米CPI|Consumer Price Index/.test(title))r=set('high','インフレ・金利','米消費者物価はFRBの金利見通しと株式のバリュエーションに影響します。','コアCPIの市場予想超過・鈍化停止などで米金利が上昇し、グロース株への売り圧力が強まった場合。','NASDAQ、SOX、AI・半導体関連、米長期金利');
+ else if(/FOMC/.test(title)&&/議事/.test(title))r=set('medium','金融政策の解釈','議事要旨から想定以上の引き締め志向が読み取られると、金利・株価が反応し得ます。','追加利下げに慎重な意見やインフレ警戒が市場の想定以上に多かった場合。','米金利、NASDAQ、ドル円');
+ else if(/FOMC/.test(title)&&/政策金利|政策決定|会合/.test(title))r=set('high','FOMC・金融政策','政策金利の決定と声明・会見は金利見通しを直接動かし、世界の株式に波及し得ます。','予想外の利上げ、想定を上回るタカ派発言や金利見通しの上方修正が出た場合。','米国株、日経平均、SOX、長期金利、ドル円');
+ else if(/日銀金融政策決定会合/.test(title))r=set('high','日銀・円相場','日銀の政策判断が金利や為替に影響し、日本株の海外売上・割引率に波及します。','想定以上の利上げ・タカ派発言から円高や国内金利上昇が進んだ場合。','日経平均、TOPIX、輸出株、銀行株、ドル円');
+ else if(/米PPI|Producer Price Index/.test(title))r=set('medium','米インフレ先行材料','生産者物価の上振れはインフレ懸念を通じて長期金利や株価を動かす場合があります。','市場予想を上回り、物価上昇圧力の再燃が意識された場合。','米長期金利、NASDAQ、半導体関連');
+ else if(/米JOLTS|雇用コスト指数/.test(title))r=set('medium','労働需給','求人・人件費の変化は米雇用と金融政策の見通しに影響し得ます。','市場予想との大きな乖離によって、金利上昇または景気悪化の見方が広がった場合。','米金利、米国株、為替');
+ else if(/日銀.*(主な意見|議事要旨)/.test(title))r=set('medium','日銀発言','金融政策の先行きを読む材料として円金利と為替が動く可能性があります。','予想以上の利上げ志向が読み取られるなど、政策見通しが変化した場合。','ドル円、日本株、国内金利');
+ else if(e.category==='earnings' && e.importance==='high' && e.confidence!=='manual'){
+  const related=['AMD','ARM','SMCI','AVGO','MU','TSM','MSFT','AMZN','GOOGL','GOOG','META','ORCL','9984','8035','6857','6920'].includes(symbol);
+  r=set('medium',related?'AI・半導体／大型決算':'日米大型決算',
+    related?'AI設備投資・半導体需要の見通しに影響する大型決算です。期待との差で関連テーマが連動する可能性があります。':'時価総額の大きい企業の決算は個別株だけでなく指数や業種全体に影響する場合があります。',
+    '市場予想・会社計画を下回る業績、来期見通しの下方修正、利益率低下などが明らかになった場合。',
+    related?'SOX、AI関連、関連する日本株':'当該企業、関連業種、主要株価指数');
+ }
+ if(!r)return null;
+ if(e.confidence==='api')r.level='medium';
+ r.unconfirmed=e.confidence==='api';
+ return r;
+}
+// 事業テーマの関連性と市場での値動きは別。特に「間接」は取引関係を意味しない。
+// 自動更新APIで新たな決算が登録された場合も、銘柄コード・イベント名から表示を組み立てる。
+function impactOf(r){
+ const e=r.event,t=String(e.title||''),c=String(e.symbol||'').toUpperCase();
+ const item=(code,name,role,why)=>({code,name,role,why});
+ const out=(sectors,stocks,caution,evidence=[])=>({sectors,stocks,caution,evidence});
+ const aiEvidence=[['CoreWeave公式IR','https://investors.coreweave.com/overview/'],['アドバンテスト事業説明','https://www.advantest.com/en/investors/financial-highlights/review/'],['フジクラ公式開示','https://assets.minkabu.jp/news/article_media_content/urn%3Anewsml%3Atdnet.info%3A20260313581114/140120260313581114.pdf']];
+ const fedEvidence=[['FRB：金融政策の伝達経路','https://www.federalreserve.gov/monetarypolicy/monetary-policy-what-are-its-goals-how-does-it-work.htm']];
+ if(c==='CRWV')return out(['AIクラウド・GPUインフラ','AI半導体・サーバー','データセンター光通信'],[
+  item('CRWV','CoreWeave','当事者','成長率・契約残高・設備投資・資金調達・社債利回りの変化を確認'),
+  item('NVDA','NVIDIA','事業テーマ','GPU需要やAI投資計画への見方が変わる場合に注視'),
+  item('ORCL','Oracle','同領域','AIクラウド・大型データセンター投資の市場評価に波及する可能性'),
+  item('6857','アドバンテスト','間接','AI向け高性能半導体のテスト需要という共通テーマ'),
+  item('5803','フジクラ','間接','データセンター向け光ファイバー需要という共通テーマ'),
+  item('5801','古河電工','間接','データセンター・光通信製品への投資期待に波及する可能性')],
+  'まずCRWV自体の資金調達条件・借入負担を確認。GPU・光通信企業は共通需要テーマによる間接的な波及であり、直接の顧客・仕入先とは限りません。',aiEvidence);
+ if(c==='NVDA')return out(['GPU・AI半導体','HBM・先端メモリー','半導体検査・製造装置','データセンター関連'],[
+  item('NVDA','NVIDIA','当事者','データセンター売上、粗利益率、次期売上見通しを確認'),
+  item('AMD','AMD','競合','AIアクセラレーター市場の需要見通しへの波及を確認'),
+  item('MU','Micron','関連テーマ','HBMなど高性能メモリー需要への評価'),
+  item('6857','アドバンテスト','需要連動','AI・HPC向け半導体テスターの需要動向'),
+  item('8035','東京エレクトロン','間接','先端半導体製造設備への投資期待'),
+  item('6920','レーザーテック','間接','先端半導体向けEUV検査装置という関連テーマ'),
+  item('5803','フジクラ','間接','AIデータセンターの光通信設備投資という共通テーマ')],
+  'NVIDIAが好決算でも「市場予想との比較」が重要。装置・光通信企業は直接連動を保証せず、設備投資の見通しが特に重要です。',[
+   ['NVIDIA米SEC年次報告','https://www.sec.gov/Archives/edgar/data/1045810/000104581026000036/nvda-20260512.htm'],['アドバンテスト業績説明','https://www.advantest.com/en/investors/financial-highlights/review/'],['レーザーテック事業紹介','https://www.lasertec.co.jp/ir/individuals/euv.html']]);
+ if(c==='9984'||c==='ARM')return out(['AI投資・半導体設計','投資持株会社・資金調達','AIクラウド'],[
+  item(c,c==='9984'?'ソフトバンクグループ':'Arm','当事者','保有資産価値・AI投資計画・資金調達の見通し'),
+  item(c==='9984'?'ARM':'9984',c==='9984'?'Arm':'ソフトバンクグループ','資本関係','Arm関連の企業価値と半導体成長期待'),
+  item('NVDA','NVIDIA','間接','AI半導体市場全体の期待や需要予想'),
+  item('CRWV','CoreWeave','間接','AIインフラ投資需要の市場評価')],
+  'ソフトバンクGの業績は投資先価値・為替・資金調達にも左右されます。関連銘柄への直接的な売上連動を意味しません。', [['ソフトバンクG経営方針','https://group.softbank/ir/investors/management_policy']]);
+ if(['AMD','SMCI','AVGO','MU','TSM','8035','6857','6920','6315'].includes(c))return out(
+  ['AI半導体・高性能メモリー','GPUサーバー・先端製造／検査'],[
+   item(c,{'AMD':'AMD','SMCI':'Supermicro','AVGO':'Broadcom','MU':'Micron','TSM':'TSMC','8035':'東京エレクトロン','6857':'アドバンテスト','6920':'レーザーテック','6315':'TOWA'}[c]||c,'当事者','売上・受注・設備投資・利益率や会社見通し'),
+   item('NVDA','NVIDIA','テーマ波及','AI半導体の需要と供給能力に関する評価'),
+   item('6857','アドバンテスト','間接','AI／HPC向け半導体テスト需要'),
+   item('8035','東京エレクトロン','間接','先端半導体の製造設備需要'),
+   item('6315','TOWA','間接','先端パッケージング設備という関連テーマ')].filter((x,i,a)=>a.findIndex(z=>z.code===x.code)===i),
+  '半導体業界内でもGPU・メモリー・装置の業績は一致しません。需要見通しだけでなく設備投資・受注を確認してください。', [['アドバンテスト業績説明','https://www.advantest.com/en/investors/financial-highlights/review/']]);
+ if(['MSFT','AMZN','GOOGL','GOOG','META','ORCL'].includes(c))return out(['クラウド・生成AIサービス','データセンター・GPU需要','光通信・電力設備'],[
+  item(c,{'MSFT':'Microsoft','AMZN':'Amazon','GOOGL':'Alphabet','GOOG':'Alphabet','META':'Meta','ORCL':'Oracle'}[c]||c,'当事者','クラウド売上・AIサービス収益化・設備投資計画'),
+  item('NVDA','NVIDIA','テーマ波及','クラウド各社のAI設備投資に対する評価'),
+  item('CRWV','CoreWeave','テーマ波及','AIクラウド計算需要・競争環境への期待'),
+  item('5803','フジクラ','間接','光ファイバー／データセンター通信需要'),
+  item('5801','古河電工','間接','データセンター関連の光通信投資'),
+  item('6857','アドバンテスト','間接','AI半導体のテスト需要')],
+  '設備投資が拡大しても短期利益率悪化でクラウド株は下落する場合があります。一方、半導体・通信設備の需要には追い風となり得ます。', aiEvidence);
+ if(c==='AAPL')return out(['スマートフォン・電子部品','イメージセンサー・半導体'],[
+  item('AAPL','Apple','当事者','iPhone販売・サービス売上・次期見通し'),
+  item('6981','村田製作所','間接','スマホ向け電子部品の需要テーマ'),
+  item('6762','TDK','間接','電子部品・電池などスマホ関連需要'),
+  item('6976','太陽誘電','間接','積層セラミックコンデンサ等の需要環境'),
+  item('6758','ソニーグループ','間接','イメージセンサー市場の需要環境')],
+  '関連銘柄はスマートフォン市場の需要環境からの選定で、Appleとの直接取引関係を示すものではありません。');
+ if(['7203','7267'].includes(c))return out(['自動車・部品','円相場・輸出関連'],[
+  item(c,c==='7203'?'トヨタ自動車':'ホンダ','当事者','販売台数・値引き・為替前提・関税・採算'),
+  item('6902','デンソー','関連業種','自動車部品の生産・受注見通し'),
+  item(c==='7203'?'7267':'7203',c==='7203'?'ホンダ':'トヨタ自動車','同業','販売環境や為替の共通要因'),
+  item('7270','SUBARU','同業','米市場・関税・円相場の共通要因')],
+  '自動車各社は地域別販売構成・為替感応度が異なります。個別の生産・品質問題で連動しないこともあります。');
+ if(c==='6758')return out(['ゲーム・エンタメ','イメージセンサー','電子部品'],[
+  item('6758','ソニーグループ','当事者','ゲーム・音楽・映画・半導体部門の利益見通し'),
+  item('6981','村田製作所','間接','電子デバイス関連の需要環境'),
+  item('6762','TDK','間接','エレクトロニクス関連の需要環境'),
+  item('6976','太陽誘電','間接','電子部品市場の需要環境')],
+  'ソニーは複数事業の複合企業です。各事業の収益構成を確認し、関連銘柄への波及を過大評価しないでください。');
+ if(c==='8306')return out(['銀行・金融','国内長期金利','信用コスト'],[
+  item('8306','三菱UFJ FG','当事者','純金利収入・与信費用・株主還元'),
+  item('8316','三井住友FG','同業','国内外の金利環境と与信費用'),
+  item('8411','みずほFG','同業','利ざや・信用コスト・株主還元')],
+  '金利上昇は貸出利ざやにプラスとなる一方、債券評価損や信用費用の増加には注意が必要です。');
+ if(['9432','9434'].includes(c))return out(['通信・法人向けIT','国内通信料金・設備投資'],[
+  item(c,c==='9432'?'NTT（ドコモ事業）':'ソフトバンク（通信）','当事者','通信サービス・法人向けIT・設備投資・利益率'),
+  item(c==='9432'?'9434':'9432',c==='9432'?'ソフトバンク（通信）':'NTT','同業','通信事業の競争環境'),
+  item('9433','KDDI','同業','国内通信サービスの競争環境')],
+  'ソフトバンク（9434）とソフトバンクグループ（9984）は別の上場企業です。');
+ if(c==='3402')return out(['化学・高機能材料','航空機・産業素材'],[item('3402','東レ','当事者','繊維・樹脂・炭素繊維の採算と需要')],'原材料費・市況・航空機の生産動向などを個別に確認。');
+ if(c==='PLTR')return out(['AIソフト・データ分析','企業・政府向けIT'],[
+  item('PLTR','Palantir','当事者','契約高・売上成長・利益率・商用顧客数'),
+  item('MSFT','Microsoft','テーマ波及','AIソフトウェアの収益化期待'),
+  item('GOOGL','Alphabet','テーマ波及','企業向けAIサービスの競争環境')],
+  '競合・関連銘柄の事業モデルは大きく異なり、短期的な株価連動は保証されません。');
+ if(c==='2871')return out(['食品・冷凍食品','物流・原材料'],[item('2871','ニチレイ','当事者','食品需要・物流費・原材料費の変化')],'食品業界は為替・原価転嫁・物流コストに左右されます。');
+ if(c==='4578')return out(['医薬品・研究開発'],[item('4578','大塚HD','当事者','主力医薬品・パイプライン・研究開発費')],'治験や承認など企業固有の要素が大きく、業界内でも一律には動きません。');
+ if(/中間選挙|大統領選挙/.test(t))return out(['輸出・半導体','防衛・政策関連','金利・為替'],[
+  item('7203','トヨタ自動車','政策影響例','関税・為替・海外販売環境'),
+  item('9984','ソフトバンクグループ','政策影響例','米国AI投資・規制・資金調達の見通し'),
+  item('7011','三菱重工業','政策影響例','防衛予算・安全保障政策による期待'),
+  item('NVDA','NVIDIA','政策影響例','半導体の輸出規制・関税への見方')],
+  '選挙結果により恩恵を受ける業種と逆風の業種が分かれます。政策が成立するかも別問題です。');
+ if(/米雇用統計|Employment Situation/.test(t))return out(['米グロース・AI半導体','金利敏感・銀行','円相場・輸出'],[
+  item('NVDA','NVIDIA','金利・景気','株価の割引率とAI投資需要の変化'),
+  item('CRWV','CoreWeave','金利・信用','資金調達コストと成長株の評価'),
+  item('9984','ソフトバンクグループ','為替・金利','AI関連投資への評価・円相場'),
+  item('7203','トヨタ自動車','為替','ドル円変動と輸出採算'),
+  item('8306','三菱UFJ FG','金融','金利・景気・与信コストの複合影響')],
+  '雇用が強すぎると金利上昇、弱すぎると景気後退懸念という別々の下落経路があります。銀行・輸出株は反応が異なる場合があります。',fedEvidence);
+ if(/米CPI|Consumer Price Index|米PPI|Producer Price Index|米JOLTS|雇用コスト指数/.test(t))return out(['米金利・グロース株','AI半導体・データセンター','国内輸出・金融'],[
+  item('NVDA','NVIDIA','金利感応','割引率上昇とハイテク株の評価変化'),
+  item('CRWV','CoreWeave','金利・信用','資金調達コストと長期成長期待'),
+  item('6857','アドバンテスト','間接','米半導体株・SOXを通じた市場心理'),
+  item('9984','ソフトバンクグループ','間接','AI投資への期待と為替'),
+  item('8306','三菱UFJ FG','金利感応','金利上昇の収益効果と信用コスト'),
+  item('7203','トヨタ自動車','為替','ドル円の変化と輸出採算')],
+  'インフレ上振れは成長株の逆風となり得ます。一方で銀行株は金利上昇のメリットもあり得るため、全銘柄が同方向とは限りません。',fedEvidence);
+ if(/FOMC/.test(t))return out(['米国株・ハイテク','AI半導体・データセンター','米金利・国内銀行／輸出'],[
+  item('NVDA','NVIDIA','金利感応','高成長株への割引率・設備投資期待'),
+  item('CRWV','CoreWeave','金利・信用','設備投資と資金調達コスト'),
+  item('9984','ソフトバンクグループ','間接','米国AI関連株評価・為替・資金調達'),
+  item('6857','アドバンテスト','間接','米半導体株式市場への波及'),
+  item('8306','三菱UFJ FG','金融','米金利・為替・信用コスト'),
+  item('7203','トヨタ自動車','為替','ドル円と輸出収益の見通し')],
+  '政策金利そのものより声明・会見と市場予想の差が重要。円相場・銀行の反応は一方向とは限りません。',fedEvidence);
+ if(/日銀/.test(t))return out(['輸出・自動車','銀行・保険','不動産・借入依存','円相場'],[
+  item('7203','トヨタ自動車','円高注意','円高時には輸出採算への逆風が意識される可能性'),
+  item('6758','ソニーグループ','円高注意','海外売上の円換算への影響'),
+  item('8306','三菱UFJ FG','銀行','貸出利ざや改善期待と債券評価損リスク'),
+  item('8316','三井住友FG','銀行','金利収益と信用コストの両面'),
+  item('8801','三井不動産','金利注意','不動産の資金調達・割引率上昇'),
+  item('9984','ソフトバンクグループ','資金調達','金利・為替による投資評価への波及')],
+  '日銀のタカ派化では円高が輸出株に逆風となる一方、銀行は利ざや改善期待で上昇する場合があります。全体を一律「下落」と判定しません。');
+ if(e.category==='earnings')return out(['発表企業の業種・同業他社'],[
+  item(c||'—',t.replace(/\s*Q[1-4].*/, '').replace(/\s*決算.*/,''),'当事者','会社計画・市場予想との差、利益率、次期見通しを確認')],
+  '詳細なセクター関連銘柄は現在の対象外です。根拠のない連想銘柄は自動追加しません。');
+ return out(['米国株・為替・長期金利'],[], '予想と結果の乖離、金利・為替の方向を確認してください。');
+}
+function impactInline(r,compact=false){
+ const x=impactOf(r);
+ if(compact)return `<span class="impactMini"><span><b>影響セクター：</b>${esc(x.sectors.slice(0,3).join('・'))}</span><span class="stockLine"><b>監視銘柄：</b>${esc(x.stocks.slice(0,5).map(y=>`${y.name}(${y.code})`).join('、'))}${x.stocks.length>5?' ほか':''}</span></span>`;
+ return `<div class="impactBlock"><div class="impactLabel">影響を受け得るセクター</div><div class="impactTags">${x.sectors.map(z=>`<span class="impactTag">${esc(z)}</span>`).join('')}</div><div class="impactLabel">監視銘柄の例（関係・注目理由つき）</div><div class="impactStockList">${x.stocks.map(z=>`<div class="impactStock"><span class="stockName">${esc(z.name)}（${esc(z.code)}）</span><span class="stockRole">${esc(z.role)}</span><div class="stockWhy">${esc(z.why)}</div></div>`).join('')}</div><p class="impactCaution">※ ${esc(x.caution)} 銘柄名は事業・政策感応度による監視候補で、暴落予想や取引推奨ではありません。</p>${x.evidence.length?`<div class="impactLabel">関連性の参考資料</div>${x.evidence.map(z=>`<a class="impactSource" href="${esc(z[1])}" target="_blank" rel="noopener noreferrer">${esc(z[0])}</a>`).join('')}`:''}</div>`;
+}
+function impactDayMini(day){
+ const sectors=[...new Set(day.risks.slice(0,3).flatMap(r=>impactOf(r).sectors))].slice(0,3);
+ const names=[...new Map(day.risks.slice(0,3).flatMap(r=>impactOf(r).stocks).map(x=>[x.code,x.name+'('+x.code+')'])).values()].slice(0,5);
+ return `<span class="impactMini"><span><b>影響セクター：</b>${esc(sectors.join('・'))}</span><span class="stockLine"><b>監視銘柄：</b>${esc(names.join('、'))}</span></span>`;
+}
+
+function riskDays(){
+ const map=new Map();
+ for(const e of all()){
+  const risk=riskOf(e);if(!risk)continue;
+  if(!map.has(e.date))map.set(e.date,{date:e.date,risks:[],level:'medium'});
+  const day=map.get(e.date);day.risks.push(risk);if(risk.level==='high')day.level='high';
+ }
+ for(const d of map.values())d.risks.sort((a,b)=>(b.level==='high')-(a.level==='high')||(a.event.time||'99:99').localeCompare(b.event.time||'99:99'));
+ return map;
+}
+const riskBadge=(level)=>`<span class="riskBadge ${level}">${level==='high'?'⚠ 高警戒':'△ 注意'}</span>`;
+function riskDateDetail(date){
+ const risk=riskDays().get(date);if(!risk)return dayDetail(date);
+ const sections=risk.risks.map(r=>`<div class="riskReason ${r.level}"><strong>${riskBadge(r.level)} ${esc(r.eventTitle)}</strong><div><b>警戒する理由：</b>${esc(r.reason)}</div><div><b>急落につながる条件：</b>${esc(r.condition)}</div><div><b>影響し得る市場：</b>${esc(r.markets)}</div>${impactInline(r)}<small>${esc(r.event.timeLabel||r.event.time||'時刻未確認')} ／ ${esc(r.event.confidence==='api'?'API参考・日程未確定':statusLabel(r.event))}</small>${r.event.sourceUrl?`<a class="source" href="${esc(r.event.sourceUrl)}" target="_blank" rel="noopener noreferrer">出典：${esc(r.event.sourceName||'一次情報')}</a>`:''}</div>`).join('');
+ modal(`<div class="closeLine"><div class="riskModalTitle"><h3 style="margin:0">${esc(date)}の暴落・急変警戒</h3>${riskBadge(risk.level)}</div><button class="btn" data-close>✕</button></div><p class="riskMetaNote">${risk.risks.length}件の要因が登録されています。警戒度はイベント重要性を整理したもので、実際の暴落確率や方向を示すものではありません。予想より良い結果なら上昇もあり得ます。</p>${sections}<div class="formActions"><button class="btn primary" data-close>閉じる</button></div>`);
+}
+function eventButton(e){const specialty=e.symbol==='CRWV'?' crwv':e.symbol==='NVDA'?' nvda':'';return `<button class="chip ${kind(e)}${specialty}" title="${esc(e.title)}" data-id="${esc(e.id)}">${e.confidence==='api'?'◌ ':e.confidence==='scheduled'?'△ ':''}${esc(e.title)}</button>`}
+function renderCal(){const y=current.getFullYear(),m=current.getMonth(),items=visible(),map={};for(const e of items)(map[e.date]??=[]).push(e);
+ $('jumpMonth').value=`${y}-${String(m+1).padStart(2,'0')}`; $('monthLabel').textContent=`${y}年${m+1}月`; $('calHeading').textContent=`${y}年${m+1}月の注目イベント`;
+ const risks=riskDays();const monthRisk=[...risks.values()].filter(d=>d.date.startsWith(`${y}-${String(m+1).padStart(2,'0')}`));
+ const nHigh=monthRisk.filter(d=>d.level==='high').length,nMedium=monthRisk.filter(d=>d.level==='medium').length;
+ $('riskSummary').innerHTML=`<span class="riskLegend"><span class="riskDot high"></span>高警戒 ${nHigh}日</span><span class="riskLegend"><span class="riskDot medium"></span>注意 ${nMedium}日</span>`;
+ const n=items.filter(e=>e.date.startsWith(`${y}-${String(m+1).padStart(2,'0')}`)).length;
+ $('count').textContent=`${n}件 ・ 日本時間表示`;let html='';
+ for(const [i,s] of ['日','月','火','水','木','金','土'].entries())html+=`<div class="dow ${i===0?'sun':i===6?'sat':''}">${s}</div>`;
+ const start=new Date(y,m,1),sunday=start.getDay(),days=new Date(y,m+1,0).getDate();const nCells=Math.ceil((sunday+days)/7)*7;
+ for(let i=0;i<nCells;i++){const d=new Date(y,m,1-sunday+i),di=d.getDay(),key=iso(d.getFullYear(),d.getMonth(),d.getDate()),arr=map[key]||[],outside=d.getMonth()!==m;
+ const today=new Date(),isToday=key===iso(today.getFullYear(),today.getMonth(),today.getDate());
+ const dRisk=risks.get(key),riskCSS=dRisk?(dRisk.level==='high'?'riskHigh':'riskMedium'):'';
+ html+=`<div class="day ${di===0?'sun':di===6?'sat':''} ${outside?'other':''} ${isToday?'today':''} ${riskCSS}" data-day="${key}"><div class="number">${d.getDate()}${arr.length?`<span class="dayCount">${arr.length}件</span>`:''}</div>${dRisk?`<div class="riskBar"><span class="riskBadge ${dRisk.level}">${dRisk.level==='high'?'⚠ 警戒・高':'△ 警戒・中'}</span></div>`:''}${arr.slice(0,dRisk?3:4).map(eventButton).join('')}${arr.length>(dRisk?3:4)?`<span class="more">＋さらに${arr.length-(dRisk?3:4)}件</span>`:''}</div>`;
+ }$('calendar').innerHTML=html;
+ $('calendar').classList.toggle('hide',mode!=='calendar');$('agenda').classList.toggle('hide',mode==='calendar');
+ if(mode==='agenda')renderAgenda(items.filter(e=>dateObj(e.date).getFullYear()===y&&dateObj(e.date).getMonth()===m));
+ document.querySelectorAll('[data-id]').forEach(x=>x.onclick=ev=>{ev.stopPropagation();detail(x.getAttribute('data-id'))});
+ document.querySelectorAll('[data-day]').forEach(x=>x.onclick=()=>riskDateDetail(x.getAttribute('data-day')));
+ renderSide(items);
+}
+function renderAgenda(items){$('agenda').innerHTML=items.length?'<div class="listHeader"><strong>日付順に表示</strong><span class="sectionText">クリックで根拠資料へ</span></div>'+items.map(e=>`<div class="agendaRow" data-event="${esc(e.id)}"><div class="agendaDate">${Number(e.date.slice(5,7))}/${Number(e.date.slice(8))}<br>${esc(e.time||'—')}</div><div class="agendaBody"><strong>${esc(e.title)}</strong>${riskOf(e)?riskBadge(riskOf(e).level):''}${e.symbol?`<span class="tag">${esc(e.symbol)}</span>`:''}<span class="tag ${e.confidence==='confirmed'?'confirmed':e.confidence==='api'?'api':''}">${statusLabel(e)}</span><p>${esc(e.timeLabel||'')} · ${e.region==='JP'?'日本':'米国'} · ${esc(e.sourceName||'')}</p></div></div>`).join(''):'<div class="empty">この月の登録イベントはありません</div>';
+ document.querySelectorAll('[data-event]').forEach(el=>el.onclick=()=>detail(el.dataset.event));
+}
+function renderSide(items){
+ const ym=`${current.getFullYear()}-${String(current.getMonth()+1).padStart(2,'0')}`;
+ const watch=[['CRWV','CoreWeave'],['NVDA','NVIDIA'],['MSFT','Microsoft'],['AMZN','Amazon'],['GOOGL','Alphabet'],['META','Meta'],['AVGO','Broadcom'],['MU','Micron'],['8035','東京エレクトロン'],['6857','アドバンテスト'],['9984','SBG'],['6758','ソニーG']];
+ const known=new Set(all().filter(e=>e.category==='earnings'&&e.date.startsWith(ym)).map(e=>e.symbol));
+ const listed=[...riskDays().values()].filter(x=>x.date.startsWith(ym)).sort((a,b)=>a.date.localeCompare(b.date));
+ $('riskMonthStats').innerHTML=`<span class="riskLegend"><span class="riskDot high"></span>高 ${listed.filter(x=>x.level==='high').length}日</span><span class="riskLegend"><span class="riskDot medium"></span>中 ${listed.filter(x=>x.level==='medium').length}日</span><span>予定から自動判定</span>`;
+ $('riskCards').innerHTML=listed.length?listed.map(day=>`<button class="riskCard ${day.level}" data-risk-date="${esc(day.date)}"><span class="riskCardHeader"><span class="riskCardDate">${Number(day.date.slice(5,7))}/${Number(day.date.slice(8))}</span>${riskBadge(day.level)}${day.risks.length>1?`<span class="tag">${day.risks.length}要因</span>`:''}</span><span class="riskCardTitle">${esc(day.risks.slice(0,2).map(r=>r.eventTitle.replace(/^★\s*/,'')).join(' ／ '))}${day.risks.length>2?' ほか':''}</span><span class="riskCardReason">${esc(day.risks[0].condition)}</span>${impactDayMini(day)}</button>`).join(''):'<div class="empty">この月は警戒対象イベントの登録がありません（安全を保証する意味ではありません）</div>';
+ document.querySelectorAll('[data-risk-date]').forEach(el=>el.onclick=()=>riskDateDetail(el.dataset.riskDate));
+ $('missingEarnings').innerHTML=watch.filter(([symbol])=>!known.has(symbol)).map(([symbol,name])=>`<span title="この月の日程は未登録">${esc(name)} (${esc(symbol)})</span>`).join('')||'<span>注目銘柄をすべて登録済み</span>';
+ const featured=all().filter(x=>['CRWV','NVDA'].includes(x.symbol)&&x.category==='earnings'&&x.date.startsWith(`${current.getFullYear()}-${String(current.getMonth()+1).padStart(2,'0')}`)).sort((a,b)=>a.date.localeCompare(b.date));
+ $('spotlights').innerHTML=featured.length?featured.map(e=>`<button class="spot ${e.symbol.toLowerCase()}" data-spot="${esc(e.id)}"><small>${esc(e.date)} · ${esc(e.timeLabel)}</small><strong>${esc(e.title)}</strong><em>${esc(e.symbol)}　${esc(statusLabel(e))}</em></button>`).join(''):'<p class="subtle">この月の特別注目決算はまだ登録されていません。</p>';
+ const upcoming=items.filter(e=>e.date>=iso(current.getFullYear(),current.getMonth(),1)&&e.importance==='high').slice(0,9);
+ $('upcoming').innerHTML=upcoming.length?upcoming.map(e=>`<div class="miniEvent" data-mini="${esc(e.id)}"><span class="date">${Number(e.date.slice(5,7))}/${Number(e.date.slice(8))}</span><span class="name">${esc(e.title)}<span class="sub">${esc(e.timeLabel||'時刻未定')}</span></span></div>`).join(''):'<p class="subtle">対象のイベントはありません。</p>';
+ document.querySelectorAll('[data-spot]').forEach(el=>el.onclick=()=>detail(el.dataset.spot));document.querySelectorAll('[data-mini]').forEach(el=>el.onclick=()=>detail(el.dataset.mini));
+}
+function modal(inner){$('modalRoot').innerHTML=`<div class="modalCover" id="cover"><section class="modal" role="dialog" aria-modal="true">${inner}</section></div>`;$('cover').onclick=e=>{if(e.target===$('cover'))close()};document.querySelectorAll('[data-close]').forEach(x=>x.onclick=close)}
+function close(){$('modalRoot').innerHTML=''}
+function detail(id){const e=all().find(x=>x.id===id);if(!e)return;
+ const risk=riskOf(e);const riskInline=risk?`<div class="riskReason ${risk.level}"><strong>${riskBadge(risk.level)} 急変リスク：${esc(risk.category)}</strong><div>${esc(risk.reason)}</div><div><b>警戒条件：</b>${esc(risk.condition)}</div><div><b>影響先：</b>${esc(risk.markets)}</div>${impactInline(risk)}</div>`:'';
+ const state=e.confidence==='confirmed'?'公式IR・公式機関で確認済み':e.confidence==='scheduled'?'公式日程に掲載（暫定・変更あり）':e.confidence==='api'?'外部APIの参考日付（公式未確認）':'手入力';
+ modal(`<div class="closeLine"><span class="tag ${e.confidence==='confirmed'?'confirmed':e.confidence==='api'?'api':''}">${state}</span><button class="btn" data-close>✕ 閉じる</button></div><h3>${esc(e.title)}</h3><div class="meta"><strong>${esc(e.date)}　${esc(e.timeLabel||e.time||'時刻未定')}</strong><br>地域：${e.region==='JP'?'日本':'米国'}　種類：${e.category==='earnings'?'決算':e.category==='macro'?'経済・政策':'休場'}　${e.symbol?'銘柄：'+esc(e.symbol):''}<br>元の市場日付：${esc(e.marketDate||e.date)}</div><div class="description">${esc(e.detail||'詳細未登録')}</div>${riskInline}${e.sourceUrl?`<a class="source" href="${esc(e.sourceUrl)}" target="_blank" rel="noopener noreferrer">↗ 情報の出典を開く：${esc(e.sourceName||'公式サイト')}</a>`:'<span class="subtle">個人入力のイベント</span>'}<div class="formActions">${e.confidence==='manual'?`<button class="btn" id="deleteCustom">削除する</button>`:''}<button class="btn primary" id="singleIcs">この予定を .ics に保存</button></div>`);
+ $('singleIcs').onclick=()=>downloadIcs([e],`投資イベント_${e.date}.ics`);if($('deleteCustom'))$('deleteCustom').onclick=()=>{custom=custom.filter(x=>x.id!==id);persist();close();renderCal()};
+}
+function dayDetail(date){const items=visible().filter(e=>e.date===date);if(!items.length)return;modal(`<div class="closeLine"><h3>${esc(date)}のイベント</h3><button class="btn" data-close>✕</button></div>${items.map(e=>`<div class="agendaRow" data-day-event="${esc(e.id)}"><div class="agendaDate">${esc(e.time||'終日')}</div><div class="agendaBody"><strong>${esc(e.title)}</strong><p>${esc(e.timeLabel||'')} · ${esc(e.sourceName||'')}</p></div></div>`).join('')}`);document.querySelectorAll('[data-day-event]').forEach(x=>x.onclick=()=>detail(x.dataset.dayEvent))}
+function add(){modal(`<div class="closeLine"><h3>予定を追加</h3><button class="btn" data-close>✕</button></div><p class="subtle">個人の予定はこの端末のブラウザにのみ保存され、自動取得データとは別に管理します。</p><form id="eventForm"><label>日付（日本時間）<input id="fdate" type="date" required value="${iso(current.getFullYear(),current.getMonth(),1)}"></label><label>時刻（任意）<input id="ftime" type="time"></label><label>イベント名<input id="ftitle" maxlength="80" required placeholder="例：注目企業の決算説明会"></label><label>銘柄コード（任意）<input id="fsymbol" maxlength="16" placeholder="例：5599"></label><label>分類<select id="fregion"><option value="JP">日本株の決算</option><option value="US">米国株の決算</option><option value="macro">経済・政策</option></select></label><div class="formActions"><button type="button" class="btn" data-close>キャンセル</button><button class="btn primary" type="submit">追加</button></div></form>`);
+ $('eventForm').onsubmit=e=>{e.preventDefault();const r=$('fregion').value,date=$('fdate').value,time=$('ftime').value;custom.push({id:'manual-'+Date.now()+'-'+custom.length,date,marketDate:date,time,title:$('ftitle').value.trim(),symbol:$('fsymbol').value.trim().toUpperCase(),region:r==='macro'?'US':r,category:r==='macro'?'macro':'earnings',importance:'high',confidence:'manual',sourceName:'個人入力',sourceUrl:'',timeLabel:time?time+' JST':'時刻未定',detail:'個人が追加した予定。'});persist();current=dateObj(date);close();renderCal()};
+ document.querySelectorAll('[data-close]').forEach(x=>x.onclick=close)
+}
+function download(name,str,mime){const blob=new Blob([str],{type:mime}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/[,;]/g,c=>'\\'+c)}
+function downloadIcs(events,filename){const rows=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Investor Calendar//JP//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+ for(const e of events){const day=e.date.replace(/-/g,'');rows.push('BEGIN:VEVENT','UID:'+String(e.id).replace(/[^\w-]/g,'')+'@investor-calendar.local','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'').replace('Z','Z'));
+ if(e.time){const begin=e.time.replace(':','')+'00',start=day+'T'+begin;const next=new Date(dateObj(e.date).getTime());const [hh,mm]=e.time.split(':').map(Number);next.setHours(hh,mm+30,0,0);const end=iso(next.getFullYear(),next.getMonth(),next.getDate()).replace(/-/g,'')+'T'+String(next.getHours()).padStart(2,'0')+String(next.getMinutes()).padStart(2,'0')+'00';rows.push('DTSTART;TZID=Asia/Tokyo:'+start,'DTEND;TZID=Asia/Tokyo:'+end)}else{const next=dateObj(e.date);next.setDate(next.getDate()+1);rows.push('DTSTART;VALUE=DATE:'+day,'DTEND;VALUE=DATE:'+iso(next.getFullYear(),next.getMonth(),next.getDate()).replace(/-/g,''))}
+ rows.push('SUMMARY:'+icsEscape(e.title),'DESCRIPTION:'+icsEscape((e.detail||'')+'\n出典: '+(e.sourceUrl||'')),'END:VEVENT')}
+ rows.push('END:VCALENDAR');download(filename,rows.join('\r\n')+'\r\n','text/calendar;charset=utf-8')}
+async function reload(){const status=$('status');status.innerHTML='<span></span> 最新データを確認中';try{const resp=await fetch('data/events.json?t='+Date.now(),{cache:'no-store'});if(!resp.ok)throw Error('HTTP '+resp.status);const val=await resp.json();if(!Array.isArray(val.events))throw Error('invalid event list');sourceData=val;status.innerHTML='<span></span> '+esc(val.updatedAt||'自動取得データ');$('syncDetails').textContent='データ更新: '+(val.updatedAt||'不明')+' ／ BLS: '+(val.dataStatus?.bls||'未実施')+' ／ FMP: '+(val.dataStatus?.fmp||'未設定')+' ／ J-Quants: '+(val.dataStatus?.jquants||'未設定')+'。API契約・更新状況によって取得範囲が異なります。'}catch(err){sourceData=seed;status.innerHTML='<span style="background:#f2c070"></span> 初期データ（オフライン可）';$('syncDetails').textContent='初期データを表示しています。HTML単独閲覧では自動更新されません。GitHub Pagesに配置すると data/events.json から取得できます。'}renderCal()}
+$('jumpMonth').onchange=()=>{const v=$('jumpMonth').value;if(/^\d{4}-\d{2}$/.test(v)){const [y,m]=v.split('-').map(Number);current=new Date(y,m-1,1);renderCal()}};
+$('prev').onclick=()=>{current=new Date(current.getFullYear(),current.getMonth()-1,1);renderCal()};$('next').onclick=()=>{current=new Date(current.getFullYear(),current.getMonth()+1,1);renderCal()};$('today').onclick=()=>{const d=new Date();current=new Date(d.getFullYear(),d.getMonth(),1);renderCal()};$('refresh').onclick=reload;$('add').onclick=add;$('export').onclick=()=>{const prefix=iso(current.getFullYear(),current.getMonth(),1).slice(0,7);downloadIcs(visible().filter(e=>e.date.startsWith(prefix)),`投資カレンダー_${prefix}.ics`)};
+['jp','us','macro','holiday','riskOnly','important','confirmed'].forEach(id=>$(id).onchange=renderCal);$('search').oninput=renderCal;
+$('calendarToggle').onclick=()=>{mode='calendar';renderCal()};$('agendaToggle').onclick=()=>{mode='agenda';renderCal()};
+window.addEventListener('keydown',ev=>{if(ev.key==='Escape')close()});reload();
+})();
+</script>
+</body>
+</html>
