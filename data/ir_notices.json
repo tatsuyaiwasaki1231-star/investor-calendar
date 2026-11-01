@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02 04:08 JST",
+  "checkedAt": "2026-11-02 04:10 JST",
   "status": "ok",
   "sources": [
     {
@@ -33,5 +33,6 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-02 04:08 JST"
+  "lastSuccessAt": "2026-11-02 04:10 JST",
+  "coreweaveSourceStatus": "RSS取得成功・該当見出し0件"
 }
