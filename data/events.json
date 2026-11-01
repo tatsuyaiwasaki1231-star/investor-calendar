@@ -734,6 +734,22 @@
       "timeLabel": "終日"
     },
     {
+      "id": "jp-disco-flash-20270107",
+      "date": "2027-01-07",
+      "time": "16:00",
+      "marketDate": "2027-01-07",
+      "title": "ディスコ（6146）Q3個別売上高・出荷額速報",
+      "symbol": "6146",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "ディスコ公式IRカレンダー",
+      "sourceUrl": "https://www.disco.co.jp/jp/ir/calendar/",
+      "detail": "四半期決算ではなく個別売上高および出荷額の速報。公式IRが2027年1月7日16:00予定と掲載。",
+      "timeLabel": "売上・出荷速報16:00予定（四半期決算ではない）"
+    },
+    {
       "id": "official-tsm-sales-20270108",
       "date": "2027-01-08",
       "time": "14:30",
@@ -894,6 +910,22 @@
       "timeLabel": "現地 1/26～27／日本時間 翌1/28未明"
     },
     {
+      "id": "jp-disco-q3-20270128",
+      "date": "2027-01-28",
+      "time": "16:00",
+      "marketDate": "2027-01-28",
+      "title": "ディスコ（6146）2026年度Q3決算発表",
+      "symbol": "6146",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "ディスコ公式IRカレンダー",
+      "sourceUrl": "https://www.disco.co.jp/jp/ir/calendar/",
+      "detail": "公式IRが2027年1月28日16:00予定と掲載。半導体切断・研削装置、HBM・先端パッケージング動向の注目決算。",
+      "timeLabel": "決算発表16:00予定"
+    },
+    {
       "id": "boj-summary-2027-02-01",
       "date": "2027-02-01",
       "time": "08:50",
@@ -908,6 +940,22 @@
       "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
       "detail": "金融政策決定会合の主な意見。日本銀行の公表予定表に基づく。",
       "timeLabel": "8:50 JST"
+    },
+    {
+      "id": "jp-tel-q3-20270205",
+      "date": "2027-02-05",
+      "time": "",
+      "marketDate": "2027-02-05",
+      "title": "東京エレクトロン（8035）2027年3月期Q3決算予定",
+      "symbol": "8035",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "東京エレクトロン公式IRカレンダー",
+      "sourceUrl": "https://www.tel.co.jp/ir/calendar/",
+      "detail": "公式IRが2027年2月5日を第3四半期決算発表予定日として掲載。発表時刻は未確認。半導体製造装置・メモリー投資動向に注目。",
+      "timeLabel": "発表日公式掲載／時刻未確認"
     },
     {
       "id": "bls-official-nfp-2027-02-05",
