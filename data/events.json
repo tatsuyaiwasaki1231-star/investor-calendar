@@ -123,23 +123,6 @@
       "timeLabel": "説明会 16:35 JST"
     },
     {
-      "id": "jp-ir-7729-2026-11-04",
-      "date": "2026-11-04",
-      "time": "",
-      "marketDate": "2026-11-04",
-      "title": "東京精密 Q2 決算発表予定（公式IR日付）",
-      "symbol": "7729",
-      "region": "JP",
-      "category": "earnings",
-      "importance": "high",
-      "confidence": "scheduled",
-      "sourceName": "東京精密公式IRカレンダー",
-      "sourceUrl": "https://www.accretech.com/jp/ir/calendar.html",
-      "detail": "企業公式IRカレンダーの将来の決算発表予定日を確認。時刻は未確認。日程変更があり得ます。",
-      "timeLabel": "発表時刻未確認",
-      "automated": true
-    },
-    {
       "id": "us-election-20261104",
       "date": "2026-11-04",
       "time": "",
