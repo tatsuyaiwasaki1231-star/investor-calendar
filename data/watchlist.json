@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-11-02",
-  "summary": "無料かつ公式公開情報を使った重点監視リスト。ニュースRSSの監視と決算日の自動確定は別機能です。",
+  "summary": "米・日本の重点監視リスト。企業IRページ自動チェック対象と決算日確定は別です。",
   "statusLegend": {
     "rss": "企業IR・ニュースRSS監視中（すべての決算日を保証しない）",
     "calendar": "公式決算・イベント日程を一部登録済み（変更を常時自動追跡するものではない）",
@@ -357,6 +357,102 @@
       "market": "日本",
       "focus": "コンデンサー・MLCC",
       "url": "https://www.yuden.co.jp/jp/ir/",
+      "level": "link"
+    },
+    {
+      "symbol": "6134",
+      "name": "FUJI",
+      "market": "日本",
+      "focus": "半導体実装機・自動機",
+      "url": "https://www.fuji.co.jp/ir/calendar.html",
+      "level": "calendar"
+    },
+    {
+      "symbol": "4186",
+      "name": "東京応化工業",
+      "market": "日本",
+      "focus": "フォトレジスト・半導体材料",
+      "url": "https://www.tok.co.jp/ir/calender",
+      "level": "calendar"
+    },
+    {
+      "symbol": "6479",
+      "name": "ミネベアミツミ",
+      "market": "日本",
+      "focus": "精密部品・半導体",
+      "url": "https://www.minebeamitsumi.com/corp/investors/calendar/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "6525",
+      "name": "KOKUSAI ELECTRIC",
+      "market": "日本",
+      "focus": "半導体成膜装置",
+      "url": "https://www.kokusai-electric.com/ir/calendar",
+      "level": "link"
+    },
+    {
+      "symbol": "4047",
+      "name": "関東電化工業",
+      "market": "日本",
+      "focus": "半導体用高純度ガス",
+      "url": "https://www.kantodenka.co.jp/ir/calendar/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "6703",
+      "name": "OKI",
+      "market": "日本",
+      "focus": "半導体・電子機器",
+      "url": "https://www.oki.com/global/ja/ir/stock/calendar/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "6963",
+      "name": "ローム",
+      "market": "日本",
+      "focus": "パワー半導体・SiC",
+      "url": "https://www.rohm.co.jp/ir/stock/calendar",
+      "level": "calendar"
+    },
+    {
+      "symbol": "3436",
+      "name": "SUMCO",
+      "market": "日本",
+      "focus": "シリコンウエハー",
+      "url": "https://www.sumcosi.com/ir/event/calendar.html",
+      "level": "link"
+    },
+    {
+      "symbol": "285A",
+      "name": "キオクシアホールディングス",
+      "market": "日本",
+      "focus": "NAND・AIメモリー",
+      "url": "https://www.kioxia-holdings.com/ja-jp/ir.html",
+      "level": "link"
+    },
+    {
+      "symbol": "6701",
+      "name": "NEC",
+      "market": "日本",
+      "focus": "AI・ITインフラ",
+      "url": "https://group.nec/global/ja/about/ir/events/calendar/",
+      "level": "link"
+    },
+    {
+      "symbol": "6702",
+      "name": "富士通",
+      "market": "日本",
+      "focus": "AI・クラウド・IT基盤",
+      "url": "https://global.fujitsu/ja-jp/ir/ir-calendar",
+      "level": "link"
+    },
+    {
+      "symbol": "6501",
+      "name": "日立製作所",
+      "market": "日本",
+      "focus": "AIインフラ・デジタル",
+      "url": "https://www.hitachi.com/ja-jp/ir/",
       "level": "link"
     }
   ]
