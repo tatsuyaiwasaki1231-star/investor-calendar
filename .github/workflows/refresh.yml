@@ -3,7 +3,6 @@ on:
   push:
     paths:
       - '.github/workflows/refresh.yml'
-      - 'scripts/update_events.py'
       - 'scripts/update_ir_notices.py'
       - 'scripts/update_coreweave.py'
       - 'scripts/update_major_earnings.py'
@@ -22,10 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Refresh free FRED economic calendar
-        env:
-          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-        run: python scripts/update_events.py
+      # FRED API is intentionally disabled for public redistribution compliance.
       - name: Check official company IR RSS
         run: python scripts/update_ir_notices.py
       - name: Verify RSS JSON
