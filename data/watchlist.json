@@ -1,0 +1,363 @@
+{
+  "updatedAt": "2026-11-02",
+  "summary": "無料かつ公式公開情報を使った重点監視リスト。ニュースRSSの監視と決算日の自動確定は別機能です。",
+  "statusLegend": {
+    "rss": "企業IR・ニュースRSS監視中（すべての決算日を保証しない）",
+    "calendar": "公式決算・イベント日程を一部登録済み（変更を常時自動追跡するものではない）",
+    "link": "公式IRリンク（自動取得は未対応）"
+  },
+  "items": [
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA",
+      "market": "米国",
+      "focus": "AI半導体",
+      "url": "https://investor.nvidia.com/",
+      "level": "rss"
+    },
+    {
+      "symbol": "AMD",
+      "name": "AMD",
+      "market": "米国",
+      "focus": "AI半導体・CPU",
+      "url": "https://ir.amd.com/",
+      "level": "rss"
+    },
+    {
+      "symbol": "AVGO",
+      "name": "Broadcom",
+      "market": "米国",
+      "focus": "AI ASIC・ネットワーク",
+      "url": "https://investors.broadcom.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "MU",
+      "name": "Micron",
+      "market": "米国",
+      "focus": "HBM・メモリー",
+      "url": "https://investors.micron.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "TSM",
+      "name": "TSMC",
+      "market": "米国",
+      "focus": "ファウンドリー・月次売上",
+      "url": "https://investor.tsmc.com/english/financial-calendar",
+      "level": "calendar"
+    },
+    {
+      "symbol": "ASML",
+      "name": "ASML",
+      "market": "米国",
+      "focus": "EUV露光装置",
+      "url": "https://investor.asml.com/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "AMAT",
+      "name": "Applied Materials",
+      "market": "米国",
+      "focus": "半導体製造装置",
+      "url": "https://ir.appliedmaterials.com/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "KLAC",
+      "name": "KLA",
+      "market": "米国",
+      "focus": "半導体検査装置",
+      "url": "https://ir.kla.com/",
+      "level": "rss"
+    },
+    {
+      "symbol": "LRCX",
+      "name": "Lam Research",
+      "market": "米国",
+      "focus": "半導体製造装置",
+      "url": "https://investor.lamresearch.com/",
+      "level": "rss"
+    },
+    {
+      "symbol": "INTC",
+      "name": "Intel",
+      "market": "米国",
+      "focus": "CPU・ファウンドリー",
+      "url": "https://www.intc.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "QCOM",
+      "name": "Qualcomm",
+      "market": "米国",
+      "focus": "AIエッジ・SoC",
+      "url": "https://investor.qualcomm.com/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "MRVL",
+      "name": "Marvell",
+      "market": "米国",
+      "focus": "光通信・ASIC",
+      "url": "https://investor.marvell.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "ARM",
+      "name": "Arm",
+      "market": "米国",
+      "focus": "CPU設計IP",
+      "url": "https://investors.arm.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "SNPS",
+      "name": "Synopsys",
+      "market": "米国",
+      "focus": "半導体EDA",
+      "url": "https://investor.synopsys.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "CDNS",
+      "name": "Cadence",
+      "market": "米国",
+      "focus": "半導体EDA",
+      "url": "https://investor.cadence.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "TXN",
+      "name": "Texas Instruments",
+      "market": "米国",
+      "focus": "アナログ半導体",
+      "url": "https://investor.ti.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "ADI",
+      "name": "Analog Devices",
+      "market": "米国",
+      "focus": "アナログ半導体",
+      "url": "https://investor.analog.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "CRWV",
+      "name": "CoreWeave",
+      "market": "米国",
+      "focus": "AIクラウド・GPU",
+      "url": "https://investors.coreweave.com/",
+      "level": "rss"
+    },
+    {
+      "symbol": "DELL",
+      "name": "Dell Technologies",
+      "market": "米国",
+      "focus": "AIサーバー",
+      "url": "https://investors.delltechnologies.com/",
+      "level": "rss"
+    },
+    {
+      "symbol": "SMCI",
+      "name": "Supermicro",
+      "market": "米国",
+      "focus": "AIサーバー",
+      "url": "https://ir.supermicro.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "ANET",
+      "name": "Arista Networks",
+      "market": "米国",
+      "focus": "データセンターネットワーク",
+      "url": "https://investors.arista.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "VRT",
+      "name": "Vertiv",
+      "market": "米国",
+      "focus": "データセンター電源・冷却",
+      "url": "https://investors.vertiv.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft",
+      "market": "米国",
+      "focus": "AIクラウド・Azure",
+      "url": "https://www.microsoft.com/en-us/investor/",
+      "level": "link"
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon",
+      "market": "米国",
+      "focus": "AWS・AIクラウド",
+      "url": "https://ir.aboutamazon.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "GOOGL",
+      "name": "Alphabet",
+      "market": "米国",
+      "focus": "Google Cloud・TPU",
+      "url": "https://abc.xyz/investor/",
+      "level": "link"
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms",
+      "market": "米国",
+      "focus": "AIインフラ投資",
+      "url": "https://investor.atmeta.com/",
+      "level": "rss"
+    },
+    {
+      "symbol": "ORCL",
+      "name": "Oracle",
+      "market": "米国",
+      "focus": "OCI・AIクラウド",
+      "url": "https://investor.oracle.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir",
+      "market": "米国",
+      "focus": "AIソフトウェア",
+      "url": "https://investors.palantir.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce",
+      "market": "米国",
+      "focus": "企業向けAI",
+      "url": "https://investor.salesforce.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "SNOW",
+      "name": "Snowflake",
+      "market": "米国",
+      "focus": "データクラウド",
+      "url": "https://investors.snowflake.com/",
+      "level": "link"
+    },
+    {
+      "symbol": "8035",
+      "name": "東京エレクトロン",
+      "market": "日本",
+      "focus": "半導体製造装置",
+      "url": "https://www.tel.co.jp/ir/calendar/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "6857",
+      "name": "アドバンテスト",
+      "market": "日本",
+      "focus": "半導体テスター",
+      "url": "https://www.advantest.com/ja/investors/ir-calendar/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "6146",
+      "name": "ディスコ",
+      "market": "日本",
+      "focus": "半導体後工程",
+      "url": "https://www.disco.co.jp/jp/ir/calendar/",
+      "level": "calendar"
+    },
+    {
+      "symbol": "6920",
+      "name": "レーザーテック",
+      "market": "日本",
+      "focus": "半導体検査装置",
+      "url": "https://www.lasertec.co.jp/ir/",
+      "level": "link"
+    },
+    {
+      "symbol": "6526",
+      "name": "ソシオネクスト",
+      "market": "日本",
+      "focus": "カスタムSoC",
+      "url": "https://www.socionext.com/jp/ir/",
+      "level": "link"
+    },
+    {
+      "symbol": "6723",
+      "name": "ルネサス",
+      "market": "日本",
+      "focus": "半導体設計・製造",
+      "url": "https://www.renesas.com/jp/ja/about/investor-relations",
+      "level": "link"
+    },
+    {
+      "symbol": "7735",
+      "name": "SCREEN",
+      "market": "日本",
+      "focus": "半導体洗浄装置",
+      "url": "https://www.screen.co.jp/ir",
+      "level": "link"
+    },
+    {
+      "symbol": "9984",
+      "name": "ソフトバンクグループ",
+      "market": "日本",
+      "focus": "AI投資・Arm",
+      "url": "https://group.softbank/ir",
+      "level": "link"
+    },
+    {
+      "symbol": "5803",
+      "name": "フジクラ",
+      "market": "日本",
+      "focus": "光ファイバー・AIインフラ",
+      "url": "https://www.fujikura.co.jp/ir/",
+      "level": "link"
+    },
+    {
+      "symbol": "5801",
+      "name": "古河電気工業",
+      "market": "日本",
+      "focus": "光通信・データセンター",
+      "url": "https://www.furukawa.co.jp/ir/",
+      "level": "link"
+    },
+    {
+      "symbol": "6758",
+      "name": "ソニーグループ",
+      "market": "日本",
+      "focus": "半導体・イメージセンサー",
+      "url": "https://www.sony.com/ja/SonyInfo/IR/",
+      "level": "link"
+    },
+    {
+      "symbol": "4063",
+      "name": "信越化学工業",
+      "market": "日本",
+      "focus": "シリコンウエハー",
+      "url": "https://www.shinetsu.co.jp/jp/ir/",
+      "level": "link"
+    },
+    {
+      "symbol": "6981",
+      "name": "村田製作所",
+      "market": "日本",
+      "focus": "AIサーバー周辺部品",
+      "url": "https://corporate.murata.com/ja-jp/ir",
+      "level": "link"
+    },
+    {
+      "symbol": "6976",
+      "name": "太陽誘電",
+      "market": "日本",
+      "focus": "コンデンサー・MLCC",
+      "url": "https://www.yuden.co.jp/jp/ir/",
+      "level": "link"
+    }
+  ]
+}
