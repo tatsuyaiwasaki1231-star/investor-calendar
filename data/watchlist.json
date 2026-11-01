@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-11-02",
-  "summary": "米・日本の重点監視リスト。企業IRページ自動チェック対象と決算日確定は別です。",
+  "summary": "日米半導体・AI・日経平均の重点銘柄。日経225採用と関連企業は別管理。RSS取得と決算日確定は別です。",
   "statusLegend": {
     "rss": "企業IR・ニュースRSS監視中（すべての決算日を保証しない）",
     "calendar": "公式決算・イベント日程を一部登録済み（変更を常時自動追跡するものではない）",
@@ -253,7 +253,8 @@
       "market": "日本",
       "focus": "半導体製造装置",
       "url": "https://www.tel.co.jp/ir/calendar/",
-      "level": "calendar"
+      "level": "calendar",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6857",
@@ -261,7 +262,8 @@
       "market": "日本",
       "focus": "半導体テスター",
       "url": "https://www.advantest.com/ja/investors/ir-calendar/",
-      "level": "calendar"
+      "level": "calendar",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6146",
@@ -269,15 +271,17 @@
       "market": "日本",
       "focus": "半導体後工程",
       "url": "https://www.disco.co.jp/jp/ir/calendar/",
-      "level": "calendar"
+      "level": "calendar",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6920",
       "name": "レーザーテック",
       "market": "日本",
-      "focus": "半導体検査装置",
-      "url": "https://www.lasertec.co.jp/ir/",
-      "level": "link"
+      "focus": "EUVフォトマスク検査装置・日経225採用",
+      "url": "https://www.lasertec.co.jp/ir/calendar.html",
+      "level": "calendar",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6526",
@@ -285,7 +289,8 @@
       "market": "日本",
       "focus": "カスタムSoC",
       "url": "https://www.socionext.com/jp/ir/",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6723",
@@ -293,7 +298,8 @@
       "market": "日本",
       "focus": "半導体設計・製造",
       "url": "https://www.renesas.com/jp/ja/about/investor-relations",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "7735",
@@ -301,7 +307,8 @@
       "market": "日本",
       "focus": "半導体洗浄装置",
       "url": "https://www.screen.co.jp/ir",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "9984",
@@ -309,7 +316,8 @@
       "market": "日本",
       "focus": "AI投資・Arm",
       "url": "https://group.softbank/ir",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "5803",
@@ -317,7 +325,8 @@
       "market": "日本",
       "focus": "光ファイバー・AIインフラ",
       "url": "https://www.fujikura.co.jp/ir/",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "5801",
@@ -333,7 +342,8 @@
       "market": "日本",
       "focus": "半導体・イメージセンサー",
       "url": "https://www.sony.com/ja/SonyInfo/IR/",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "4063",
@@ -341,7 +351,8 @@
       "market": "日本",
       "focus": "シリコンウエハー",
       "url": "https://www.shinetsu.co.jp/jp/ir/",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6981",
@@ -349,7 +360,8 @@
       "market": "日本",
       "focus": "AIサーバー周辺部品",
       "url": "https://corporate.murata.com/ja-jp/ir",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6976",
@@ -357,7 +369,8 @@
       "market": "日本",
       "focus": "コンデンサー・MLCC",
       "url": "https://www.yuden.co.jp/jp/ir/",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6134",
@@ -389,7 +402,8 @@
       "market": "日本",
       "focus": "半導体成膜装置",
       "url": "https://www.kokusai-electric.com/ir/calendar",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "4047",
@@ -413,7 +427,8 @@
       "market": "日本",
       "focus": "パワー半導体・SiC",
       "url": "https://www.rohm.co.jp/ir/stock/calendar",
-      "level": "calendar"
+      "level": "calendar",
+      "indexImpact": "direct"
     },
     {
       "symbol": "3436",
@@ -429,7 +444,8 @@
       "market": "日本",
       "focus": "NAND・AIメモリー",
       "url": "https://www.kioxia-holdings.com/ja-jp/ir.html",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6701",
@@ -437,7 +453,8 @@
       "market": "日本",
       "focus": "AI・ITインフラ",
       "url": "https://group.nec/global/ja/about/ir/events/calendar/",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6702",
@@ -445,7 +462,8 @@
       "market": "日本",
       "focus": "AI・クラウド・IT基盤",
       "url": "https://global.fujitsu/ja-jp/ir/ir-calendar",
-      "level": "link"
+      "level": "link",
+      "indexImpact": "direct"
     },
     {
       "symbol": "6501",
@@ -454,6 +472,97 @@
       "focus": "AIインフラ・デジタル",
       "url": "https://www.hitachi.com/ja-jp/ir/",
       "level": "link"
+    },
+    {
+      "symbol": "4062",
+      "name": "イビデン",
+      "market": "日本",
+      "focus": "AI向け半導体パッケージ基板",
+      "url": "https://www.ibiden.co.jp/ir/calendar/",
+      "level": "calendar",
+      "indexImpact": "direct"
+    },
+    {
+      "symbol": "2737",
+      "name": "トーメンデバイス",
+      "market": "日本",
+      "focus": "Samsung製メモリー・HBM需給",
+      "url": "https://www.tomendevices.co.jp/ir/calendar.html",
+      "level": "link",
+      "indexImpact": "indirect"
+    },
+    {
+      "symbol": "9983",
+      "name": "ファーストリテイリング",
+      "market": "日本",
+      "focus": "日経平均寄与度が大きい小売株",
+      "url": "https://www.fastretailing.com/jp/ir/calendar/",
+      "level": "calendar",
+      "indexImpact": "direct"
+    },
+    {
+      "symbol": "6098",
+      "name": "リクルートホールディングス",
+      "market": "日本",
+      "focus": "日経平均への寄与度が大きいサービス株",
+      "url": "https://recruit-holdings.com/ja/ir/",
+      "level": "link",
+      "indexImpact": "direct"
+    },
+    {
+      "symbol": "6762",
+      "name": "TDK",
+      "market": "日本",
+      "focus": "AIサーバー向け電子部品・MLCC",
+      "url": "https://www.tdk.com/ja/ir/index.html",
+      "level": "link",
+      "indexImpact": "direct"
+    },
+    {
+      "symbol": "9433",
+      "name": "KDDI",
+      "market": "日本",
+      "focus": "日経平均の通信セクター主力",
+      "url": "https://www.kddi.com/corporate/ir/",
+      "level": "calendar",
+      "indexImpact": "direct"
+    },
+    {
+      "symbol": "6954",
+      "name": "ファナック",
+      "market": "日本",
+      "focus": "工作機械・産業ロボット",
+      "url": "https://www.fanuc.co.jp/ja/ir/",
+      "level": "link",
+      "indexImpact": "direct"
+    },
+    {
+      "symbol": "6861",
+      "name": "キーエンス",
+      "market": "日本",
+      "focus": "FAセンサー・半導体設備投資",
+      "url": "https://www.keyence.co.jp/ir/",
+      "level": "link",
+      "indexImpact": "direct"
+    },
+    {
+      "symbol": "7203",
+      "name": "トヨタ自動車",
+      "market": "日本",
+      "focus": "自動車・為替と日経相場のセンチメント",
+      "url": "https://global.toyota/jp/ir/",
+      "level": "link",
+      "indexImpact": "direct"
+    },
+    {
+      "symbol": "7729",
+      "name": "東京精密",
+      "market": "日本",
+      "focus": "半導体計測・ウェハ検査装置",
+      "url": "https://www.accretech.com/jp/ir/calendar.html",
+      "level": "calendar",
+      "indexImpact": "indirect"
     }
-  ]
+  ],
+  "indexExplanation": "direct=日経225構成銘柄として指数に直接影響（構成銘柄変更あり）。indirect=非採用または採用未確認で、サプライチェーン・セクターを通じた間接影響を監視。"
 }
