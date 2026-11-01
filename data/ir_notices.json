@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02 04:24 JST",
+  "checkedAt": "2026-11-02 04:26 JST",
   "status": "ok",
   "sources": [
     {
@@ -159,7 +159,7 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-02 04:24 JST",
+  "lastSuccessAt": "2026-11-02 04:26 JST",
   "coreweaveSourceStatus": "RSS取得成功・該当見出し0件",
   "majorCompaniesSources": [
     {
@@ -188,80 +188,10 @@
       "matches": 4
     },
     {
-      "name": "Intel / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Micron / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Marvell / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Qualcomm / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Dell Technologies / events.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
       "name": "Dell Technologies / news-releases.xml",
       "status": "ok",
       "matches": 2
-    },
-    {
-      "name": "Synopsys / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Cadence / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Oracle / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Cisco / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Arista Networks / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Salesforce / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Amazon / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Alphabet / ",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
-    },
-    {
-      "name": "Supermicro / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 404: Not Found"
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-02 04:24 JST"
+  "majorCompaniesCheckedAt": "2026-11-02 04:26 JST"
 }
