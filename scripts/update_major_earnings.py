@@ -153,7 +153,7 @@ def main():
     link=item.get("link","").strip()
     if not host_allowed(link,suffixes):continue
     matched+=1
-    headlines.append({"company":company,"symbol":symbol,"title":title[:180],
+    headlines.append({"company":company,"symbol":symbol,"title":company+"の決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate":article_date(item),"sourceName":company+"公式IR RSS",
       "sourceUrl":link,"kind":"ir-news-not-earnings-date"})
     candidate=earnings_event(company,symbol,item,link)
