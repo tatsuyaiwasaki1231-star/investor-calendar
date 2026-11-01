@@ -45,7 +45,6 @@ SOURCE=[
  ("7729","東京精密","https://www.accretech.com/jp/ir/calendar.html"),
  ("9983","ファーストリテイリング","https://www.fastretailing.com/jp/ir/calendar/"),
  ("9433","KDDI","https://www.kddi.com/corporate/ir/"),
- ("6762","TDK","https://www.tdk.com/ja/ir/index.html"),
  ("6954","ファナック","https://www.fanuc.co.jp/ja/ir/"),
 ]
 # Only full dates next to 決算発表. An adjacent 2027年3月期 does not
