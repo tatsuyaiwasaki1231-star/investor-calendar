@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02 04:52 JST",
+  "checkedAt": "2026-11-02 05:06 JST",
   "status": "ok",
   "sources": [
     {
@@ -159,8 +159,7 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-02 04:52 JST",
-  "coreweaveSourceStatus": "RSS取得成功・該当見出し0件",
+  "lastSuccessAt": "2026-11-02 05:06 JST",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
@@ -193,5 +192,5 @@
       "matches": 2
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-02 04:52 JST"
+  "majorCompaniesCheckedAt": "2026-11-02 05:06 JST"
 }
