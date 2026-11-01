@@ -1,14 +1,30 @@
 {
   "updatedAt": "2026-11-02 03:34 JST",
   "dataStatus": {
-    "bls": "取得失敗・前回データを維持",
-    "fmp": "not configured"
+    "bls": "直接取得停止（アクセス制限を尊重）",
+    "fmp": "未設定（米国企業の決算予定APIは未接続）",
+    "fred": "未設定（無料APIキーが必要）"
   },
   "warnings": [
-    "BLS: URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-    "FMP_API_KEY is not set; earnings API sync is disabled."
+    "FRED_API_KEY未設定。登録済み日程を表示しています。"
   ],
   "events": [
+    {
+      "id": "jp-holiday-20261103",
+      "date": "2026-11-03",
+      "time": "",
+      "marketDate": "2026-11-03",
+      "title": "文化の日・東証休場",
+      "symbol": "",
+      "region": "JP",
+      "category": "holiday",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "日本の祝日",
+      "sourceUrl": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html",
+      "detail": "日本の祝日。国内株式市場の休場に注意。",
+      "timeLabel": "終日"
+    },
     {
       "id": "us-aapl-20261103",
       "date": "2026-11-03",
@@ -42,20 +58,20 @@
       "timeLabel": "説明会 7:00 JST"
     },
     {
-      "id": "jp-holiday-20261103",
-      "date": "2026-11-03",
+      "id": "us-election-20261104",
+      "date": "2026-11-04",
       "time": "",
       "marketDate": "2026-11-03",
-      "title": "文化の日・東証休場",
+      "title": "米国中間選挙（現地11/3）",
       "symbol": "",
-      "region": "JP",
-      "category": "holiday",
-      "importance": "medium",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
       "confidence": "confirmed",
-      "sourceName": "日本の祝日",
-      "sourceUrl": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html",
-      "detail": "日本の祝日。国内株式市場の休場に注意。",
-      "timeLabel": "終日"
+      "sourceName": "米国中間選挙",
+      "sourceUrl": "https://www.usa.gov/midterm-elections",
+      "detail": "米国で11/3に投票。日本時間11/4に開票・報道が進む。結果判明時刻は州により異なるため日時は参考。",
+      "timeLabel": "開票進行は日本時間11/4"
     },
     {
       "id": "us-amd-20261104",
@@ -106,20 +122,20 @@
       "timeLabel": "説明会 16:35 JST"
     },
     {
-      "id": "us-election-20261104",
-      "date": "2026-11-04",
+      "id": "jp-toyota-20261105",
+      "date": "2026-11-05",
       "time": "",
-      "marketDate": "2026-11-03",
-      "title": "米国中間選挙（現地11/3）",
-      "symbol": "",
-      "region": "US",
-      "category": "macro",
+      "marketDate": "2026-11-05",
+      "title": "トヨタ Q2決算発表",
+      "symbol": "7203",
+      "region": "JP",
+      "category": "earnings",
       "importance": "high",
       "confidence": "confirmed",
-      "sourceName": "米国中間選挙",
-      "sourceUrl": "https://www.usa.gov/midterm-elections",
-      "detail": "米国で11/3に投票。日本時間11/4に開票・報道が進む。結果判明時刻は州により異なるため日時は参考。",
-      "timeLabel": "開票進行は日本時間11/4"
+      "sourceName": "トヨタ公式IRカレンダー",
+      "sourceUrl": "https://global.toyota/jp/ir/",
+      "detail": "2027年3月期第2四半期決算発表。公式IRで日程確認、時刻は未確認。",
+      "timeLabel": "時刻未確認"
     },
     {
       "id": "us-arm-20261105",
@@ -152,22 +168,6 @@
       "sourceUrl": "https://www.sony.com/ja/SonyInfo/IR/library/presen/er/",
       "detail": "15:30資料掲載、16:30説明会。ゲーム、半導体、音楽に注目。",
       "timeLabel": "発表 15:30／説明会 16:30"
-    },
-    {
-      "id": "jp-toyota-20261105",
-      "date": "2026-11-05",
-      "time": "",
-      "marketDate": "2026-11-05",
-      "title": "トヨタ Q2決算発表",
-      "symbol": "7203",
-      "region": "JP",
-      "category": "earnings",
-      "importance": "high",
-      "confidence": "confirmed",
-      "sourceName": "トヨタ公式IRカレンダー",
-      "sourceUrl": "https://global.toyota/jp/ir/",
-      "detail": "2027年3月期第2四半期決算発表。公式IRで日程確認、時刻は未確認。",
-      "timeLabel": "時刻未確認"
     },
     {
       "id": "jp-towa-20261106",
@@ -218,6 +218,22 @@
       "timeLabel": "発表 15:30／説明会 16:00"
     },
     {
+      "id": "jp-toray-20261110",
+      "date": "2026-11-10",
+      "time": "",
+      "marketDate": "2026-11-10",
+      "title": "東レ Q2決算発表",
+      "symbol": "3402",
+      "region": "JP",
+      "category": "earnings",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "東レ公式IR",
+      "sourceUrl": "https://www.toray.co.jp/ir/stocks/sto_011.html",
+      "detail": "2027年3月期第2四半期決算発表日。時刻未確認。",
+      "timeLabel": "時刻未確認"
+    },
+    {
       "id": "jp-sbg-20261110",
       "date": "2026-11-10",
       "time": "15:30",
@@ -250,22 +266,6 @@
       "timeLabel": "発表 22:30 JST"
     },
     {
-      "id": "jp-toray-20261110",
-      "date": "2026-11-10",
-      "time": "",
-      "marketDate": "2026-11-10",
-      "title": "東レ Q2決算発表",
-      "symbol": "3402",
-      "region": "JP",
-      "category": "earnings",
-      "importance": "medium",
-      "confidence": "confirmed",
-      "sourceName": "東レ公式IR",
-      "sourceUrl": "https://www.toray.co.jp/ir/stocks/sto_011.html",
-      "detail": "2027年3月期第2四半期決算発表日。時刻未確認。",
-      "timeLabel": "時刻未確認"
-    },
-    {
       "id": "us-crwv-20261111",
       "date": "2026-11-11",
       "time": "07:00",
@@ -282,22 +282,6 @@
       "timeLabel": "決算説明会 7:00 JST"
     },
     {
-      "id": "macro-ppi-20261113",
-      "date": "2026-11-13",
-      "time": "22:30",
-      "marketDate": "2026-11-13",
-      "title": "米PPI（10月分）",
-      "symbol": "",
-      "region": "US",
-      "category": "macro",
-      "importance": "medium",
-      "confidence": "confirmed",
-      "sourceName": "米労働統計局 BLS公式日程",
-      "sourceUrl": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
-      "detail": "現地11/13 8:30 ET、生産者物価指数。",
-      "timeLabel": "発表 22:30 JST"
-    },
-    {
       "id": "jp-mufg-20261113",
       "date": "2026-11-13",
       "time": "",
@@ -312,6 +296,22 @@
       "sourceUrl": "https://www.mufg.jp/ir/index.html",
       "detail": "2027年3月期中間決算の発表予定。時刻未確認。",
       "timeLabel": "時刻未確認"
+    },
+    {
+      "id": "macro-ppi-20261113",
+      "date": "2026-11-13",
+      "time": "22:30",
+      "marketDate": "2026-11-13",
+      "title": "米PPI（10月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局 BLS公式日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/11_sched_list.htm",
+      "detail": "現地11/13 8:30 ET、生産者物価指数。",
+      "timeLabel": "発表 22:30 JST"
     },
     {
       "id": "us-nvda-20261118",
@@ -410,22 +410,6 @@
       "timeLabel": "発表 22:30 JST"
     },
     {
-      "id": "bls-official-cpi-2026-12-10",
-      "date": "2026-12-10",
-      "time": "22:30",
-      "marketDate": "2026-12-10",
-      "title": "米CPI（11月分）",
-      "symbol": "",
-      "region": "US",
-      "category": "macro",
-      "importance": "high",
-      "confidence": "confirmed",
-      "sourceName": "米労働統計局（BLS）公式公表日程",
-      "sourceUrl": "https://www.bls.gov/schedule/2026/12_sched_list.htm",
-      "detail": "11月分。米国現地2026-12-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
-      "timeLabel": "発表 22:30 JST"
-    },
-    {
       "id": "fed-fomc-202612",
       "date": "2026-12-10",
       "time": "04:00",
@@ -440,6 +424,22 @@
       "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
       "detail": "FRB公表の2026年12月8～9日会合予定。米国現地12/9 14:00 ESTの定例声明公表時刻を日本時間に換算して12/10 04:00、会見は4:30。会合日程は直前の会合で確定する暫定予定。発表時刻は変更される場合があります。",
       "timeLabel": "声明発表予定 4:00 JST／会見 4:30 JST"
+    },
+    {
+      "id": "bls-official-cpi-2026-12-10",
+      "date": "2026-12-10",
+      "time": "22:30",
+      "marketDate": "2026-12-10",
+      "title": "米CPI（11月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2026/12_sched_list.htm",
+      "detail": "11月分。米国現地2026-12-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
     },
     {
       "id": "us-orcl-20261214",
@@ -762,22 +762,6 @@
       "timeLabel": "決算発表 15:30 JST"
     },
     {
-      "id": "bls-official-cpi-2027-02-11",
-      "date": "2027-02-11",
-      "time": "22:30",
-      "marketDate": "2027-02-11",
-      "title": "米CPI（2027年01月分）",
-      "symbol": "",
-      "region": "US",
-      "category": "macro",
-      "importance": "high",
-      "confidence": "confirmed",
-      "sourceName": "米労働統計局（BLS）公式公表日程",
-      "sourceUrl": "https://www.bls.gov/schedule/2027/02_sched_list.htm",
-      "detail": "2027年01月分。米国現地2027-02-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
-      "timeLabel": "発表 22:30 JST"
-    },
-    {
       "id": "jpx-closed-2027-02-11",
       "date": "2027-02-11",
       "time": "",
@@ -792,6 +776,22 @@
       "sourceUrl": "https://www.jpx.co.jp/calendar/202702.html",
       "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
       "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-cpi-2027-02-11",
+      "date": "2027-02-11",
+      "time": "22:30",
+      "marketDate": "2027-02-11",
+      "title": "米CPI（2027年01月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/02_sched_list.htm",
+      "detail": "2027年01月分。米国現地2027-02-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 22:30 JST"
     },
     {
       "id": "jp-otsuka-20270212",
@@ -906,22 +906,6 @@
       "timeLabel": "発表 22:30 JST"
     },
     {
-      "id": "fed-fomc-202703",
-      "date": "2027-03-18",
-      "time": "",
-      "marketDate": "2027-03-17",
-      "title": "★ FOMC政策金利発表・経済見通し",
-      "symbol": "",
-      "region": "US",
-      "category": "macro",
-      "importance": "high",
-      "confidence": "scheduled",
-      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
-      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-      "detail": "米国現地2027年3月16～17日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
-      "timeLabel": "現地 3/16～17／日本時間 翌3/18未明"
-    },
-    {
       "id": "boj-mpm-202703",
       "date": "2027-03-18",
       "time": "",
@@ -936,6 +920,22 @@
       "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
       "detail": "2027年3月17～18日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
       "timeLabel": "3/17～18（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "fed-fomc-202703",
+      "date": "2027-03-18",
+      "time": "",
+      "marketDate": "2027-03-17",
+      "title": "★ FOMC政策金利発表・経済見通し",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "scheduled",
+      "sourceName": "米連邦準備制度（FRB）公式FOMC予定表",
+      "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "detail": "米国現地2027年3月16～17日の会合予定。日本時間は最終日の翌日未明に注目。声明の正確な公表時刻は未確定のため登録していません。将来の会合日程は直前の会合で確認されるまでは暫定です。",
+      "timeLabel": "現地 3/16～17／日本時間 翌3/18未明"
     },
     {
       "id": "jpx-closed-2027-03-22",
@@ -1258,22 +1258,6 @@
       "timeLabel": "発表 21:30 JST"
     },
     {
-      "id": "bls-official-cpi-2027-06-10",
-      "date": "2027-06-10",
-      "time": "21:30",
-      "marketDate": "2027-06-10",
-      "title": "米CPI（2027年05月分）",
-      "symbol": "",
-      "region": "US",
-      "category": "macro",
-      "importance": "high",
-      "confidence": "confirmed",
-      "sourceName": "米労働統計局（BLS）公式公表日程",
-      "sourceUrl": "https://www.bls.gov/schedule/2027/06_sched_list.htm",
-      "detail": "2027年05月分。米国現地2027-06-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
-      "timeLabel": "発表 21:30 JST"
-    },
-    {
       "id": "fed-fomc-202706",
       "date": "2027-06-10",
       "time": "",
@@ -1290,19 +1274,19 @@
       "timeLabel": "現地 6/8～9／日本時間 翌6/10未明"
     },
     {
-      "id": "bls-official-ppi-2027-06-11",
-      "date": "2027-06-11",
+      "id": "bls-official-cpi-2027-06-10",
+      "date": "2027-06-10",
       "time": "21:30",
-      "marketDate": "2027-06-11",
-      "title": "米PPI（2027年05月分）",
+      "marketDate": "2027-06-10",
+      "title": "米CPI（2027年05月分）",
       "symbol": "",
       "region": "US",
       "category": "macro",
-      "importance": "medium",
+      "importance": "high",
       "confidence": "confirmed",
       "sourceName": "米労働統計局（BLS）公式公表日程",
       "sourceUrl": "https://www.bls.gov/schedule/2027/06_sched_list.htm",
-      "detail": "2027年05月分。米国現地2027-06-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "detail": "2027年05月分。米国現地2027-06-10 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
       "timeLabel": "発表 21:30 JST"
     },
     {
@@ -1320,6 +1304,22 @@
       "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
       "detail": "2027年6月10～11日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
       "timeLabel": "6/10～11（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "bls-official-ppi-2027-06-11",
+      "date": "2027-06-11",
+      "time": "21:30",
+      "marketDate": "2027-06-11",
+      "title": "米PPI（2027年05月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/06_sched_list.htm",
+      "detail": "2027年05月分。米国現地2027-06-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
     },
     {
       "id": "boj-minutes-2027-06-16",
@@ -1546,22 +1546,6 @@
       "timeLabel": "発表 21:30 JST"
     },
     {
-      "id": "bls-official-cpi-2027-08-11",
-      "date": "2027-08-11",
-      "time": "21:30",
-      "marketDate": "2027-08-11",
-      "title": "米CPI（2027年07月分）",
-      "symbol": "",
-      "region": "US",
-      "category": "macro",
-      "importance": "high",
-      "confidence": "confirmed",
-      "sourceName": "米労働統計局（BLS）公式公表日程",
-      "sourceUrl": "https://www.bls.gov/schedule/2027/08_sched_list.htm",
-      "detail": "2027年07月分。米国現地2027-08-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
-      "timeLabel": "発表 21:30 JST"
-    },
-    {
       "id": "jpx-closed-2027-08-11",
       "date": "2027-08-11",
       "time": "",
@@ -1576,6 +1560,22 @@
       "sourceUrl": "https://www.jpx.co.jp/calendar/202708.html",
       "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
       "timeLabel": "終日"
+    },
+    {
+      "id": "bls-official-cpi-2027-08-11",
+      "date": "2027-08-11",
+      "time": "21:30",
+      "marketDate": "2027-08-11",
+      "title": "米CPI（2027年07月分）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "米労働統計局（BLS）公式公表日程",
+      "sourceUrl": "https://www.bls.gov/schedule/2027/08_sched_list.htm",
+      "detail": "2027年07月分。米国現地2027-08-11 08:30 ET、現地時間から日本時間へ変換。将来の日程は変更される可能性があります。",
+      "timeLabel": "発表 21:30 JST"
     },
     {
       "id": "bls-official-nfp-2027-09-03",
@@ -2121,5 +2121,6 @@
       "detail": "現物株式市場の休業日。先物取引などは別日程に注意。",
       "timeLabel": "終日"
     }
-  ]
+  ],
+  "syncCheckedAt": "2026-11-02 03:41 JST"
 }
