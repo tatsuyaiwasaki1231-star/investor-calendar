@@ -102,6 +102,8 @@ def candidates(text,url,symbol,name):
   tail=text[m.end():cut]
   pos=tail.find("決算発表")
   if pos<0:continue
+  # "決算発表説明会" is a separate event and not a financial-results release date.
+  if tail[pos+4:].lstrip().startswith("説明会"):continue
   before=tail[:pos+4]
   if "決算日" in before and not QUARTER.search(before):continue
   q=important_quarter(before)
