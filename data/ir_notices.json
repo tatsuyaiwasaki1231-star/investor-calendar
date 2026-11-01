@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02 05:06 JST",
+  "checkedAt": "2026-11-02 05:09 JST",
   "status": "ok",
   "sources": [
     {
@@ -17,7 +17,7 @@
     {
       "company": "KLA",
       "symbol": "KLAC",
-      "title": "KLAの決算関連IR更新（発表元で確認）",
+      "title": "KLAの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-10-29",
       "sourceName": "KLA公式IR RSS",
       "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/523/kla-corporation-reports-fiscal-2027-first-quarter-results",
@@ -26,7 +26,7 @@
     {
       "company": "NVIDIA",
       "symbol": "NVDA",
-      "title": "NVIDIAの決算関連IR更新（発表元で確認）",
+      "title": "NVIDIAの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-10-29",
       "sourceName": "NVIDIA公式IRイベントRSS",
       "sourceUrl": "https://investor.nvidia.com/events-and-presentations/events-and-presentations/event-details/2026/NVIDIA-3rd-Quarter-FY27-Financial-Results/default.aspx",
@@ -35,7 +35,7 @@
     {
       "company": "NVIDIA",
       "symbol": "NVDA",
-      "title": "NVIDIAの決算関連IR更新（発表元で確認）",
+      "title": "NVIDIAの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-10-29",
       "sourceName": "NVIDIA公式プレスリリースRSS",
       "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-sets-conference-call-for-third-quarter-financial-results-6928873",
@@ -44,7 +44,7 @@
     {
       "company": "Lam Research",
       "symbol": "LRCX",
-      "title": "Lam Researchの決算関連IR更新（発表元で確認）",
+      "title": "Lam Researchの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-10-22",
       "sourceName": "Lam Research公式IR RSS",
       "sourceUrl": "https://investor.lamresearch.com/2026-10-21-Lam-Research-Corporation-Reports-Financial-Results-for-the-Quarter-Ended-September-27,-2026",
@@ -53,7 +53,7 @@
     {
       "company": "Meta",
       "symbol": "META",
-      "title": "Metaの決算関連IR更新（発表元で確認）",
+      "title": "Metaの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-10-22",
       "sourceName": "Meta公式IR RSS",
       "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx",
@@ -62,7 +62,7 @@
     {
       "company": "Meta",
       "symbol": "META",
-      "title": "Metaの決算関連IR更新（発表元で確認）",
+      "title": "Metaの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-10-13",
       "sourceName": "Meta公式IR RSS",
       "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-to-Announce-Third-Quarter-2026-Results/default.aspx",
@@ -71,7 +71,7 @@
     {
       "company": "AMD",
       "symbol": "AMD",
-      "title": "AMDの決算関連IR更新（発表元で確認）",
+      "title": "AMDの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-10-07",
       "sourceName": "AMD公式IR RSS",
       "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results",
@@ -80,7 +80,7 @@
     {
       "company": "KLA",
       "symbol": "KLAC",
-      "title": "KLAの決算関連IR更新（発表元で確認）",
+      "title": "KLAの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-10-01",
       "sourceName": "KLA公式IR RSS",
       "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/522/kla-announces-first-quarter-fiscal-year-2027-earnings-date",
@@ -89,7 +89,7 @@
     {
       "company": "Dell Technologies",
       "symbol": "DELL",
-      "title": "Dell Technologiesの決算関連IR更新（発表元で確認）",
+      "title": "Dell Technologiesの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-09-02",
       "sourceName": "Dell Technologies公式IR RSS",
       "sourceUrl": "https://investors.delltechnologies.com/news-events/press-releases/detail/1653/dell-technologies-delivers-second-quarter-fiscal-2027-financial-results",
@@ -98,7 +98,7 @@
     {
       "company": "Dell Technologies",
       "symbol": "DELL",
-      "title": "Dell Technologiesの決算関連IR更新（発表元で確認）",
+      "title": "Dell Technologiesの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-08-19",
       "sourceName": "Dell Technologies公式IR RSS",
       "sourceUrl": "https://investors.delltechnologies.com/news-events/press-releases/detail/1651/dell-technologies-to-hold-conference-call-sept-1-to-discuss-second-quarter-fiscal-2027-financial-results",
@@ -107,7 +107,7 @@
     {
       "company": "AMD",
       "symbol": "AMD",
-      "title": "AMDの決算関連IR更新（発表元で確認）",
+      "title": "AMDの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-08-05",
       "sourceName": "AMD公式IR RSS",
       "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results",
@@ -116,7 +116,7 @@
     {
       "company": "Meta",
       "symbol": "META",
-      "title": "Metaの決算関連IR更新（発表元で確認）",
+      "title": "Metaの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-07-30",
       "sourceName": "Meta公式IR RSS",
       "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx",
@@ -125,7 +125,7 @@
     {
       "company": "KLA",
       "symbol": "KLAC",
-      "title": "KLAの決算関連IR更新（発表元で確認）",
+      "title": "KLAの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-07-29",
       "sourceName": "KLA公式IR RSS",
       "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/518/kla-corporation-reports-fiscal-2026-fourth-quarter-and-full",
@@ -134,7 +134,7 @@
     {
       "company": "Meta",
       "symbol": "META",
-      "title": "Metaの決算関連IR更新（発表元で確認）",
+      "title": "Metaの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-07-15",
       "sourceName": "Meta公式IR RSS",
       "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-to-Announce-Second-Quarter-2026-Results/default.aspx",
@@ -143,7 +143,7 @@
     {
       "company": "KLA",
       "symbol": "KLAC",
-      "title": "KLAの決算関連IR更新（発表元で確認）",
+      "title": "KLAの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-07-02",
       "sourceName": "KLA公式IR RSS",
       "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/517/kla-announces-fourth-quarter-fiscal-year-2026-earnings-date",
@@ -152,14 +152,14 @@
     {
       "company": "KLA",
       "symbol": "KLAC",
-      "title": "KLAの決算関連IR更新（発表元で確認）",
+      "title": "KLAの決算関連IR更新（公式サイトで確認）",
       "articlePublishedDate": "2026-04-30",
       "sourceName": "KLA公式IR RSS",
       "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/514/kla-corporation-reports-fiscal-2026-third-quarter-results",
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-02 05:06 JST",
+  "lastSuccessAt": "2026-11-02 05:09 JST",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
@@ -192,7 +192,5 @@
       "matches": 2
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-02 05:06 JST",
-  "coreweaveSourceStatus": "Business Wire連携停止（取得情報の公開・保存の利用条件を確認中）",
-  "complianceNote": "企業RSS記事の文章や見出しを転載せず、一般化した表示とリンクのみ掲載。Business Wireは情報の再配信許可を得るまで停止。"
+  "majorCompaniesCheckedAt": "2026-11-02 05:09 JST"
 }
