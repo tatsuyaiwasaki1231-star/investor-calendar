@@ -2493,10 +2493,15 @@ async function loadIRNotices(){
   status.textContent='CoreWeaveの通知登録など、上記の公式リンクをご利用ください。';
   return;
  }
- const permitted=new Set(['investor.nvidia.com','nvidianews.nvidia.com','www.globenewswire.com','www.businesswire.com','businesswire.com']);
+ const permitted=new Set(['investor.nvidia.com','nvidianews.nvidia.com','www.globenewswire.com','www.businesswire.com','businesswire.com','ir.amd.com','ir.kla.com','investor.lamresearch.com','investor.atmeta.com','investors.delltechnologies.com']);
+ const seenByCompany={};
  const good=(obj.notices||[]).filter(x=>{
   try{const u=new URL(x.sourceUrl);return u.protocol==='https:'&&permitted.has(u.hostname)}catch(e){return false}
- }).slice(0,6);
+ }).sort((a,b)=>String(b.articlePublishedDate||'').localeCompare(String(a.articlePublishedDate||''))).filter(x=>{
+  const k=String(x.symbol||x.company||'');
+  seenByCompany[k]=(seenByCompany[k]||0)+1;
+  return seenByCompany[k]<=2;
+ }).slice(0,12);
  node.innerHTML=good.length?good.map(x=>'<div class="miniEvent"><div class="date">'+esc(x.articlePublishedDate||'日付未記載')+'</div><div class="name"><a href="'+esc(x.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+esc(x.title||'IR更新')+'</a><span class="sub">'+esc(x.company||'')+' ／ 決算日ではなく記事公開日</span></div></div>').join(''):'<p class="subtle">決算関連の公式新着は未取得です。</p>';
  status.textContent='RSS取得状況: '+(obj.status==='ok'?'確認成功':'取得未完了')+' ／ CoreWeave: '+(obj.coreweaveSourceStatus||'未確認')+' ／ 最終チェック: '+(obj.checkedAt||'未確認');
 }
