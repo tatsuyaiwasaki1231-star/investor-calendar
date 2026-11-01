@@ -35,7 +35,7 @@ SOURCE=[
 ]
 # Only full dates next to 決算発表. An adjacent 2027年3月期 does not
 # give us the announcement date unless a separate complete date appears.
-FULL_DATE=re.compile(r"(?P<year>20(?:26|27|28))\s*[年./-]\s*(?P<month>0?[1-9]|1[0-2])\s*[月./-]\s*(?P<day>0?[1-9]|[12]\d|3[01])\s*日?")
+FULL_DATE=re.compile(r"(?P<year>20(?:26|27|28))(?:\s*年\s*(?P<mj>0?[1-9]|1[0-2])\s*月\s*(?P<dj>0?[1-9]|[12]\d|3[01])\s*日|[./-](?P<mi>0?[1-9]|1[0-2])[./-](?P<di>0?[1-9]|[12]\d|3[01])(?!\d))")
 QUARTER=re.compile(r"第\s*([1-4])\s*四半期|(?:中間期)|(?:本決算)|(?:通期決算)")
 NOW=dt.datetime.now(JST).date()
 
@@ -97,7 +97,7 @@ def candidates(text,url,symbol,name):
   if "決算日" in before and not QUARTER.search(before):continue
   q=important_quarter(before)
   if not q:continue
-  try:date=dt.date(int(m.group("year")),int(m.group("month")),int(m.group("day")))
+  try:date=dt.date(int(m.group("year")),int(m.group("mj") or m.group("mi")),int(m.group("dj") or m.group("di")))
   except ValueError:continue
   if not NOW-dt.timedelta(days=1)<=date<=NOW+dt.timedelta(days=390):continue
   # Avoid turning an annual schedule's quarter/month into an exact day.
