@@ -30,6 +30,21 @@ FEEDS=[
  ("Lam Research","LRCX","https://investor.lamresearch.com/index.php?pagetemplate=rss&s=43",("lamresearch.com",)),
  ("Meta","META","https://investor.atmeta.com/rss/event.aspx",("atmeta.com",)),
  ("Meta","META","https://investor.atmeta.com/rss/pressrelease.aspx",("atmeta.com",)),
+ ("Intel","INTC","https://www.intc.com/rss/news-releases.xml",("intc.com",)),
+ ("Micron","MU","https://investors.micron.com/rss/news-releases.xml",("micron.com",)),
+ ("Marvell","MRVL","https://investor.marvell.com/rss/news-releases.xml",("marvell.com",)),
+ ("Qualcomm","QCOM","https://investor.qualcomm.com/rss/news-releases.xml",("qualcomm.com",)),
+ ("Dell Technologies","DELL","https://investors.delltechnologies.com/rss/events.xml",("delltechnologies.com",)),
+ ("Dell Technologies","DELL","https://investors.delltechnologies.com/rss/news-releases.xml",("delltechnologies.com",)),
+ ("Synopsys","SNPS","https://investor.synopsys.com/rss/news-releases.xml",("synopsys.com",)),
+ ("Cadence","CDNS","https://investor.cadence.com/rss/news-releases.xml",("cadence.com",)),
+ ("Oracle","ORCL","https://investor.oracle.com/rss/news-releases.xml",("oracle.com",)),
+ ("Cisco","CSCO","https://investor.cisco.com/rss/news-releases.xml",("cisco.com",)),
+ ("Arista Networks","ANET","https://investors.arista.com/rss/news-releases.xml",("arista.com",)),
+ ("Salesforce","CRM","https://investor.salesforce.com/rss/news-releases.xml",("salesforce.com",)),
+ ("Amazon","AMZN","https://ir.aboutamazon.com/rss/news-releases.xml",("aboutamazon.com",)),
+ ("Alphabet","GOOGL","https://abc.xyz/investor/rss/",("abc.xyz",)),
+ ("Supermicro","SMCI","https://ir.supermicro.com/rss/news-releases.xml",("supermicro.com",)),
 ]
 NEWS_RE=re.compile(r"earnings|financial results|quarterly results|earnings call|quarter.*results|results.*conference|earnings date|quarterly conference call",re.I)
 FUTURE_RE=re.compile(r"to report|will report|announces? .*earnings date|sets? .*conference|to announce|will announce|earnings conference call|earnings call|results on|financial results on|results.*webcast",re.I)
