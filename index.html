@@ -2545,7 +2545,7 @@ async function loadWatchlist(){
      if(u.protocol==='https:')link=u.href;
     }catch(error){}
     const impact=item.indexImpact==='direct'?'日経225採用':item.indexImpact==='indirect'?'関連銘柄':'';
-    chunks.push('<div class="watchEntry"><div><a href="'+esc(link||'#')+'" target="_blank" rel="noopener noreferrer">'+esc(item.symbol)+' '+esc(item.name)+'</a><small>'+esc(item.focus)+(impact?' ／ '+esc(impact):'')+'</small></div><span class="watchType">'+esc(labels[item.level]||'IRリンク')+'</span></div>');
+    chunks.push('<div class="watchEntry"><div><a href="'+esc(link||'#')+'" target="_blank" rel="noopener noreferrer">'+esc(item.symbol)+' '+esc(item.name)+'</a><small>'+esc(item.focus)+(impact?' ／ '+esc(impact):'')+'</small>'+(item.watchNote?'<small style="color:#a66b2b">'+esc(item.watchNote)+'</small>':'')+'</div><span class="watchType">'+esc(labels[item.level]||'IRリンク')+'</span></div>');
    }
   }
   node.innerHTML=chunks.join('')||'<p class="subtle">該当銘柄がありません。</p>';
