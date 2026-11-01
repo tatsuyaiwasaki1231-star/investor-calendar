@@ -32,6 +32,17 @@ SOURCE=[
  ("6857","アドバンテスト","https://www.advantest.com/ja/investors/ir-calendar/"),
  ("7735","SCREEN","https://www.screen.co.jp/ir/calendar"),
  ("6723","ルネサス","https://www.renesas.com/jp/ja/about/investor-relations"),
+ ("6981","村田製作所","https://corporate.murata.com/ja-jp/ir/calendar"),
+ ("6963","ローム","https://www.rohm.co.jp/ir/stock/calendar"),
+ ("6703","OKI","https://www.oki.com/global/ja/ir/stock/calendar/"),
+ ("6526","ソシオネクスト","https://www.socionext.com/jp/ir/calendar.html"),
+ ("4063","信越化学工業","https://www.shinetsu.co.jp/jp/ir/ir-calendar/"),
+ ("6701","NEC","https://group.nec/global/ja/about/ir/events/calendar/"),
+ ("6702","富士通","https://global.fujitsu/ja-jp/ir/ir-calendar"),
+ ("6525","KOKUSAI ELECTRIC","https://www.kokusai-electric.com/ir/calendar"),
+ ("4047","関東電化工業","https://www.kantodenka.co.jp/ir/calendar/"),
+ ("285A","キオクシアホールディングス","https://www.kioxia-holdings.com/ja-jp/ir.html"),
+ ("3436","SUMCO","https://www.sumcosi.com/ir/event/calendar.html"),
 ]
 # Only full dates next to 決算発表. An adjacent 2027年3月期 does not
 # give us the announcement date unless a separate complete date appears.
