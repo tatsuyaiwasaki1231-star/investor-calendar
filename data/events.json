@@ -1,13 +1,11 @@
 {
-  "updatedAt": "2026-11-02 03:34 JST",
+  "updatedAt": "2026-11-02 03:53 JST",
   "dataStatus": {
     "bls": "直接取得停止（アクセス制限を尊重）",
     "fmp": "未設定（米国企業の決算予定APIは未接続）",
-    "fred": "未設定（無料APIキーが必要）"
+    "fred": "取得成功 5/5系列・新規4件"
   },
-  "warnings": [
-    "FRED_API_KEY未設定。登録済み日程を表示しています。"
-  ],
+  "warnings": [],
   "events": [
     {
       "id": "jp-holiday-20261103",
@@ -314,6 +312,23 @@
       "timeLabel": "発表 22:30 JST"
     },
     {
+      "id": "fred-9-2026-11-17",
+      "date": "2026-11-17",
+      "time": "",
+      "marketDate": "2026-11-17",
+      "title": "米小売売上高（発表予定日）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "api",
+      "sourceName": "セントルイス連銀 FRED 発表予定日API",
+      "sourceUrl": "https://fred.stlouisfed.org/releases/calendar?rid=9",
+      "detail": "FREDに掲載された米国現地の発表予定日。日本時間の発表時刻は未確認。発表日程は変更される場合があります。",
+      "timeLabel": "米国現地日付・日本時間は要確認",
+      "automated": true
+    },
+    {
       "id": "us-nvda-20261118",
       "date": "2026-11-18",
       "time": "06:20",
@@ -360,6 +375,23 @@
       "sourceUrl": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html",
       "detail": "日本の祝日。",
       "timeLabel": "終日"
+    },
+    {
+      "id": "fred-53-2026-11-25",
+      "date": "2026-11-25",
+      "time": "",
+      "marketDate": "2026-11-25",
+      "title": "米GDP（発表予定日）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "api",
+      "sourceName": "セントルイス連銀 FRED 発表予定日API",
+      "sourceUrl": "https://fred.stlouisfed.org/releases/calendar?rid=53",
+      "detail": "FREDに掲載された米国現地の発表予定日。日本時間の発表時刻は未確認。発表日程は変更される場合があります。",
+      "timeLabel": "米国現地日付・日本時間は要確認",
+      "automated": true
     },
     {
       "id": "us-holiday-20261126",
@@ -474,6 +506,23 @@
       "timeLabel": "発表 22:30 JST"
     },
     {
+      "id": "fred-9-2026-12-16",
+      "date": "2026-12-16",
+      "time": "",
+      "marketDate": "2026-12-16",
+      "title": "米小売売上高（発表予定日）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "medium",
+      "confidence": "api",
+      "sourceName": "セントルイス連銀 FRED 発表予定日API",
+      "sourceUrl": "https://fred.stlouisfed.org/releases/calendar?rid=9",
+      "detail": "FREDに掲載された米国現地の発表予定日。日本時間の発表時刻は未確認。発表日程は変更される場合があります。",
+      "timeLabel": "米国現地日付・日本時間は要確認",
+      "automated": true
+    },
+    {
       "id": "boj-mpm-202612",
       "date": "2026-12-18",
       "time": "",
@@ -488,6 +537,23 @@
       "sourceUrl": "https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm",
       "detail": "2026年12月17～18日の日銀金融政策決定会合。政策変更、声明、総裁会見に注意。会見時刻等は未確認です。",
       "timeLabel": "12/17～18（日本時間・発表時刻未確認）"
+    },
+    {
+      "id": "fred-53-2026-12-23",
+      "date": "2026-12-23",
+      "time": "",
+      "marketDate": "2026-12-23",
+      "title": "米GDP（発表予定日）",
+      "symbol": "",
+      "region": "US",
+      "category": "macro",
+      "importance": "high",
+      "confidence": "api",
+      "sourceName": "セントルイス連銀 FRED 発表予定日API",
+      "sourceUrl": "https://fred.stlouisfed.org/releases/calendar?rid=53",
+      "detail": "FREDに掲載された米国現地の発表予定日。日本時間の発表時刻は未確認。発表日程は変更される場合があります。",
+      "timeLabel": "米国現地日付・日本時間は要確認",
+      "automated": true
     },
     {
       "id": "nyse-early-2026-12-24",
@@ -2122,5 +2188,6 @@
       "timeLabel": "終日"
     }
   ],
-  "syncCheckedAt": "2026-11-02 03:41 JST"
+  "syncCheckedAt": "2026-11-02 03:53 JST",
+  "lastOfficialSyncAt": "2026-11-02 03:53 JST"
 }
