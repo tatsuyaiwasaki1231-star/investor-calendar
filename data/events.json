@@ -138,6 +138,22 @@
       "timeLabel": "時刻未確認"
     },
     {
+      "id": "official-qcom-20261104",
+      "date": "2026-11-05",
+      "time": "06:45",
+      "marketDate": "2026-11-04",
+      "title": "Qualcomm（QCOM）2026年度Q4・通期決算説明会",
+      "symbol": "QCOM",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "Qualcomm公式プレスリリース 2026/10/22",
+      "sourceUrl": "https://www.qualcomm.com/news/releases/2026/10/qualcomm-schedules-fourth-quarter-and-fiscal-2026-earnings-relea",
+      "detail": "2026年11月4日（米国現地）引け後に決算発表。決算説明会は同日13:45 PT（標準時＝PST）のため日本時間11月5日06:45。スマホ用SoC、AI推論、データセンター領域の見通しに注意。",
+      "timeLabel": "説明会11月5日06:45 JST／発表は米国現地11月4日引け後"
+    },
+    {
       "id": "us-arm-20261105",
       "date": "2026-11-05",
       "time": "07:00",
@@ -232,6 +248,22 @@
       "sourceUrl": "https://www.toray.co.jp/ir/stocks/sto_011.html",
       "detail": "2027年3月期第2四半期決算発表日。時刻未確認。",
       "timeLabel": "時刻未確認"
+    },
+    {
+      "id": "official-tsm-sales-20261110",
+      "date": "2026-11-10",
+      "time": "14:30",
+      "marketDate": "2026-11-10",
+      "title": "TSMC（TSM）10月分月次売上公表",
+      "symbol": "TSM",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "TSMC公式IR Financial Calendar",
+      "sourceUrl": "https://investor.tsmc.com/english/financial-calendar",
+      "detail": "四半期決算ではありません。TSMCの2026年10月の月次売上公表予定。台湾時間13:30＝日本時間14:30。半導体ファウンドリー・AI半導体サプライチェーン関連の注目イベント。",
+      "timeLabel": "月次売上公表14:30 JST（四半期決算ではない）"
     },
     {
       "id": "jp-sbg-20261110",
@@ -412,6 +444,22 @@
       "automated": true
     },
     {
+      "id": "official-dell-20261124",
+      "date": "2026-11-25",
+      "time": "06:30",
+      "marketDate": "2026-11-24",
+      "title": "Dell Technologies（DELL）FY27 Q3決算イベント",
+      "symbol": "DELL",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "Dell Technologies公式IRイベント",
+      "sourceUrl": "https://investors.delltechnologies.com/",
+      "detail": "公式IRが2026年11月24日15:30 CSTにFY27 Q3 Resultsイベントを掲載。日本時間11月25日06:30。AIサーバー・ストレージ・粗利率に注目。",
+      "timeLabel": "決算イベント11月25日06:30 JST"
+    },
+    {
       "id": "us-holiday-20261126",
       "date": "2026-11-26",
       "time": "",
@@ -474,6 +522,22 @@
       "sourceUrl": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
       "detail": "FRB公表の2026年12月8～9日会合予定。米国現地12/9 14:00 ESTの定例声明公表時刻を日本時間に換算して12/10 04:00、会見は4:30。会合日程は直前の会合で確定する暫定予定。発表時刻は変更される場合があります。",
       "timeLabel": "声明発表予定 4:00 JST／会見 4:30 JST"
+    },
+    {
+      "id": "official-tsm-sales-20261210",
+      "date": "2026-12-10",
+      "time": "14:30",
+      "marketDate": "2026-12-10",
+      "title": "TSMC（TSM）11月分月次売上公表",
+      "symbol": "TSM",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "TSMC公式IR Financial Calendar",
+      "sourceUrl": "https://investor.tsmc.com/english/financial-calendar",
+      "detail": "四半期決算ではありません。TSMCの2026年11月の月次売上公表予定。台湾時間13:30＝日本時間14:30。",
+      "timeLabel": "月次売上公表14:30 JST（四半期決算ではない）"
     },
     {
       "id": "bls-official-cpi-2026-12-10",
@@ -668,6 +732,22 @@
       "sourceUrl": "https://www.nyse.com/trade/hours-calendars",
       "detail": "ニューヨーク証券取引所の公式休場日。",
       "timeLabel": "終日"
+    },
+    {
+      "id": "official-tsm-sales-20270108",
+      "date": "2027-01-08",
+      "time": "14:30",
+      "marketDate": "2027-01-08",
+      "title": "TSMC（TSM）12月分月次売上公表",
+      "symbol": "TSM",
+      "region": "US",
+      "category": "earnings",
+      "importance": "high",
+      "confidence": "confirmed",
+      "sourceName": "TSMC公式IR Financial Calendar",
+      "sourceUrl": "https://investor.tsmc.com/english/financial-calendar",
+      "detail": "四半期決算ではありません。TSMCの2026年12月の月次売上公表予定。台湾時間13:30＝日本時間14:30。",
+      "timeLabel": "月次売上公表14:30 JST（四半期決算ではない）"
     },
     {
       "id": "bls-official-nfp-2027-01-08",
