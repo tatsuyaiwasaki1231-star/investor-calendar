@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-01 14:29 JST",
+  "updatedAt": "2026-11-02 03:34 JST",
   "dataStatus": {
-    "bls": "error",
+    "bls": "取得失敗・前回データを維持",
     "fmp": "not configured"
   },
   "warnings": [
