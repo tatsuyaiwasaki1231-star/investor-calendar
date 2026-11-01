@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-02 04:16 JST",
+  "updatedAt": "2026-11-02 04:18 JST",
   "dataStatus": {
     "bls": "直接取得停止（アクセス制限を尊重）",
     "fmp": "未設定（米国企業の決算予定APIは未接続）",
     "fred": "取得成功 5/5系列・新規4件",
     "coreweave": "Business Wire RSS取得成功・新規決算0件",
-    "majorEarnings": "公式RSS 5/9取得成功・新規決算日 0件"
+    "majorEarnings": "公式RSS 5/5取得成功・新規決算日 0件"
   },
   "warnings": [],
   "events": [
@@ -2238,8 +2238,8 @@
       "timeLabel": "終日"
     }
   ],
-  "syncCheckedAt": "2026-11-02 04:16 JST",
-  "lastOfficialSyncAt": "2026-11-02 04:16 JST",
-  "lastCoreWeaveCheckAt": "2026-11-02 04:16 JST",
-  "majorEarningsCheckedAt": "2026-11-02 04:16 JST"
+  "syncCheckedAt": "2026-11-02 04:18 JST",
+  "lastOfficialSyncAt": "2026-11-02 04:18 JST",
+  "lastCoreWeaveCheckAt": "2026-11-02 04:18 JST",
+  "majorEarningsCheckedAt": "2026-11-02 04:18 JST"
 }

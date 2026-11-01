@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02 04:16 JST",
+  "checkedAt": "2026-11-02 04:18 JST",
   "status": "ok",
   "sources": [
     {
@@ -141,33 +141,13 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-02 04:16 JST",
+  "lastSuccessAt": "2026-11-02 04:18 JST",
   "coreweaveSourceStatus": "RSS取得成功・該当見出し0件",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
       "status": "ok",
       "matches": 2
-    },
-    {
-      "name": "Broadcom / events.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 403: Forbidden"
-    },
-    {
-      "name": "Broadcom / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 403: Forbidden"
-    },
-    {
-      "name": "Applied Materials / news-releases.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 403: Forbidden"
-    },
-    {
-      "name": "Applied Materials / events.xml",
-      "status": "unavailable",
-      "detail": "HTTP Error 403: Forbidden"
     },
     {
       "name": "KLA / rss",
@@ -190,5 +170,5 @@
       "matches": 4
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-02 04:16 JST"
+  "majorCompaniesCheckedAt": "2026-11-02 04:18 JST"
 }
