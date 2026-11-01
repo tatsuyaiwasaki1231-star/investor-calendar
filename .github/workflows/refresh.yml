@@ -4,7 +4,6 @@ on:
     paths:
       - '.github/workflows/refresh.yml'
       - 'scripts/update_ir_notices.py'
-      - 'scripts/update_coreweave.py'
       - 'scripts/update_major_earnings.py'
       - 'scripts/update_jp_ir.py'
   workflow_dispatch:
@@ -21,13 +20,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      # FRED API is intentionally disabled for public redistribution compliance.
+      # FRED API and Business Wire archiving are disabled pending redistribution permission.
       - name: Check official company IR RSS
         run: python scripts/update_ir_notices.py
       - name: Verify RSS JSON
         run: python -m json.tool data/ir_notices.json > /dev/null
-      - name: Check CoreWeave official earnings announcement
-        run: python scripts/update_coreweave.py
       - name: Check major company official earnings RSS
         run: python scripts/update_major_earnings.py
       - name: Check Japanese company official earnings IR calendars
