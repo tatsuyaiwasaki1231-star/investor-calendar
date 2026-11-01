@@ -51,7 +51,7 @@ def fetch(source):
   if not published and stamp:
    try:published=dt.datetime.fromisoformat(stamp.replace("Z","+00:00")).astimezone(JST).date().isoformat()
    except ValueError:pass
-  notices.append({"company":company,"symbol":symbol,"title":title[:180],"articlePublishedDate":published,"sourceName":name,"sourceUrl":link,"kind":"ir-news-not-earnings-date"})
+  notices.append({"company":company,"symbol":symbol,"title":company+"の決算関連IR更新（公式サイトで確認）","articlePublishedDate":published,"sourceName":name,"sourceUrl":link,"kind":"ir-news-not-earnings-date"})
  return notices
 
 def main():
