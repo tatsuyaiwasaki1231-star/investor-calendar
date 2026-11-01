@@ -51,6 +51,16 @@ header{background:linear-gradient(112deg,#0a1934,#16315e 68%,#1e4583);color:whit
 .impactCaution{font-size:10px;color:#7b7280;line-height:1.75;margin:9px 0 0}
 .impactSource{font-size:10px;display:inline-block;margin:3px 10px 0 0}
 @media(max-width:680px){.impactMini{font-size:10px}.impactStock{grid-template-columns:minmax(0,1fr) auto}.impactStock .stockWhy{font-size:11px}}
+.watchLead{font-size:11px;line-height:1.8;color:#677792;margin:7px 0 12px}
+.watchFilters{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.watchFilters input{padding:9px 10px;border:1px solid #d9e3f0;border-radius:8px;min-width:0;width:100%;font-size:12px}
+.watchScroll{max-height:390px;overflow:auto;overscroll-behavior:contain}
+.watchGroup{font-size:12px;font-weight:800;color:#415879;padding:10px 0 5px;border-bottom:1px solid #e7edf6;margin-top:5px}
+.watchEntry{display:flex;gap:7px;justify-content:space-between;align-items:flex-start;padding:9px 1px;border-bottom:1px dashed #e5ebf4}
+.watchEntry a{font-size:12px;font-weight:800;line-height:1.5;overflow-wrap:anywhere}
+.watchEntry small{display:block;color:#71819a;font-size:10px;line-height:1.5;margin-top:2px}
+.watchType{font-size:10px;color:#61718b;white-space:nowrap;border:1px solid #dce4ef;background:#f6f8fc;border-radius:5px;padding:3px 5px}
+
 </style>
 </head>
 <body>
@@ -59,7 +69,7 @@ header{background:linear-gradient(112deg,#0a1934,#16315e 68%,#1e4583);color:whit
   <section class="toolbar"><div class="topTools"><div class="monthTools"><button class="navBtn" id="prev" aria-label="前の月">‹</button><strong id="monthLabel">2026年11月</strong><button class="navBtn" id="next" aria-label="次の月">›</button><button class="btn" id="today">今月</button><input type="month" id="jumpMonth" min="2026-11" value="2026-11" aria-label="表示する月を選択" title="年月を選ぶ" /></div><div class="rightTools"><input class="search" id="search" placeholder="企業名・銘柄コードを検索" aria-label="イベントを検索"/><button class="btn" id="refresh">↻ 更新</button><button class="btn" id="add">＋ 予定追加</button><button class="btn" id="export">↓ .ics</button></div></div>
   <div class="filters"><div class="filterSet"><label class="pill jp"><input type="checkbox" id="jp" checked> 日本株</label><label class="pill us"><input type="checkbox" id="us" checked> 米国株</label><label class="pill macro"><input type="checkbox" id="macro" checked> 経済・政策</label><label class="pill holiday"><input type="checkbox" id="holiday" checked> 休場</label><label class="pill riskRiskFilter"><input type="checkbox" id="riskOnly"> ⚠ 警戒イベントのみ</label><label class="pill"><input type="checkbox" id="important"> ★ 重要のみ</label><label class="pill"><input type="checkbox" id="confirmed"> 公式掲載のみ（予定含む）</label></div><div class="filterSet"><button class="viewBtn" id="calendarToggle">カレンダー表示</button><button class="viewBtn" id="agendaToggle">一覧表示</button></div></div></section>
   <div class="layout"><main class="panel calendarPanel"><div class="calTop"><h2 id="calHeading">2026年11月の注目イベント</h2><span class="legend" id="count">時刻は日本時間（JST）</span><span class="riskSummary" id="riskSummary" aria-live="polite"></span></div><div class="calendar" id="calendar"></div><div class="listPanel hide" id="agenda"></div><div class="notice"><b>警戒度の読み方：</b>赤＝高、黄＝中。事前に公表されたイベントの重要性だけで判定し、実際の株価・社債利回り・市場予想との差は反映していません。影響セクターと監視銘柄は事業内容・政策感応度に基づく参考例であり、売買推奨ではありません。<b>日時の読み方：</b>米国企業は発表・説明会が日本時間の翌朝になる場合があります。APIで発表時刻を取得できない場合は「現地日付のみ」と表示し、日本時間に換算しません。公式IRで確認済みの日程とAPI参考日程は別表示です。</div></main>
-  <aside class="side"><section class="panel riskPanel"><h2>⚠ 暴落・急変警戒日</h2><div class="riskMonthStats" id="riskMonthStats"></div><p class="riskIntroduction">予定されたイベントが相場を急変させる可能性を整理。該当日を押すと「警戒理由・悪化条件・影響セクター・監視銘柄とその根拠」を表示します。</p><div class="riskCards" id="riskCards"></div><p class="riskExplain">警戒度はイベントの波及範囲と重要性をもとにした<b>事前チェック優先度</b>です。銘柄名は関連性による監視例であり、下落予測・取引推奨ではありません。特に「間接」は株価連動や取引関係を意味しません。銀行株と輸出株など、同じイベントでも逆方向に動く場合があります。</p></section><section class="panel"><h2>★ 今月の最注目決算</h2><div class="spotlight" id="spotlights"></div></section><section class="panel"><h2>この先の重要イベント</h2><div class="eventList" id="upcoming"></div></section><section class="panel"><h2>日程未登録の注目銘柄</h2><p class="subtle" style="font-size:11px;line-height:1.6">この月に確定日・参考日が未登録の銘柄。未発表とは限らず、取得待ちの場合もあります。</p><div id="missingEarnings" class="missing"></div></section><section class="panel" id="irNewsPanel"><h2>📰 企業発表・公式IR新着</h2><p class="subtle" style="line-height:1.6;font-size:11px">NVIDIA・AMD・KLA・Lam Research・Metaの公式RSS、およびCoreWeaveの公開ニュース配信を確認。記事の公開日は決算日ではありません。</p><div class="eventList" id="irNewsList"><p class="subtle">公式RSSを確認中</p></div><p class="subtle" id="irNewsStatus"></p><p style="font-size:11px;line-height:1.7"><a href="https://investors.coreweave.com/news/" rel="noopener noreferrer" target="_blank">CoreWeave公式ニュースを見る</a>　<a href="https://group.softbank/ir/calendar" rel="noopener noreferrer" target="_blank">ソフトバンクG公式IR日程</a></p></section><section class="panel"><h2>自動更新について</h2><p style="font-size:12px;color:#566b89;line-height:1.8">GitHub Pages公開後、毎日朝と夕方にデータの更新処理を実行します（公開・Actions設定後）。FRED公式APIによる米経済指標の予定日を更新します。NVIDIA、AMD、KLA、Lam Research、Metaの公式RSSとCoreWeaveの公開ニュースを確認します。BroadcomとApplied MaterialsのRSSはアクセス制限により停止中で、確認済みの日程のみ登録します。ASMLは公式IR掲載日を登録しています。日本株のJ-Quants無料プランは12週間遅延します。</p><p class="subtle" id="syncDetails">読み込み中</p></section></aside></div>
+  <aside class="side"><section class="panel riskPanel"><h2>⚠ 暴落・急変警戒日</h2><div class="riskMonthStats" id="riskMonthStats"></div><p class="riskIntroduction">予定されたイベントが相場を急変させる可能性を整理。該当日を押すと「警戒理由・悪化条件・影響セクター・監視銘柄とその根拠」を表示します。</p><div class="riskCards" id="riskCards"></div><p class="riskExplain">警戒度はイベントの波及範囲と重要性をもとにした<b>事前チェック優先度</b>です。銘柄名は関連性による監視例であり、下落予測・取引推奨ではありません。特に「間接」は株価連動や取引関係を意味しません。銀行株と輸出株など、同じイベントでも逆方向に動く場合があります。</p></section><section class="panel"><h2>★ 今月の最注目決算</h2><div class="spotlight" id="spotlights"></div></section><section class="panel"><h2>この先の重要イベント</h2><div class="eventList" id="upcoming"></div></section><section class="panel"><h2>日程未登録の注目銘柄</h2><p class="subtle" style="font-size:11px;line-height:1.6">この月に確定日・参考日が未登録の銘柄。未発表とは限らず、取得待ちの場合もあります。</p><div id="missingEarnings" class="missing"></div></section><section class="panel" id="watchlistPanel"><h2>🔎 公式IR監視リスト（44銘柄）</h2><p class="watchLead">無料で確認できる公式IRへのリンク集です。「自動RSS」はニュース監視、「公式日程」は一部の登録済み日程を示します。すべての決算日の自動取得を意味しません。</p><details><summary style="font-size:12px;font-weight:800;color:#31578a;cursor:pointer;padding:8px 2px">監視銘柄を表示・検索</summary><div class="watchFilters"><input id="watchSearch" type="search" placeholder="銘柄名・コード・業種で検索" aria-label="監視銘柄検索"></div><p id="watchCount" class="subtle"></p><div id="watchRows" class="watchScroll"><p class="subtle">読み込み中</p></div></details></section><section class="panel" id="irNewsPanel"><h2>📰 企業発表・公式IR新着</h2><p class="subtle" style="line-height:1.6;font-size:11px">NVIDIA・AMD・KLA・Lam Research・Meta・Dellの公式RSS、およびCoreWeaveの公開ニュース配信を確認。記事の公開日は決算日ではありません。</p><div class="eventList" id="irNewsList"><p class="subtle">公式RSSを確認中</p></div><p class="subtle" id="irNewsStatus"></p><p style="font-size:11px;line-height:1.7"><a href="https://investors.coreweave.com/news/" rel="noopener noreferrer" target="_blank">CoreWeave公式ニュースを見る</a>　<a href="https://group.softbank/ir/calendar" rel="noopener noreferrer" target="_blank">ソフトバンクG公式IR日程</a></p></section><section class="panel"><h2>自動更新について</h2><p style="font-size:12px;color:#566b89;line-height:1.8">GitHub Pages公開後、毎日朝と夕方にデータの更新処理を実行します（公開・Actions設定後）。FRED公式APIによる米経済指標の予定日を更新します。NVIDIA、AMD、KLA、Lam Research、Metaの公式RSSとCoreWeaveの公開ニュースを確認します。BroadcomとApplied MaterialsのRSSはアクセス制限により停止中で、確認済みの日程のみ登録します。ASMLは公式IR掲載日を登録しています。日本株のJ-Quants無料プランは12週間遅延します。</p><p class="subtle" id="syncDetails">読み込み中</p></section></aside></div>
   <div class="foot">© Investor Calendar • 警戒情報は事前に確認すべき材料の一覧であり、暴落を予測・保証するものではありません。投資判断前に最新の公式情報をご確認ください。</div>
 </div>
 <div id="modalRoot"></div>
@@ -2491,7 +2501,53 @@ async function loadIRNotices(){
  status.textContent='RSS取得状況: '+(obj.status==='ok'?'確認成功':'取得未完了')+' ／ CoreWeave: '+(obj.coreweaveSourceStatus||'未確認')+' ／ 最終チェック: '+(obj.checkedAt||'未確認');
 }
 
-window.addEventListener('keydown',ev=>{if(ev.key==='Escape')close()});reload();loadIRNotices();
+
+async function loadWatchlist(){
+ const node=$('watchRows'),counter=$('watchCount'),search=$('watchSearch');
+ if(!node||!counter||!search)return;
+ let items=[];
+ try{
+  let response;
+  try {
+   response=await fetch('https://raw.githubusercontent.com/tatsuyaiwasaki1231-star/investor-calendar/main/data/watchlist.json?t='+Date.now(),{cache:'no-store'});
+   if(!response.ok)throw Error('watchlist unavailable on raw GitHub');
+  }catch(remote){
+   response=await fetch('data/watchlist.json?t='+Date.now(),{cache:'no-store'});
+   if(!response.ok)throw remote;
+  }
+  const data=await response.json();
+  if(!Array.isArray(data.items))throw Error('invalid watchlist data');
+  items=data.items;
+ }catch(err){
+  node.textContent='監視銘柄一覧を取得できませんでした。画面を更新してください。';
+  return;
+ }
+ const labels={rss:'ニュースRSS',calendar:'公式日程',link:'IRリンク'};
+ function refreshRows(){
+  const q=search.value.trim().toLowerCase();
+  const matches=items.filter(x=>[x.symbol,x.name,x.focus,x.market].some(t=>String(t||'').toLowerCase().includes(q)));
+  counter.textContent='表示 '+matches.length+' / '+items.length+' 銘柄。各銘柄を押すと企業の公式IRへ移動します。';
+  const chunks=[];
+  for(const market of ['米国','日本']){
+   const arr=matches.filter(x=>x.market===market);
+   if(!arr.length)continue;
+   chunks.push('<div class="watchGroup">'+esc(market)+'株 '+arr.length+'件</div>');
+   for(const item of arr){
+    let link='';
+    try{
+     const u=new URL(item.url);
+     if(u.protocol==='https:')link=u.href;
+    }catch(error){}
+    chunks.push('<div class="watchEntry"><div><a href="'+esc(link||'#')+'" target="_blank" rel="noopener noreferrer">'+esc(item.symbol)+' '+esc(item.name)+'</a><small>'+esc(item.focus)+'</small></div><span class="watchType">'+esc(labels[item.level]||'IRリンク')+'</span></div>');
+   }
+  }
+  node.innerHTML=chunks.join('')||'<p class="subtle">該当銘柄がありません。</p>';
+ }
+ search.addEventListener('input',refreshRows);
+ refreshRows();
+}
+
+window.addEventListener('keydown',ev=>{if(ev.key==='Escape')close()});reload();loadIRNotices();loadWatchlist();
 })();
 </script>
 <div style="max-width:1100px;margin:8px auto 32px;padding:12px 18px;font-size:12px;line-height:1.7;color:#66758b;border-top:1px solid #dce4eb">一部の経済指標日程にはFRED APIを使用します。This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis. <a href="https://fred.stlouisfed.org/docs/api/terms_of_use.html" target="_blank" rel="noopener noreferrer">FRED API利用規約</a>。掲載日程は参考情報です。公式発表で確認してください。</div>
