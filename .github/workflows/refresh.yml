@@ -5,6 +5,7 @@ on:
       - '.github/workflows/refresh.yml'
       - 'scripts/update_events.py'
       - 'scripts/update_ir_notices.py'
+      - 'scripts/update_coreweave.py'
   workflow_dispatch:
   schedule:
     - cron: '5 22,10 * * *'
@@ -27,6 +28,8 @@ jobs:
         run: python scripts/update_ir_notices.py
       - name: Verify RSS JSON
         run: python -m json.tool data/ir_notices.json > /dev/null
+      - name: Check CoreWeave official earnings announcement
+        run: python scripts/update_coreweave.py
       - name: Verify JSON
         run: python -m json.tool data/events.json > /dev/null
       - name: Commit refreshed data
