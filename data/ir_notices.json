@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02 04:26 JST",
+  "checkedAt": "2026-11-02 04:39 JST",
   "status": "ok",
   "sources": [
     {
@@ -159,7 +159,7 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-02 04:26 JST",
+  "lastSuccessAt": "2026-11-02 04:39 JST",
   "coreweaveSourceStatus": "RSS取得成功・該当見出し0件",
   "majorCompaniesSources": [
     {
@@ -193,5 +193,5 @@
       "matches": 2
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-02 04:26 JST"
+  "majorCompaniesCheckedAt": "2026-11-02 04:39 JST"
 }
