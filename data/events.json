@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02 04:39 JST",
+  "updatedAt": "2026-11-02 04:40 JST",
   "dataStatus": {
     "bls": "直接取得停止（アクセス制限を尊重）",
     "fmp": "未設定（米国企業の決算予定APIは未接続）",
@@ -2463,10 +2463,10 @@
       "timeLabel": "終日"
     }
   ],
-  "syncCheckedAt": "2026-11-02 04:39 JST",
-  "lastOfficialSyncAt": "2026-11-02 04:39 JST",
-  "lastCoreWeaveCheckAt": "2026-11-02 04:39 JST",
-  "majorEarningsCheckedAt": "2026-11-02 04:39 JST",
+  "syncCheckedAt": "2026-11-02 04:40 JST",
+  "lastOfficialSyncAt": "2026-11-02 04:40 JST",
+  "lastCoreWeaveCheckAt": "2026-11-02 04:40 JST",
+  "majorEarningsCheckedAt": "2026-11-02 04:40 JST",
   "japanIRSources": [
     {
       "symbol": "8035",
@@ -2478,23 +2478,9 @@
     {
       "symbol": "6146",
       "name": "ディスコ",
-      "state": "needs_review",
-      "reason": "同じ四半期で別の日程が登録済み",
-      "candidateDate": "2027-01-02"
-    },
-    {
-      "symbol": "6146",
-      "name": "ディスコ",
       "state": "ok",
       "fullDates": 1,
       "newEvents": 0
-    },
-    {
-      "symbol": "9984",
-      "name": "ソフトバンクグループ",
-      "state": "needs_review",
-      "reason": "同じ四半期で別の日程が登録済み",
-      "candidateDate": "2026-11-01"
     },
     {
       "symbol": "9984",
@@ -2509,13 +2495,6 @@
       "state": "ok",
       "fullDates": 2,
       "newEvents": 0
-    },
-    {
-      "symbol": "4186",
-      "name": "東京応化工業",
-      "state": "needs_review",
-      "reason": "同じ四半期で別の日程が登録済み",
-      "candidateDate": "2026-11-01"
     },
     {
       "symbol": "4186",
@@ -2553,5 +2532,5 @@
       "newEvents": 0
     }
   ],
-  "japanIRCheckedAt": "2026-11-02 04:39 JST"
+  "japanIRCheckedAt": "2026-11-02 04:40 JST"
 }
