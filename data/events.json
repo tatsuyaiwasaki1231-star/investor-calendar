@@ -2496,7 +2496,7 @@
   ],
   "syncCheckedAt": "2026-11-02 04:52 JST",
   "lastCoreWeaveCheckAt": "2026-11-02 04:52 JST",
-  "majorEarningsCheckedAt": "2026-11-02 07:38 JST",
+  "majorEarningsCheckedAt": "2026-11-02 20:00 JST",
   "japanIRSources": [
     {
       "symbol": "8035",
@@ -2660,6 +2660,6 @@
       "newEvents": 0
     }
   ],
-  "japanIRCheckedAt": "2026-11-02 05:10 JST",
+  "japanIRCheckedAt": "2026-11-02 20:00 JST",
   "complianceReviewedAt": "2026-11-02"
 }
