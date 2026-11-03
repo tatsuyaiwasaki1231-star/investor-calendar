@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-03 19:56 JST",
+  "checkedAt": "2026-11-04 07:43 JST",
   "status": "ok",
   "sources": [
     {
@@ -14,6 +14,15 @@
     }
   ],
   "notices": [
+    {
+      "company": "AMD",
+      "symbol": "AMD",
+      "title": "AMDの決算関連IR更新（公式サイトで確認）",
+      "articlePublishedDate": "2026-11-04",
+      "sourceName": "AMD公式IR RSS",
+      "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results",
+      "kind": "ir-news-not-earnings-date"
+    },
     {
       "company": "KLA",
       "symbol": "KLAC",
@@ -159,12 +168,12 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-03 19:56 JST",
+  "lastSuccessAt": "2026-11-04 07:43 JST",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
       "status": "ok",
-      "matches": 2
+      "matches": 3
     },
     {
       "name": "KLA / rss",
@@ -192,5 +201,5 @@
       "matches": 2
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-03 19:56 JST"
+  "majorCompaniesCheckedAt": "2026-11-04 07:43 JST"
 }
