@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-04 20:14 JST",
+  "checkedAt": "2026-11-05 07:49 JST",
   "status": "ok",
   "sources": [
     {
@@ -168,7 +168,7 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-04 20:14 JST",
+  "lastSuccessAt": "2026-11-05 07:49 JST",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
@@ -201,5 +201,5 @@
       "matches": 2
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-04 20:14 JST"
+  "majorCompaniesCheckedAt": "2026-11-05 07:49 JST"
 }
