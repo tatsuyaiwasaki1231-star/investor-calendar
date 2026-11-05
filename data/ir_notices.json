@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-05 07:49 JST",
+  "checkedAt": "2026-11-05 20:04 JST",
   "status": "ok",
   "sources": [
     {
@@ -48,15 +48,6 @@
       "articlePublishedDate": "2026-10-29",
       "sourceName": "NVIDIA公式プレスリリースRSS",
       "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-sets-conference-call-for-third-quarter-financial-results-6928873",
-      "kind": "ir-news-not-earnings-date"
-    },
-    {
-      "company": "Lam Research",
-      "symbol": "LRCX",
-      "title": "Lam Researchの決算関連IR更新（公式サイトで確認）",
-      "articlePublishedDate": "2026-10-22",
-      "sourceName": "Lam Research公式IR RSS",
-      "sourceUrl": "https://investor.lamresearch.com/2026-10-21-Lam-Research-Corporation-Reports-Financial-Results-for-the-Quarter-Ended-September-27,-2026",
       "kind": "ir-news-not-earnings-date"
     },
     {
@@ -168,7 +159,7 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-05 07:49 JST",
+  "lastSuccessAt": "2026-11-05 20:04 JST",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
@@ -182,8 +173,8 @@
     },
     {
       "name": "Lam Research / index.php",
-      "status": "ok",
-      "matches": 1
+      "status": "unavailable",
+      "detail": "The read operation timed out"
     },
     {
       "name": "Meta / event.aspx",
@@ -201,5 +192,5 @@
       "matches": 2
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-05 07:49 JST"
+  "majorCompaniesCheckedAt": "2026-11-05 20:04 JST"
 }
