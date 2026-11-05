@@ -5,7 +5,7 @@
     "fmp": "未設定（米国企業の決算予定APIは未接続）",
     "fred": "公開再配信・保存に関する利用条件の確認のため、FRED API連携を停止",
     "coreweave": "Business Wire自動取得を停止（配信情報の保存・再配信に関する規約確認）",
-    "majorEarnings": "公式RSS 5/6取得成功・新規決算日 0件",
+    "majorEarnings": "公式RSS 6/6取得成功・新規決算日 0件",
     "japanOfficialIR": "IRページ取得成功 23/23社、新規日程0件（要確認は別途）"
   },
   "warnings": [
@@ -2496,7 +2496,7 @@
   ],
   "syncCheckedAt": "2026-11-02 04:52 JST",
   "lastCoreWeaveCheckAt": "2026-11-02 04:52 JST",
-  "majorEarningsCheckedAt": "2026-11-05 20:04 JST",
+  "majorEarningsCheckedAt": "2026-11-06 07:49 JST",
   "japanIRSources": [
     {
       "symbol": "8035",
