@@ -6,7 +6,7 @@
     "fred": "公開再配信・保存に関する利用条件の確認のため、FRED API連携を停止",
     "coreweave": "Business Wire自動取得を停止（配信情報の保存・再配信に関する規約確認）",
     "majorEarnings": "公式RSS 6/6取得成功・新規決算日 0件",
-    "japanOfficialIR": "IRページ取得成功 22/23社、新規日程1件（要確認は別途）"
+    "japanOfficialIR": "IRページ取得成功 23/23社、新規日程0件（要確認は別途）"
   },
   "warnings": [
     "FRED由来の日程は公開JSONから除外。CPI・雇用統計などはBLS・BEA等の公式予定表で最新日程を確認してください。",
@@ -2530,7 +2530,7 @@
   ],
   "syncCheckedAt": "2026-11-02 04:52 JST",
   "lastCoreWeaveCheckAt": "2026-11-02 04:52 JST",
-  "majorEarningsCheckedAt": "2026-11-08 07:38 JST",
+  "majorEarningsCheckedAt": "2026-11-08 19:44 JST",
   "japanIRSources": [
     {
       "symbol": "8035",
@@ -2542,8 +2542,9 @@
     {
       "symbol": "6146",
       "name": "ディスコ",
-      "state": "skipped",
-      "reason": "robots unreadable: URLError"
+      "state": "ok",
+      "fullDates": 1,
+      "newEvents": 0
     },
     {
       "symbol": "9984",
@@ -2571,7 +2572,7 @@
       "name": "ミネベアミツミ",
       "state": "ok",
       "fullDates": 2,
-      "newEvents": 1
+      "newEvents": 0
     },
     {
       "symbol": "6857",
@@ -2693,6 +2694,6 @@
       "newEvents": 0
     }
   ],
-  "japanIRCheckedAt": "2026-11-07 19:43 JST",
+  "japanIRCheckedAt": "2026-11-08 19:44 JST",
   "complianceReviewedAt": "2026-11-02"
 }
