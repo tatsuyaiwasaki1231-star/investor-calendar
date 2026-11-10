@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-10 19:54 JST",
+  "checkedAt": "2026-11-11 07:44 JST",
   "status": "ok",
   "sources": [
     {
@@ -14,6 +14,15 @@
     }
   ],
   "notices": [
+    {
+      "company": "Dell Technologies",
+      "symbol": "DELL",
+      "title": "Dell Technologiesの決算関連IR更新（公式サイトで確認）",
+      "articlePublishedDate": "2026-11-11",
+      "sourceName": "Dell Technologies公式IR RSS",
+      "sourceUrl": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results",
+      "kind": "ir-news-not-earnings-date"
+    },
     {
       "company": "AMD",
       "symbol": "AMD",
@@ -114,15 +123,6 @@
       "kind": "ir-news-not-earnings-date"
     },
     {
-      "company": "AMD",
-      "symbol": "AMD",
-      "title": "AMDの決算関連IR更新（公式サイトで確認）",
-      "articlePublishedDate": "2026-08-05",
-      "sourceName": "AMD公式IR RSS",
-      "sourceUrl": "https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results",
-      "kind": "ir-news-not-earnings-date"
-    },
-    {
       "company": "Meta",
       "symbol": "META",
       "title": "Metaの決算関連IR更新（公式サイトで確認）",
@@ -159,12 +159,12 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-10 19:54 JST",
+  "lastSuccessAt": "2026-11-11 07:44 JST",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
       "status": "ok",
-      "matches": 3
+      "matches": 2
     },
     {
       "name": "KLA / rss",
@@ -189,8 +189,8 @@
     {
       "name": "Dell Technologies / news-releases.xml",
       "status": "ok",
-      "matches": 2
+      "matches": 3
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-10 19:54 JST"
+  "majorCompaniesCheckedAt": "2026-11-11 07:44 JST"
 }
