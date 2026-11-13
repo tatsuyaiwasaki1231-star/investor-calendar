@@ -2547,7 +2547,7 @@
   ],
   "syncCheckedAt": "2026-11-02 04:52 JST",
   "lastCoreWeaveCheckAt": "2026-11-02 04:52 JST",
-  "majorEarningsCheckedAt": "2026-11-13 07:47 JST",
+  "majorEarningsCheckedAt": "2026-11-13 20:00 JST",
   "japanIRSources": [
     {
       "symbol": "8035",
@@ -2567,7 +2567,7 @@
       "symbol": "9984",
       "name": "ソフトバンクグループ",
       "state": "ok",
-      "fullDates": 1,
+      "fullDates": 0,
       "newEvents": 0
     },
     {
@@ -2711,6 +2711,6 @@
       "newEvents": 0
     }
   ],
-  "japanIRCheckedAt": "2026-11-12 20:04 JST",
+  "japanIRCheckedAt": "2026-11-13 20:00 JST",
   "complianceReviewedAt": "2026-11-02"
 }
