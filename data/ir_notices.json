@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-17 20:04 JST",
+  "checkedAt": "2026-11-18 07:56 JST",
   "status": "ok",
   "sources": [
     {
@@ -10,10 +10,19 @@
     {
       "name": "NVIDIA公式プレスリリースRSS",
       "status": "ok",
-      "matches": 1
+      "matches": 2
     }
   ],
   "notices": [
+    {
+      "company": "NVIDIA",
+      "symbol": "NVDA",
+      "title": "NVIDIAの決算関連IR更新（公式サイトで確認）",
+      "articlePublishedDate": "2026-11-18",
+      "sourceName": "NVIDIA公式プレスリリースRSS",
+      "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
+      "kind": "ir-news-not-earnings-date"
+    },
     {
       "company": "Dell Technologies",
       "symbol": "DELL",
@@ -150,7 +159,7 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-17 20:04 JST",
+  "lastSuccessAt": "2026-11-18 07:56 JST",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
@@ -183,5 +192,5 @@
       "matches": 2
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-17 20:04 JST"
+  "majorCompaniesCheckedAt": "2026-11-18 07:56 JST"
 }
