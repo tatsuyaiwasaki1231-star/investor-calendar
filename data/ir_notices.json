@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-11-18 07:56 JST",
+  "checkedAt": "2026-11-18 20:06 JST",
   "status": "ok",
   "sources": [
     {
       "name": "NVIDIA公式IRイベントRSS",
       "status": "ok",
-      "matches": 1
+      "matches": 0
     },
     {
       "name": "NVIDIA公式プレスリリースRSS",
@@ -48,15 +48,6 @@
       "articlePublishedDate": "2026-10-29",
       "sourceName": "KLA公式IR RSS",
       "sourceUrl": "https://ir.kla.com/news-events/press-releases/detail/523/kla-corporation-reports-fiscal-2027-first-quarter-results",
-      "kind": "ir-news-not-earnings-date"
-    },
-    {
-      "company": "NVIDIA",
-      "symbol": "NVDA",
-      "title": "NVIDIAの決算関連IR更新（公式サイトで確認）",
-      "articlePublishedDate": "2026-10-29",
-      "sourceName": "NVIDIA公式IRイベントRSS",
-      "sourceUrl": "https://investor.nvidia.com/events-and-presentations/events-and-presentations/event-details/2026/NVIDIA-3rd-Quarter-FY27-Financial-Results/default.aspx",
       "kind": "ir-news-not-earnings-date"
     },
     {
@@ -159,7 +150,7 @@
       "kind": "ir-news-not-earnings-date"
     }
   ],
-  "lastSuccessAt": "2026-11-18 07:56 JST",
+  "lastSuccessAt": "2026-11-18 20:06 JST",
   "majorCompaniesSources": [
     {
       "name": "AMD / rss",
@@ -192,5 +183,5 @@
       "matches": 2
     }
   ],
-  "majorCompaniesCheckedAt": "2026-11-18 07:56 JST"
+  "majorCompaniesCheckedAt": "2026-11-18 20:06 JST"
 }
